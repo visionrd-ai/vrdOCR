@@ -1,0 +1,10 @@
+dataset
+runs
+synth_sents
+synth_wiki
+synth_wiki2 
+weights 
+*.pth 
+*.tar.xz
+*.xz 
+*.png

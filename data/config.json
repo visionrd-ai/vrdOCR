@@ -1,0 +1,129 @@
+{
+  "Train": {
+      "dataset": {
+          "name": "MultiScaleDataSet",
+          "ds_width": false,
+          "data_dir": "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/train",
+          "ext_op_transform_idx": 1,
+          "label_file_list": [
+              "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/mixed_train.txt"
+          ],
+          "transforms": [
+              {
+                  "DecodeImage": {
+                      "img_mode": "BGR",
+                      "channel_first": false
+                  }
+              },
+              {
+                  "RecConAug": {
+                      "prob": 0.5,
+                      "ext_data_num": 2,
+                      "image_shape": [
+                          48,
+                          640,
+                          3
+                      ],
+                      "max_text_length": 150
+                  }
+              },
+              {
+                  "MultiLabelEncode": {
+                      "gtc_encode": "NRTRLabelEncode",
+                      "max_text_length": 150
+                  }
+              },
+              {
+                  "KeepKeys": {
+                      "keep_keys": [
+                          "image",
+                          "label_ctc",
+                          "label_gtc",
+                          "length",
+                          "valid_ratio"
+                      ]
+                  }
+              }
+          ]
+      },
+      "sampler": {
+          "scales": [
+              [
+                  640,
+                  32
+              ],
+              [
+                  640,
+                  48
+              ],
+              [
+                  640,
+                  64
+              ]
+          ],
+          "first_bs": 4,
+          "fix_bs": false,
+          "divided_factor": [
+              8,
+              16
+          ],
+          "is_training": true
+      },
+      "loader": {
+          "shuffle": true,
+          "batch_size_per_card": 4,
+          "drop_last": true,
+          "num_workers": 8
+      }
+  },
+  "Eval": {
+      "dataset": {
+          "name": "SimpleDataSet",
+          "data_dir": "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/val/",
+          "label_file_list": [
+              "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/mixed_val.txt"
+          ],
+          "transforms": [
+              {
+                  "DecodeImage": {
+                      "img_mode": "BGR",
+                      "channel_first": false
+                  }
+              },
+              {
+                  "MultiLabelEncode": {
+                      "gtc_encode": "NRTRLabelEncode",
+                      "max_text_length": 150
+                  }
+              },
+              {
+                  "RecResizeImg": {
+                      "image_shape": [
+                          3,
+                          48,
+                          640
+                      ]
+                  }
+              },
+              {
+                  "KeepKeys": {
+                      "keep_keys": [
+                          "image",
+                          "label_ctc",
+                          "label_gtc",
+                          "length",
+                          "valid_ratio"
+                      ]
+                  }
+              }
+          ]
+      },
+      "loader": {
+          "shuffle": false,
+          "drop_last": false,
+          "batch_size_per_card": 4,
+          "num_workers": 8
+      }
+  },
+  "profiler_options": null
+}
