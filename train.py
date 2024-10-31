@@ -80,7 +80,6 @@ decoder = CTCLabelDecode(character_dict_path='utils/en_dict.txt', use_space_char
 
 dataset = data.simple_dataset.MultiScaleDataSet(config=config, mode='Train', logger=None, seed=None)
 sampler = data.multi_scale_sampler.MultiScaleSampler(dataset, **config['Train']['sampler'])
-
 loss_config = {'loss_config_list': [{'CTCLoss': None}, {'NRTRLoss': None}]}
 loss_fn = MultiLoss(**loss_config)
 optimizer = optim.Adam(model.parameters(), lr=1e-4)
