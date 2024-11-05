@@ -10,8 +10,8 @@ class vrdOCR(nn.Module):
     def __init__(self, backbone_config, head_config):
         super(vrdOCR, self).__init__()
         # self.backbone = LCNet(**backbone_config).cuda()
-        # self.backbone = hrnet32(pretrained=False, progress=False)
-        self.backbone = ResNet(Bottleneck, [3, 4, 6, 3], num_channels=3)
+        self.backbone = hrnet32(pretrained=False, progress=False)
+        # self.backbone = ResNet(Bottleneck, [3, 4, 6, 3], num_channels=3)
         if backbone_config['freeze_backbone']:
             print("Freezing the backbone")
             for param in self.backbone.parameters():
@@ -23,7 +23,6 @@ class vrdOCR(nn.Module):
 
     def forward(self, images, labels=None):
         # Pass images through the backbone to extract features
-        # import pdb; pdb.set_trace()
         
         feats = self.backbone(images)
         # Pass features and labels through the head

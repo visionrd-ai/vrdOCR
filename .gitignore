@@ -3,7 +3,8 @@ runs
 synth_sents
 synth_wiki
 synth_wiki2 
-weights 
+weights
+misc 
 *.pth 
 *.tar.xz
 *.xz 

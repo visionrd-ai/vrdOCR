@@ -508,9 +508,9 @@ class HighResolutionNet(nn.Module):
 
 def _hrnet(arch, pretrained, progress, **kwargs):
     try:
-        from hrnet_config import MODEL_CONFIGS
+        from src.hrnet_config import MODEL_CONFIGS
     except ImportError:
-        from hrnet_config import MODEL_CONFIGS
+        from src.hrnet_config import MODEL_CONFIGS
     model = HighResolutionNet(MODEL_CONFIGS[arch], **kwargs)
     if pretrained:
         model_url = model_urls[arch]

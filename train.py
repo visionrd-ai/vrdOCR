@@ -50,10 +50,12 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 backbone_config = {"scale": 0.95, "conv_kxk_num": 4, "freeze_backbone":args.freeze_backbone}
-head_config = {'name': 'MultiHead', 'head_list': [{'CTCHead': {'Neck': {'name': 'svtr', 'dims': 120, 'depth': 2, 'hidden_dims': 120, 'kernel_size': [1, 3], 'use_guide': True}, 'Head': {'fc_decay': 1e-05}}}, {'NRTRHead': {'nrtr_dim': 384, 'max_text_length': 150}}], 'out_channels_list': {'CTCLabelDecode': 97, 'NRTRLabelDecode': 100}, 'in_channels': 512}
+head_config = {'name': 'MultiHead', 'head_list': [{'CTCHead': {'Neck': {'name': 'svtr', 'dims': 120, 'depth': 2, 'hidden_dims': 120, 'kernel_size': [1, 3], 'use_guide': True}, 'Head': {'fc_decay': 1e-05}}}, {'NRTRHead': {'nrtr_dim': 384, 'max_text_length': 150}}], 'out_channels_list': {'CTCLabelDecode': 97, 'NRTRLabelDecode': 100}, 'in_channels': 480}
 
 model = vrdOCR(backbone_config=backbone_config, head_config=head_config).cuda()
-model = torch.compile(model)
+logger.info("Compiling model...")
+# model = torch.compile(model)
+logger.info("Compilation complete!")
 
 def load_weights(model, path):
     if path:
@@ -111,8 +113,8 @@ eval_data_loader = DataLoader(
 
 eval_every_n_batches = config.get('eval_every_n_batches', 500)
 save_every_n_batches = config.get('save_every_n_batches', 500)
-num_epochs = config.get('num_epochs', 14)
-print_every_n_batches = config.get('print_every_n_batches', 100)
+num_epochs = config.get('num_epochs', 200)
+print_every_n_batches = config.get('print_every_n_batches', 10)
 metric = RecMetric()
 
 def evaluate(epc, eval_iter, model, eval_loader):
@@ -137,7 +139,6 @@ for epc in range(start_epoch, num_epochs):
     epoch_accuracies = []
     eval_iter = 0
     for batch_idx, batch in enumerate(data_loader):
-
         batch = [torch.tensor(elem.numpy()) for elem in batch]
         images = batch[0].cuda()
         labels = batch[1:]
