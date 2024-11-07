@@ -559,6 +559,24 @@ class Embeddings(nn.Module):
             return embed * (self.embedding.embedding_dim ** 0.5)
         return embed
 
+class LearnablePositionalEncoding(nn.Module):
+    """Learnable positional embeddings for sequence models."""
+    
+    def __init__(self, dropout=0.1, dim=512, max_len=5000):
+        super(LearnablePositionalEncoding, self).__init__()
+        self.dropout = nn.Dropout(p=dropout)
+        
+        # Create a learnable positional embedding for each position
+        self.position_embeddings = nn.Parameter(torch.zeros(max_len, dim))
+        nn.init.trunc_normal_(self.position_embeddings, std=0.02)  # Initialize with a small random distribution
+
+    def forward(self, x):
+        # Expand positional embeddings to match the batch size
+        x = x.transpose(0, 1)
+        x = x + self.position_embeddings[:x.size(0), :].unsqueeze(1)
+        return self.dropout(x).transpose(0, 1)
+
+
 class PositionalEncoding(nn.Module):
     """Positional encoding for the transformer model."""
     def __init__(self, dropout=0.1, dim=512, max_len=5000):

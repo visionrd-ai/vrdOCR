@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from src.lcnet_backbone import LCNet
 from src.multi_head import MultiHead, CTCHead
-from src.clip_backbone import CLIPEncoder
+# from src.clip_backbone import CLIPEncoder
 from utils.postprocess import CTCLabelDecode
 from src.resnet_backbone import ResNet, Bottleneck
 from src.hrnet_backbone import hrnet32
@@ -23,7 +23,6 @@ class vrdOCR(nn.Module):
 
     def forward(self, images, labels=None):
         # Pass images through the backbone to extract features
-        # import pdb; pdb.set_trace()
         
         feats = self.backbone(images)
         # Pass features and labels through the head

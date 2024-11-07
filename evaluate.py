@@ -9,6 +9,9 @@ import logging
 import os
 from paddle.io import BatchSampler, DataLoader
 import paddle.distributed as dist
+import numpy as np 
+import cv2 
+
 
 
 # Set up argument parsing
@@ -68,6 +71,11 @@ eval_data_loader = DataLoader(
 # Initialize decoder and metric
 decoder = CTCLabelDecode(character_dict_path='utils/en_dict.txt', use_space_char=True)
 metric = RecMetric()
+model_name = args.model_path 
+model_name = model_name.split('/')[-1].split('.')[0]
+fail_dir = f'fail_cases/{model_name}'
+os.makedirs(fail_dir, exist_ok=True)
+fail_summary = open(os.path.join(fail_dir, 'fail_summary.txt'), 'w')
 
 # Evaluation function
 def evaluate_model(model, data_loader):
@@ -86,7 +94,13 @@ def evaluate_model(model, data_loader):
             predictions, labels_decoded = decoder(outputs, labels)
             pred_label.append([predictions,labels_decoded])
             batch_metrics = metric([predictions, labels_decoded], print_fail=True)
-
+            if batch_metrics['fail_cases']:
+                for fail_case in batch_metrics['fail_cases']:
+                    fail_img = images[fail_case]
+                    fail_str = predictions[fail_case][0]
+                    label_str = labels_decoded[fail_case][0]
+                    cv2.imwrite(os.path.join(fail_dir,f'{fail_str}.png'),(fail_img.cpu().numpy()*255).astype(np.uint8).transpose(1,2,0))
+                    fail_summary.write(f'{fail_str}\n{label_str}\n\n')
             # Log accuracy for the batch
             accuracy = batch_metrics['acc']
             all_accs.append(accuracy)
@@ -96,7 +110,7 @@ def evaluate_model(model, data_loader):
 
     overall_accuracy = sum(all_accs) / total_batches
     logger.info(f"Evaluation completed. Overall Accuracy: {overall_accuracy}%")
-
+    fail_summary.close()
     return overall_accuracy
 
 # Run evaluation

@@ -3,10 +3,10 @@
       "dataset": {
           "name": "MultiScaleDataSet",
           "ds_width": false,
-          "data_dir": "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/train",
+          "data_dir": "dataset/mixed/train",
           "ext_op_transform_idx": 1,
           "label_file_list": [
-              "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/mixed_train.txt"
+              "dataset/mixed/mixed_train.txt"
           ],
           "transforms": [
               {
@@ -15,18 +15,7 @@
                       "channel_first": false
                   }
               },
-              {
-                  "RecConAug": {
-                      "prob": 0.5,
-                      "ext_data_num": 2,
-                      "image_shape": [
-                          48,
-                          640,
-                          3
-                      ],
-                      "max_text_length": 150
-                  }
-              },
+
               {
                   "MultiLabelEncode": {
                       "gtc_encode": "NRTRLabelEncode",
@@ -79,9 +68,9 @@
   "Eval": {
       "dataset": {
           "name": "SimpleDataSet",
-          "data_dir": "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/val/",
+          "data_dir": "dataset/mixed/val",
           "label_file_list": [
-              "/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/indus/mixed/mixed_val.txt"
+              "dataset/mixed/mixed_val.txt"
           ],
           "transforms": [
               {

@@ -26,7 +26,10 @@ class RecMetric(object):
         correct_num = 0
         all_num = 0
         norm_edit_dis = 0.0
+        fail_idxs = []
+        fail_idx = 0 
         for (pred, pred_conf), (target, _) in zip(preds, labels):
+            
             if self.ignore_space:
                 pred = pred.replace(" ", "")
                 target = target.replace(" ", "")
@@ -39,13 +42,19 @@ class RecMetric(object):
             else:
                 if print_fail:
                     print(f"Prediction: {pred} != {target}")
+
+                fail_idxs.append(fail_idx)
+            
             all_num += 1
+            fail_idx +=  1 
+
         self.correct_num += correct_num
         self.all_num += all_num
         self.norm_edit_dis += norm_edit_dis
         return {
             "acc": 100 * correct_num / (all_num + self.eps) ,
             "norm_edit_dis": 1 - norm_edit_dis / (all_num + self.eps),
+            "fail_cases": fail_idxs
         }
 
     def get_metric(self):

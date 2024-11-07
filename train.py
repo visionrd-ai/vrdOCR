@@ -50,22 +50,24 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 backbone_config = {"scale": 0.95, "conv_kxk_num": 4, "freeze_backbone":args.freeze_backbone}
-head_config = {'name': 'MultiHead', 'head_list': [{'CTCHead': {'Neck': {'name': 'svtr', 'dims': 120, 'depth': 2, 'hidden_dims': 120, 'kernel_size': [1, 3], 'use_guide': True}, 'Head': {'fc_decay': 1e-05}}}, {'NRTRHead': {'nrtr_dim': 384, 'max_text_length': 150}}], 'out_channels_list': {'CTCLabelDecode': 97, 'NRTRLabelDecode': 100}, 'in_channels': 512}
+head_config = {'name': 'MultiHead', 'head_list': [{'CTCHead': {'Neck': {'name': 'svtr', 'dims': 120, 'depth': 2, 'hidden_dims': 120, 'kernel_size': [1, 3], 'use_guide': True}, 'Head': {'fc_decay': 1e-05}}}, {'NRTRHead': {'nrtr_dim': 384, 'max_text_length': 150}}], 'out_channels_list': {'CTCLabelDecode': 97, 'NRTRLabelDecode': 100}, 'in_channels': 480}
 
 model = vrdOCR(backbone_config=backbone_config, head_config=head_config).cuda()
-model = torch.compile(model)
+logger.info("Compiling model...")
+# model = torch.compile(model)
+logger.info("Compilation complete!")
 
 def load_weights(model, path):
     if path:
         def_dict = torch.load(args.model_path)
         try: 
-            model.load_state_dict(def_dict)
+            model.load_state_dict(def_dict, strict=False)
         except: 
             mod_dict = {}
             for key, value in def_dict.items():
                 mod_dict['_orig_mod.'+key] = value 
 
-            model.load_state_dict(mod_dict)
+            model.load_state_dict(mod_dict, strict=False)
 
         logger.info(f"Loaded model weights from {path}")
         # filename = os.path.basename(path)
@@ -111,17 +113,18 @@ eval_data_loader = DataLoader(
 
 eval_every_n_batches = config.get('eval_every_n_batches', 500)
 save_every_n_batches = config.get('save_every_n_batches', 500)
-num_epochs = config.get('num_epochs', 14)
-print_every_n_batches = config.get('print_every_n_batches', 100)
+num_epochs = config.get('num_epochs', 200)
+print_every_n_batches = config.get('print_every_n_batches', 10)
 metric = RecMetric()
+best_accuracy = 0.0  # Initialize the best accuracy variable
 
 def evaluate(epc, eval_iter, model, eval_loader):
+    global best_accuracy
     model.eval()
-    eval_iter +=1
+    eval_iter += 1
     eval_accs = []
     for eval_idx, eval_batch in enumerate(eval_loader):
         eval_images = torch.tensor(eval_batch['image'].numpy()).cuda()
-        # eval_labels = torch.tensor(eval_batch['label_ctc'].numpy())
         eval_outs = model(eval_images, labels=None)
         eval_predictions, eval_labels_decoded = decoder(eval_outs, eval_batch['label_ctc'])
         
@@ -131,13 +134,19 @@ def evaluate(epc, eval_iter, model, eval_loader):
             logger.info(f"Epoch {epc}/{num_epochs}, Batch {eval_idx}/{len(eval_loader)} | Eval Accuracy: {eval_metr['acc']}% | Norm Edit Distance: {eval_metr['norm_edit_dis']}")
             logger.info(f"Epoch {epc}/{num_epochs}, Batch {eval_idx}/{len(eval_loader)} | Eval Pred: '{eval_predictions[0][0]}'\tLabel: '{eval_labels_decoded[0][0]}'")
     
-    logger.info(f"Epoch {epc}/{num_epochs} | Overall Eval Iter#{eval_iter} Accuracy: {sum(eval_accs)/len(eval_accs)}%")
+    overall_accuracy = sum(eval_accs) / len(eval_accs)
+    logger.info(f"Epoch {epc}/{num_epochs} | Overall Eval Iter#{eval_iter} Accuracy: {overall_accuracy}%")
     
+    if overall_accuracy > best_accuracy:
+        best_accuracy = overall_accuracy
+        best_model_path = os.path.join(run_dir, f'{args.run_name}_best_model.pth')
+        torch.save(model.state_dict(), best_model_path)
+        logger.info(f"New best model saved with accuracy: {best_accuracy}% at {best_model_path}")
+
 for epc in range(start_epoch, num_epochs):
     epoch_accuracies = []
     eval_iter = 0
     for batch_idx, batch in enumerate(data_loader):
-
         batch = [torch.tensor(elem.numpy()) for elem in batch]
         images = batch[0].cuda()
         labels = batch[1:]

@@ -4,6 +4,7 @@ synth_sents
 synth_wiki
 synth_wiki2 
 weights 
+fail_cases
 *.pth 
 *.tar.xz
 *.xz 
