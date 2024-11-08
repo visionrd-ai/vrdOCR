@@ -174,7 +174,7 @@ for epc in range(start_epoch, num_epochs):
         if (batch_idx+1) % save_every_n_batches == 0:
             weight_filename = os.path.join(run_dir, f'{args.run_name}_e{epc}_b{batch_idx}.pth')
             logger.info(f"Saving model as {weight_filename}")
-            torch.save(model.state_dict(), weight_filename)
+            # torch.save(model.state_dict(), weight_filename)
  
         epoch_accuracies.append(accuracies['acc'])
     

@@ -413,3 +413,40 @@ def dla169(pretrained=None, **kwargs):  # DLA-169
     if pretrained is not None:
         model.load_pretrained_model(pretrained, 'dla169')
     return model
+import torch.nn.functional as F
+class FeatureRefine(nn.Module):
+    def __init__(self, target_shape=(1, 150)):
+        super(FeatureRefine, self).__init__()
+        self.target_shape = target_shape
+
+    def forward(self, features):
+        resized_features = []
+        
+        for feature in features:
+            # Resize each feature map to the target shape using bilinear interpolation
+            x = F.interpolate(feature, size=self.target_shape, mode='bilinear', align_corners=False)
+            resized_features.append(x)
+        
+        # Sum the resized feature maps
+        out = torch.sum(torch.stack(resized_features), dim=0)
+        return out
+    
+from src.FPN import FPN
+    
+def dla34_fpn(out_shape=(1,150)):
+
+    backbone = dla34(pretrained=None, return_levels=True).cuda()
+    fpn = FPN(in_channels=[128, 256, 512],out_channels=512,num_outs=3,attention=False).to('cuda')
+    refine = FeatureRefine(out_shape).cuda()
+
+    def forward(x):
+        # Pass input through the backbone
+        features = backbone(x)
+        
+        # Pass the backbone's output through the FPN neck
+        fpn_outputs = fpn(features)
+        
+        # Pass the FPN outputs through the refine module to get the final output
+        output = refine(fpn_outputs)
+        return output
+    return {'backbone': backbone, 'neck': fpn, 'head': refine, 'forward': forward}

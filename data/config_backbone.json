@@ -3,10 +3,10 @@
       "dataset": {
           "name": "MultiScaleDataSet",
           "ds_width": false,
-          "data_dir": "dataset/mixed/train",
+          "data_dir": "dataset/synth_wiki2/",
           "ext_op_transform_idx": 1,
           "label_file_list": [
-              "dataset/mixed/mixed_train.txt"
+              "dataset/synth_wiki2/annotations_filt.txt"
           ],
           "transforms": [
               {
@@ -15,6 +15,7 @@
                       "channel_first": false
                   }
               },
+
               {
                   "MultiLabelEncode": {
                       "gtc_encode": "NRTRLabelEncode",
@@ -38,15 +39,15 @@
           "scales": [
               [
                   640,
-                  32
+                  256
               ],
               [
                   640,
-                  48
+                  256
               ],
               [
                   640,
-                  64
+                  256
               ]
           ],
           "first_bs": 4,
@@ -67,9 +68,9 @@
   "Eval": {
       "dataset": {
           "name": "SimpleDataSet",
-          "data_dir": "dataset/mixed/val",
+          "data_dir": "dataset/synth_wiki2/",
           "label_file_list": [
-              "dataset/mixed/mixed_val.txt"
+              "dataset/synth_wiki2/annotations_filt_val.txt"
           ],
           "transforms": [
               {
@@ -88,7 +89,7 @@
                   "RecResizeImg": {
                       "image_shape": [
                           3,
-                          48,
+                          256,
                           640
                       ]
                   }
