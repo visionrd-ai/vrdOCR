@@ -1,4 +1,5 @@
 dataset
+datasets
 runs
 synth_sents
 synth_wiki
@@ -9,3 +10,4 @@ fail_cases
 *.tar.xz
 *.xz 
 *.png
+*.pyc

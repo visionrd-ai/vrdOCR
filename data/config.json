@@ -3,10 +3,10 @@
       "dataset": {
           "name": "MultiScaleDataSet",
           "ds_width": false,
-          "data_dir": "dataset/mixed/train",
+          "data_dir": "/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/train",
           "ext_op_transform_idx": 1,
           "label_file_list": [
-              "dataset/mixed/mixed_train.txt"
+              "/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/train/annotations.txt"
           ],
           "transforms": [
               {
@@ -67,9 +67,9 @@
   "Eval": {
       "dataset": {
           "name": "SimpleDataSet",
-          "data_dir": "dataset/mixed/val",
+          "data_dir": "/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/test/",
           "label_file_list": [
-              "dataset/mixed/mixed_val.txt"
+              "/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/test/annotations.txt"
           ],
           "transforms": [
               {

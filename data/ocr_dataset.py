@@ -1,7 +1,7 @@
 import os
 import cv2
 import torch 
-from data.imaug.label_ops import LabelEncode
+from data.imaug.label_ops import MultiLabelEncode
 class OCRDataset:
     def __init__(self, input_dir, split, transforms = {}):
         """
@@ -26,8 +26,7 @@ class OCRDataset:
                     img_path = os.path.join(input_dir, split, img_name)
                     self.image_paths.append(img_path)
                     self.labels.append(label)
-    
-        self.encoder = LabelEncode(
+        self.encoder = MultiLabelEncode(
             max_text_length = 150,
             character_dict_path = 'utils/en_dict.txt',
             use_space_char = False,
@@ -59,8 +58,9 @@ class OCRDataset:
         if img is None:
             raise FileNotFoundError(f"Image not found at path: {img_path}")
         # try:
-        encoded_label = self.encoder(label)
-        encoded_label = [torch.tensor(val) for val in encoded_label.values()]
+        encoded_label = self.encoder({'image':img,'label':label})#self.encoder(label)
+        # encoded_label = encoded_label['label_ctc']
+        encoded_label = [torch.tensor(val) for val in [encoded_label['label_ctc'], encoded_label['label_gtc'], encoded_label['length']]]#encoded_label.values()]
         # except:
         #     print(f"\n\nLABEL: {label}\nENC: {encoded_label}")
         #     import pdb; pdb.set_trace()

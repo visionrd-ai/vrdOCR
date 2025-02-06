@@ -20,6 +20,7 @@ from albumentations.pytorch import ToTensorV2
 
 parser = argparse.ArgumentParser(description="Train or evaluate the vrdOCR model.")
 parser.add_argument("--model_path", type=str, help="Path to the pretrained model weights.")
+parser.add_argument("--dataset", type=str, help="Path to the dataset directory.")
 parser.add_argument("--run_name", type=str, default=datetime.datetime.now().strftime("%Y%m%d_%H%M%S"),
                     help="Custom name for the training run.")
 parser.add_argument("--freeze_backbone", type=bool, help="Freeze backbone or not")
@@ -99,11 +100,11 @@ model = load_weights(model, args.model_path)
 start_epoch, end_epoch=0,0
 decoder = CTCLabelDecode(character_dict_path='utils/en_dict.txt', use_space_char=True)
 batch_size = 4
-dataset = data.ocr_dataset.OCRDataset(input_dir='/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/mixed_new', split='train', transforms=transform)
-dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8)
+dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset, split='train', transforms=transform)
+dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 
-eval_dataset = data.ocr_dataset.OCRDataset(input_dir='/home/amur/Amur/ForgeryDetectionV1.2/vrdOCR/dataset/mixed_new', split='val', transforms=eval_transform)
-eval_dataloader = torch.utils.data.DataLoader(eval_dataset, batch_size=batch_size, shuffle=False, num_workers=8)
+eval_dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset, split='test', transforms=eval_transform)
+eval_dataloader = torch.utils.data.DataLoader(eval_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
 loss_config = {'loss_config_list': [{'CTCLoss': None}, {'NRTRLoss': None}]}
 loss_fn = MultiLoss(**loss_config)
