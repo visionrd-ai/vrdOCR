@@ -14,7 +14,7 @@ class OCRDataset:
         """
         self.input_dir = input_dir
         self.split = split
-        label_file = os.path.join(self.input_dir, self.split, 'annotations.txt')
+        label_file = self.input_dir#os.path.join(self.input_dir, self.split, 'annotations.txt')
         self.image_paths = []
         self.labels = []
         self.transforms = transforms
@@ -23,9 +23,11 @@ class OCRDataset:
                 parts = line.strip().split('\t')
                 if len(parts) == 2:
                     img_name, label = parts
-                    img_path = os.path.join(input_dir, split, img_name)
+                    img_path = img_name#os.path.join(input_dir, split, img_name)
                     self.image_paths.append(img_path)
                     self.labels.append(label)
+                    
+        print(f"Loaded {len(self.image_paths)} images from {label_file}")
         self.encoder = MultiLabelEncode(
             max_text_length = 150,
             character_dict_path = 'utils/en_dict.txt',

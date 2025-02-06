@@ -13,8 +13,8 @@ class vrdOCR(nn.Module):
     def __init__(self, backbone_config, head_config):
         super(vrdOCR, self).__init__()
         self.device = 'cuda'
-        self.backbone = LCNet(**backbone_config).cuda()
-        # self.backbone = hrnet32(pretrained=False, progress=False)
+        # self.backbone = LCNet(**backbone_config).cuda()
+        self.backbone = hrnet32(pretrained=False, progress=False)
         # self.backbone = ResNet(Bottleneck, [3, 4, 6, 3], num_channels=3)
         # self.backbone = dla34(pretrained=None, return_levels=True)
         # self.backbone = dla34_fpn()
