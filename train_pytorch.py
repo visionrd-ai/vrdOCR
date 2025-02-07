@@ -86,7 +86,7 @@ transform = A.Compose([
     A.Affine(scale=(1.0, 1.0), rotate=(-0.005, -0.005), translate_percent=(-0.005, 0.005), shear=(-0.005, -0.005), p=0.6),
     A.ImageCompression(quality_lower=30, quality_upper=70, p=0.4),
     A.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),
-    A.Resize(width=640, height=64),
+    A.Resize(width=320, height=32),
     ToTensorV2()
 ])
 #640->160, 320->80, pool to 25 
@@ -100,9 +100,9 @@ eval_transform = A.Compose([
 model = load_weights(model, args.model_path)
 start_epoch, end_epoch=0,0
 decoder = CTCLabelDecode(character_dict_path='utils/en_dict.txt', use_space_char=True)
-batch_size = 4
+batch_size = 512
 dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_train, split='train', transforms=transform)
-dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=0)
+dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8)
 
 eval_dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_val, split='test', transforms=eval_transform)
 eval_dataloader = torch.utils.data.DataLoader(eval_dataset, batch_size=batch_size, shuffle=False, num_workers=8)
@@ -114,7 +114,7 @@ optimizer = optim.Adam(model.parameters(), lr=1e-4)
 scheduler = StepLR(optimizer, step_size=10, gamma=0.1)
 
 device = "gpu:{}".format(dist.ParallelEnv().dev_id)
-eval_every_n_batches = config.get('eval_every_n_batches', 296)
+eval_every_n_batches = config.get('eval_every_n_batches', len(dataset) // batch_size - 1)
 save_every_n_batches = config.get('save_every_n_batches', 500)
 num_epochs = config.get('num_epochs', 200)
 print_every_n_batches = config.get('print_every_n_batches', 10)

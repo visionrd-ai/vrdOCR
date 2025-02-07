@@ -11,3 +11,4 @@ fail_cases
 *.xz 
 *.png
 *.pyc
+*.zip
