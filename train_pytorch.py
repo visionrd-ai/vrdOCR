@@ -101,11 +101,11 @@ model = load_weights(model, args.model_path)
 start_epoch, end_epoch=0,0
 decoder = CTCLabelDecode(character_dict_path='utils/en_dict.txt', use_space_char=True)
 batch_size = 512
-dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_train, split='train', transforms=transform)
-dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8)
+dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_train, split='train', transforms=transform, logger=logger)
+dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 
-eval_dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_val, split='test', transforms=eval_transform)
-eval_dataloader = torch.utils.data.DataLoader(eval_dataset, batch_size=batch_size, shuffle=False, num_workers=8)
+eval_dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_val, split='test', transforms=eval_transform, logger=logger)
+eval_dataloader = torch.utils.data.DataLoader(eval_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
 loss_config = {'loss_config_list': [{'CTCLoss': None}, {'NRTRLoss': None}]}
 loss_fn = MultiLoss(**loss_config)
