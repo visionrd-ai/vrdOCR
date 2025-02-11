@@ -24,7 +24,7 @@ class OCRDataset:
                 parts = line.strip().split('\t')
                 if len(parts) == 2:
                     img_name, label = parts
-                    img_path = img_name.replace('/home/amur/Amur/vrdOCR/datasets', '/media/multi-gpu/HDD/vrOCR-latest/datasets')#os.path.join(input_dir, split, img_name)
+                    img_path = img_name.replace('/home/amur/Amur/vrdOCR/datasets', '/home/user/vrdOCR/datasets')#os.path.join(input_dir, split, img_name)
                     self.image_paths.append(img_path)
                     self.labels.append(label)
                     

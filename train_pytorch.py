@@ -93,7 +93,7 @@ transform = A.Compose([
 
 eval_transform = A.Compose([
     A.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),
-    A.Resize(width=640, height=64),
+    A.Resize(width=320, height=32),
     ToTensorV2()
 ])
 
