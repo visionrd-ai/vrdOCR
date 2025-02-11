@@ -12,3 +12,4 @@ fail_cases
 *.png
 *.pyc
 *.zip
+output.log

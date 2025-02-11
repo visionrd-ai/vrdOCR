@@ -19,16 +19,21 @@ class OCRDataset:
         self.image_paths = []
         self.labels = []
         self.transforms = transforms
+        self.dropped = 0 
         with open(label_file, 'r') as f:
             for line in f:
                 parts = line.strip().split('\t')
                 if len(parts) == 2:
                     img_name, label = parts
                     img_path = img_name.replace('/home/amur/Amur/vrdOCR/datasets', '/home/user/vrdOCR/datasets')#os.path.join(input_dir, split, img_name)
+                    test = cv2.imread(img_path)
+                    if test is None or test.size == 0 or 0 in test.shape:
+                        self.dropped +=1
+                        continue 
                     self.image_paths.append(img_path)
                     self.labels.append(label)
                     
-        print(f"Loaded {len(self.image_paths)} images from {label_file}")
+        print(f"Loaded {len(self.image_paths)} images from {label_file}, dropped {self.dropped}")
         self.encoder = MultiLabelEncode(
             max_text_length = 150,
             character_dict_path = 'utils/en_dict.txt',
