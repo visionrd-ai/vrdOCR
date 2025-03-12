@@ -153,10 +153,10 @@ class ViT_TransformerDecoder(nn.Module):
                 best_sequence = beam[0][0]
 
                 if len(best_sequence) < max_length:
-                    pad_length = max_length - len(best_sequence)
+                    pad_length = max_length - len(best_sequence) - 1
                     best_sequence = torch.cat([torch.tensor(best_sequence), torch.full((pad_length,), pad_token_id, dtype=torch.long)],dim=0)
                 generated_sequences.append(best_sequence)
-            return torch.tensor(generated_sequences)
+            return torch.stack(generated_sequences)
 
 
 
