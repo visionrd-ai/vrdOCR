@@ -2,19 +2,27 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 from tqdm import tqdm
-from model import ViT_TransformerDecoder
-from dataset import get_dataloader
-from char_tokenizer import CharacterLevelTokenizer
-import Levenshtein  # Install with `pip install python-Levenshtein`
+from src.model import ViT_TransformerDecoder
+from src.dataset import get_dataloader
+from src.char_tokenizer import CharacterLevelTokenizer
+import Levenshtein 
 import logging
+import os
+from datetime import datetime
 
-# Hyperparameters and settings.
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+experiment_dir = os.path.join('exp', timestamp)
+os.makedirs(experiment_dir, exist_ok=True)
+log_file = os.path.join(experiment_dir, "training_log.txt")
+logging.basicConfig(filename=log_file, level=logging.INFO, 
+                    format="%(asctime)s - %(message)s")
+
 EPOCHS = 100
 BATCH_SIZE = 16
 LEARNING_RATE = 3e-5
 GRADIENT_ACCUMULATION_STEPS = 2  
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-BEST_MODEL_PATH = "best_vit_t5.pth"
+BEST_MODEL_PATH = os.path.join(experiment_dir, "best_model.pth")
 
 tokenizer = CharacterLevelTokenizer()
 vocab_size = len(tokenizer)
@@ -36,7 +44,6 @@ test_loader = get_dataloader(
     tokenizer=tokenizer
 )
 
-# Setup logging
 logging.basicConfig(filename="training_log.txt", level=logging.INFO, 
                     format="%(asctime)s - %(message)s")
 logging.info("Training started...")
@@ -168,6 +175,5 @@ for epoch in range(EPOCHS):
         best_test_loss = avg_epoch_test_loss
         torch.save(model.state_dict(), BEST_MODEL_PATH)
         logging.info(f"TEST | Epoch {epoch+1} - Best model updated.")
-
 
 logging.info("Training complete!")
