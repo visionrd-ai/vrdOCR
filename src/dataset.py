@@ -10,10 +10,8 @@ class OCRDataset(Dataset):
         self.image_root = image_root 
         self.max_length = max_length  
 
-        # Load text file
         with open(text_file, "r") as f:
             lines = f.readlines()
-
         self.data = [line.strip().split("\t") for line in lines]
 
         self.image_processor = ViTImageProcessor.from_pretrained(vit_model)
@@ -27,7 +25,7 @@ class OCRDataset(Dataset):
 
     def __getitem__(self, idx):
         img_path, label = self.data[idx]
-        img_path = os.path.join(self.image_root, img_path)
+        img_path = os.path.join(img_path)
 
         # Process the image.
         image = Image.open(img_path).convert("RGB")
