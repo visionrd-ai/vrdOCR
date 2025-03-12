@@ -169,59 +169,5 @@ for epoch in range(EPOCHS):
         torch.save(model.state_dict(), BEST_MODEL_PATH)
         logging.info(f"TEST | Epoch {epoch+1} - Best model updated.")
 
-    # model.eval()
-    # test_loss = 0.0
-    # test_correct = 0
-    # test_total = 0
-    # test_cer = 0.0
-
-    # with torch.no_grad():
-    #     for batch in tqdm(test_loader, desc=f"Epoch {epoch+1} [Evaluating]"):
-    #         images, input_ids, attention_mask = batch
-    #         images = images.to(DEVICE)
-    #         input_ids = input_ids.to(DEVICE)
-            
-    #         decoder_input_ids = input_ids[:, :-1]
-    #         decoder_target_ids = input_ids[:, 1:]
-            
-    #         outputs = model(images, decoder_input_ids)
-
-    #         pred_ids = outputs.argmax(dim=-1)
-            
-
-    #         # Calculate CER and accuracy for the batch.
-    #         for j in range(pred_ids.size(0)):
-    #             pred_text = tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True)
-    #             gt_text = tokenizer.decode(decoder_target_ids[j].cpu().tolist(), skip_special_tokens=True)
-    #             test_cer += calculate_cer(pred_text, gt_text)
-                
-    #             if pred_text == gt_text:
-    #                 test_correct += 1
-    #             test_total += 1
-
-    #         loss = loss_fn(outputs.contiguous().view(-1, outputs.size(-1)), decoder_target_ids.contiguous().view(-1))
-
-    #         test_loss += loss.item()
-            
-    # for j in range(min(2, pred_ids.size(0))):  # Show first two samples.
-    #     pred_text = tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True)
-    #     gt_text = tokenizer.decode(decoder_target_ids[j].cpu().tolist(), skip_special_tokens=True)
-    #     logging.info(f"Epoch {epoch+1} - Sample {j}:")
-    #     logging.info(f"  Predicted   : {pred_text}")
-    #     logging.info(f"  Ground Truth: {gt_text}")
-    #     logging.info("-" * 40)
-    # avg_test_loss = test_loss / len(test_loader)
-    # test_accuracy = test_correct / test_total * 100
-    # avg_test_cer = test_cer / test_total
-
-    # # Log validation stats
-    # logging.info(f"Epoch {epoch+1} - Test Loss: {avg_test_loss:.4f}, "
-    #              f"Test Accuracy: {test_accuracy:.2f}%, "
-    #              f"Test CER: {avg_test_cer:.4f}")
-
-    # if best_test_loss is None or avg_test_loss < best_test_loss:
-    #     best_test_loss = avg_test_loss
-    #     torch.save(model.state_dict(), BEST_MODEL_PATH)
-    #     logging.info(f"Saved best model to {BEST_MODEL_PATH}")
 
 logging.info("Training complete!")

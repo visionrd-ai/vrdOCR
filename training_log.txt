@@ -2505,3 +2505,87 @@ TRAIN | Epoch 1 - Training Avg CER: 1.858
 2025-03-12 13:42:52,185 - ----------------------------------------
 2025-03-12 13:42:52,185 - 
 
+2025-03-12 13:43:30,704 - ----------------------------------------
+2025-03-12 13:43:30,704 - TRAIN | Epoch 18 - Training Avg Loss: 0.536
+2025-03-12 13:43:30,704 - TRAIN | Epoch 18 - Training Avg Accuracy: 57.850%
+2025-03-12 13:43:30,704 - TRAIN | Epoch 18 - Training Avg CER: 1.138
+2025-03-12 13:43:30,704 - ----------------------------------------
+2025-03-12 13:43:30,705 - TRAIN | Epoch 18 - Sample 0
+2025-03-12 13:43:30,705 - TRAIN | Epoch 18 - Predicted   : THE
+2025-03-12 13:43:30,705 - TRAIN | Epoch 18 - Ground Truth: THE
+2025-03-12 13:43:30,705 - TRAIN | Epoch 18 - Sample 1
+2025-03-12 13:43:30,705 - TRAIN | Epoch 18 - Predicted   : FARM
+2025-03-12 13:43:30,705 - TRAIN | Epoch 18 - Ground Truth: FARM
+2025-03-12 13:43:30,705 - ----------------------------------------
+2025-03-12 13:43:30,705 - 
+
+2025-03-12 13:44:08,963 - ----------------------------------------
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Training Avg Loss: 0.494
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Training Avg Accuracy: 59.050%
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Training Avg CER: 1.104
+2025-03-12 13:44:08,964 - ----------------------------------------
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Sample 0
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Predicted   : you
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Ground Truth: you
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Sample 1
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Predicted   : Month
+2025-03-12 13:44:08,964 - TRAIN | Epoch 19 - Ground Truth: Month
+2025-03-12 13:44:08,964 - ----------------------------------------
+2025-03-12 13:44:08,964 - 
+
+2025-03-12 13:44:47,530 - ----------------------------------------
+2025-03-12 13:44:47,530 - TRAIN | Epoch 20 - Training Avg Loss: 0.447
+2025-03-12 13:44:47,530 - TRAIN | Epoch 20 - Training Avg Accuracy: 61.450%
+2025-03-12 13:44:47,530 - TRAIN | Epoch 20 - Training Avg CER: 1.051
+2025-03-12 13:44:47,530 - ----------------------------------------
+2025-03-12 13:44:47,530 - TRAIN | Epoch 20 - Sample 0
+2025-03-12 13:44:47,530 - TRAIN | Epoch 20 - Predicted   : Isg
+2025-03-12 13:44:47,530 - TRAIN | Epoch 20 - Ground Truth: Isg
+2025-03-12 13:44:47,531 - TRAIN | Epoch 20 - Sample 1
+2025-03-12 13:44:47,531 - TRAIN | Epoch 20 - Predicted   : WWWCCMobiseAssomsssssosooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+2025-03-12 13:44:47,531 - TRAIN | Epoch 20 - Ground Truth: WWWDCMobileAdscom
+2025-03-12 13:44:47,531 - ----------------------------------------
+2025-03-12 13:44:47,531 - 
+
+2025-03-12 13:45:26,212 - ----------------------------------------
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Training Avg Loss: 0.407
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Training Avg Accuracy: 64.800%
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Training Avg CER: 1.050
+2025-03-12 13:45:26,212 - ----------------------------------------
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Sample 0
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Predicted   : Errrss
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Ground Truth: Express
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Sample 1
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Predicted   : do
+2025-03-12 13:45:26,212 - TRAIN | Epoch 21 - Ground Truth: do
+2025-03-12 13:45:26,212 - ----------------------------------------
+2025-03-12 13:45:26,212 - 
+
+2025-03-12 13:46:06,832 - ----------------------------------------
+2025-03-12 13:46:06,832 - TRAIN | Epoch 22 - Training Avg Loss: 0.371
+2025-03-12 13:46:06,832 - TRAIN | Epoch 22 - Training Avg Accuracy: 66.750%
+2025-03-12 13:46:06,832 - TRAIN | Epoch 22 - Training Avg CER: 0.985
+2025-03-12 13:46:06,832 - ----------------------------------------
+2025-03-12 13:46:06,832 - TRAIN | Epoch 22 - Sample 0
+2025-03-12 13:46:06,833 - TRAIN | Epoch 22 - Predicted   : VAN
+2025-03-12 13:46:06,833 - TRAIN | Epoch 22 - Ground Truth: VAN
+2025-03-12 13:46:06,833 - TRAIN | Epoch 22 - Sample 1
+2025-03-12 13:46:06,833 - TRAIN | Epoch 22 - Predicted   : Willow
+2025-03-12 13:46:06,833 - TRAIN | Epoch 22 - Ground Truth: Willow
+2025-03-12 13:46:06,833 - ----------------------------------------
+2025-03-12 13:46:06,833 - 
+
+2025-03-12 13:46:45,673 - ----------------------------------------
+2025-03-12 13:46:45,673 - TRAIN | Epoch 23 - Training Avg Loss: 0.347
+2025-03-12 13:46:45,673 - TRAIN | Epoch 23 - Training Avg Accuracy: 66.500%
+2025-03-12 13:46:45,673 - TRAIN | Epoch 23 - Training Avg CER: 1.026
+2025-03-12 13:46:45,673 - ----------------------------------------
+2025-03-12 13:46:45,673 - TRAIN | Epoch 23 - Sample 0
+2025-03-12 13:46:45,673 - TRAIN | Epoch 23 - Predicted   : KMMRR
+2025-03-12 13:46:45,673 - TRAIN | Epoch 23 - Ground Truth: KUMAR
+2025-03-12 13:46:45,674 - TRAIN | Epoch 23 - Sample 1
+2025-03-12 13:46:45,674 - TRAIN | Epoch 23 - Predicted   : VIRGINAAIIIIIIIIIIII
+2025-03-12 13:46:45,674 - TRAIN | Epoch 23 - Ground Truth: VIRGINIA
+2025-03-12 13:46:45,674 - ----------------------------------------
+2025-03-12 13:46:45,674 - 
+
