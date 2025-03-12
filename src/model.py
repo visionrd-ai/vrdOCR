@@ -64,6 +64,102 @@ class ViT_TransformerDecoder(nn.Module):
         mask = torch.triu(torch.ones(sz, sz) * float('-inf'), diagonal=1)
         return mask
     
+    def generate(
+        self,
+        images,
+        beam_size: int = 3,
+        max_length: int = 50,
+        start_token_id: int = None,
+        end_token_id: int = None,
+        pad_token_id: int = None,
+    ):
+        """
+        Generate sequences from images using beam search.
+
+        Arguments:
+            images: Tensor of shape (batch_size, channels, height, width).
+            beam_size: Number of beams to use.
+            max_length: Maximum length of the generated sequence.
+            start_token_id: The token id that marks the start of a sequence.
+            end_token_id: The token id that marks the end of a sequence.
+        
+        Returns:
+            A list (length=batch_size) of generated token id sequences.
+        """
+        self.eval()
+        device = images.device
+        with torch.no_grad():
+            # Encode the images.
+            encoder_outputs = self.vit(images).last_hidden_state  # (batch, src_seq_len, 768)
+            encoder_outputs = self.projection(encoder_outputs)      # (batch, src_seq_len, d_model)
+            encoder_outputs = self.encoder_pos(encoder_outputs)     # (batch, src_seq_len, d_model)
+            # Transpose for transformer decoder: (src_seq_len, batch, d_model)
+            encoder_outputs = encoder_outputs.transpose(0, 1)
+            
+            batch_size = images.size(0)
+            generated_sequences = []
+            
+            # Loop over each image in the batch.
+            for i in range(batch_size):
+                # Get the encoder memory for this example: (src_seq_len, 1, d_model)
+                memory = encoder_outputs[:, i:i+1, :]
+                
+                # Initialize beam with the start token.
+                beam = [([start_token_id], 0.0)]  # Each candidate is (sequence, cumulative_log_prob)
+                
+                for _ in range(max_length):
+                    new_beam = []
+                    # Expand each candidate in the beam.
+                    for seq, score in beam:
+                        # If the candidate already ended, just carry it forward.
+                        if seq[-1] == end_token_id:
+                            new_beam.append((seq, score))
+                            continue
+                        # Prepare decoder input: (1, seq_len)
+                        decoder_input_ids = torch.tensor(seq, device=device).unsqueeze(0)
+                        # Embed and add positional encodings.
+                        tgt_embeddings = self.token_embedding(decoder_input_ids)  # (1, seq_len, d_model)
+                        tgt_embeddings = self.decoder_pos(tgt_embeddings)
+                        # Transpose: (seq_len, 1, d_model)
+                        tgt_embeddings = tgt_embeddings.transpose(0, 1)
+                        # Create causal mask.
+                        tgt_mask = self.generate_square_subsequent_mask(tgt_embeddings.size(0)).to(device)
+                        # Run decoder.
+                        decoder_output = self.transformer_decoder(
+                            tgt=tgt_embeddings,
+                            memory=memory,
+                            tgt_mask=tgt_mask
+                        )
+                        decoder_output = decoder_output.transpose(0, 1)  # (1, seq_len, d_model)
+                        # Get logits for the last token.
+                        logits = self.fc_out(decoder_output[:, -1, :])  # (1, vocab_size)
+                        log_probs = torch.log_softmax(logits, dim=-1).squeeze(0)  # (vocab_size)
+                        # Get top-k tokens.
+                        topk_log_probs, topk_indices = torch.topk(log_probs, beam_size)
+                        
+                        for k in range(beam_size):
+                            next_token = topk_indices[k].item()
+                            next_score = score + topk_log_probs[k].item()
+                            new_seq = seq + [next_token]
+                            new_beam.append((new_seq, next_score))
+                    # Keep the top beam_size sequences.
+                    new_beam = sorted(new_beam, key=lambda x: x[1], reverse=True)[:beam_size]
+                    beam = new_beam
+                    # If all beams have finished (end token reached), stop early.
+                    if all(seq[-1] == end_token_id for seq, _ in beam):
+                        break
+                
+                # Choose the best sequence from the beam.
+                best_sequence = beam[0][0]
+
+                if len(best_sequence) < max_length:
+                    pad_length = max_length - len(best_sequence)
+                    best_sequence = torch.cat([torch.tensor(best_sequence), torch.full((pad_length,), pad_token_id, dtype=torch.long)],dim=0)
+                generated_sequences.append(best_sequence)
+            return torch.tensor(generated_sequences)
+
+
+
     def forward(self, images, tgt_input_ids):
         """
         Arguments:

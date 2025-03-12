@@ -35,13 +35,15 @@ train_loader = get_dataloader(
     '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/train/annotations.txt', 
     '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K',
     batch_size=BATCH_SIZE,
-    tokenizer=tokenizer
+    tokenizer=tokenizer,
+    max_length=128
 )
 test_loader = get_dataloader(
     '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/test/annotations.txt', 
     '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K',
     batch_size=BATCH_SIZE,
-    tokenizer=tokenizer
+    tokenizer=tokenizer,
+    max_length=128
 )
 
 logging.basicConfig(filename="training_log.txt", level=logging.INFO, 
@@ -51,8 +53,13 @@ logging.info("Training started...")
 best_test_loss = None
 
 def get_batch_metrics(pred_ids, decoder_target_ids):
+    # if isinstance(pred_ids, list):
 
-    pred_texts = [tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True) for j in range(pred_ids.shape[0])]
+    #     [tokenizer.decode(pred_ids[j], skip_special_tokens=True) for j in range(len(pred_ids))]
+    #     pred_texts = [tokenizer.decode(pred_ids[j], skip_special_tokens=True) for j in range(len(pred_ids))]
+    # else:
+    pred_texts = [tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True) for j in  range(pred_ids.shape[0])]
+    
     gt_texts = [tokenizer.decode(decoder_target_ids[j].cpu().tolist(), skip_special_tokens=True) for j in range(pred_ids.shape[0])]
 
     correct = sum([1 for pred_text, gt_text in zip(pred_texts, gt_texts) if pred_text == gt_text])
@@ -66,6 +73,50 @@ def get_batch_metrics(pred_ids, decoder_target_ids):
 
 def calculate_cer(pred_text, gt_text):
     return Levenshtein.distance(pred_text, gt_text) / len(gt_text) if len(gt_text) > 0 else 0
+
+
+def beam_search_evaluate(epoch, model, test_loader, tokenizer, device, beam_size=5):
+    """Evaluate the model using beam search decoding."""
+    model.eval()
+    epoch_test_metrics = {
+        'batch_accs': [],
+        'batch_cers': [],
+    }
+    
+    with torch.no_grad():
+        for i, batch in enumerate(tqdm(test_loader, desc=f"Epoch {epoch} [Beam Search Evaluation]")):
+            images, input_ids, _ = batch
+            images = images.to(device)
+            pred_ids = model.generate(images, 
+                                      start_token_id=tokenizer.convert_tokens_to_ids(tokenizer.bos_token), 
+                                      end_token_id=tokenizer.convert_tokens_to_ids(tokenizer.eos_token),
+                                      pad_token_id=tokenizer.convert_tokens_to_ids(tokenizer.pad_token),
+                                      max_length=128,
+                                      beam_size=beam_size)
+            decoder_target_ids = input_ids[:, 1:].to(device)
+            batch_metrics = get_batch_metrics(pred_ids, decoder_target_ids)
+            epoch_test_metrics['batch_accs'].append(batch_metrics['acc'])
+            epoch_test_metrics['batch_cers'].append(batch_metrics['cer'])
+    
+    avg_epoch_test_acc = sum(epoch_test_metrics['batch_accs']) / len(epoch_test_metrics['batch_accs'])
+    avg_epoch_test_cer = sum(epoch_test_metrics['batch_cers']) / len(epoch_test_metrics['batch_cers'])
+    
+    logging.info("-" * 40)
+    logging.info(f"BEAM SEARCH | Epoch {epoch+1} | Eval Avg Accuracy: {avg_epoch_test_acc:.3f}%")
+    logging.info(f"BEAM SEARCH | Epoch {epoch+1} | Eval Avg CER: {avg_epoch_test_cer:.3f}")
+    logging.info("-" * 40)
+    
+    for j in range(min(2, pred_ids.size(0))):
+        pred_text = tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True)
+        gt_text = tokenizer.decode(decoder_target_ids[j].cpu().tolist(), skip_special_tokens=True)
+        logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Sample {j}")
+        logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Predicted   : {pred_text}")
+        logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Ground Truth: {gt_text}")
+    
+    logging.info("-" * 40)
+    logging.info("\n")
+    
+    return avg_epoch_test_acc, avg_epoch_test_cer
 
 for epoch in range(EPOCHS):
 
@@ -176,4 +227,5 @@ for epoch in range(EPOCHS):
         torch.save(model.state_dict(), BEST_MODEL_PATH)
         logging.info(f"TEST | Epoch {epoch+1} - Best model updated.")
 
+    beam_search_evaluate(epoch, model, test_loader, tokenizer, 'cuda', beam_size=5)
 logging.info("Training complete!")

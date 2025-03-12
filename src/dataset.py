@@ -55,9 +55,9 @@ class OCRDataset(Dataset):
         
         # zero out attention mask for padding tokens
         attention_mask = (input_ids != self.tokenizer.pad_token_id).long()
-        
+        assert decoder_end_token_id in input_ids and decoder_start_token_id in input_ids, f"decoder_start_token_id: {decoder_start_token_id}, decoder_end_token_id: {decoder_end_token_id}, input_ids: {input_ids}"
         return image, input_ids, attention_mask
 
 
-def get_dataloader(text_file, image_root, tokenizer, batch_size=4, shuffle=True):
-    return DataLoader(OCRDataset(text_file, image_root, tokenizer=tokenizer), batch_size=batch_size, shuffle=shuffle, num_workers=8)
+def get_dataloader(text_file, image_root, tokenizer, batch_size=4, shuffle=True, max_length=128):
+    return DataLoader(OCRDataset(text_file, image_root, tokenizer=tokenizer, max_length=max_length), batch_size=batch_size, shuffle=shuffle, num_workers=8)
