@@ -32,15 +32,15 @@ optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
 loss_fn = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id)
 
 train_loader = get_dataloader(
-    '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/train/annotations.txt', 
-    '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K',
+    'data/IIIT5K/train/annotations.txt', 
+    'data/IIIT5K',
     batch_size=BATCH_SIZE,
     tokenizer=tokenizer,
     max_length=128
 )
 test_loader = get_dataloader(
-    '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K/test/annotations.txt', 
-    '/home/amur/Amur/vrdOCR/datasets/IIIT_5k/IIIT5K-Word_V3.0/IIIT5K',
+    'data/IIIT5K/test/annotations.txt', 
+    'data/IIIT5K',
     batch_size=BATCH_SIZE,
     tokenizer=tokenizer,
     max_length=128
