@@ -2435,3 +2435,73 @@ TRAIN | Epoch 1 - Training Avg CER: 1.858
 2025-03-12 13:39:38,133 - ----------------------------------------
 2025-03-12 13:39:38,133 - 
 
+2025-03-12 13:40:16,451 - ----------------------------------------
+2025-03-12 13:40:16,451 - TRAIN | Epoch 13 - Training Avg Loss: 0.848
+2025-03-12 13:40:16,451 - TRAIN | Epoch 13 - Training Avg Accuracy: 43.000%
+2025-03-12 13:40:16,451 - TRAIN | Epoch 13 - Training Avg CER: 1.170
+2025-03-12 13:40:16,451 - ----------------------------------------
+2025-03-12 13:40:16,452 - TRAIN | Epoch 13 - Sample 0
+2025-03-12 13:40:16,452 - TRAIN | Epoch 13 - Predicted   : Coestooneeeeeoooeeooeoooeeeeoeoeeoooooeeeooeeoeooeooeeoooeeoooeeooeoeoeeo
+2025-03-12 13:40:16,452 - TRAIN | Epoch 13 - Ground Truth: Crestdown
+2025-03-12 13:40:16,452 - TRAIN | Epoch 13 - Sample 1
+2025-03-12 13:40:16,452 - TRAIN | Epoch 13 - Predicted   : Puouutt
+2025-03-12 13:40:16,452 - TRAIN | Epoch 13 - Ground Truth: Product
+2025-03-12 13:40:16,452 - ----------------------------------------
+2025-03-12 13:40:16,452 - 
+
+2025-03-12 13:40:54,391 - ----------------------------------------
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Training Avg Loss: 0.762
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Training Avg Accuracy: 47.350%
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Training Avg CER: 1.273
+2025-03-12 13:40:54,392 - ----------------------------------------
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Sample 0
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Predicted   : thoouthtuooooooooooooooooooooooooooooooooooooooooooooooo
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Ground Truth: throughout
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Sample 1
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Predicted   : 3223
+2025-03-12 13:40:54,392 - TRAIN | Epoch 14 - Ground Truth: 3028
+2025-03-12 13:40:54,392 - ----------------------------------------
+2025-03-12 13:40:54,392 - 
+
+2025-03-12 13:41:32,860 - ----------------------------------------
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Training Avg Loss: 0.700
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Training Avg Accuracy: 48.200%
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Training Avg CER: 1.249
+2025-03-12 13:41:32,860 - ----------------------------------------
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Sample 0
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Predicted   : India
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Ground Truth: India
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Sample 1
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Predicted   : on
+2025-03-12 13:41:32,860 - TRAIN | Epoch 15 - Ground Truth: on
+2025-03-12 13:41:32,860 - ----------------------------------------
+2025-03-12 13:41:32,860 - 
+
+2025-03-12 13:42:12,947 - ----------------------------------------
+2025-03-12 13:42:12,947 - TRAIN | Epoch 16 - Training Avg Loss: 0.622
+2025-03-12 13:42:12,947 - TRAIN | Epoch 16 - Training Avg Accuracy: 53.950%
+2025-03-12 13:42:12,947 - TRAIN | Epoch 16 - Training Avg CER: 1.181
+2025-03-12 13:42:12,947 - ----------------------------------------
+2025-03-12 13:42:12,948 - TRAIN | Epoch 16 - Sample 0
+2025-03-12 13:42:12,948 - TRAIN | Epoch 16 - Predicted   : call
+2025-03-12 13:42:12,948 - TRAIN | Epoch 16 - Ground Truth: call
+2025-03-12 13:42:12,948 - TRAIN | Epoch 16 - Sample 1
+2025-03-12 13:42:12,948 - TRAIN | Epoch 16 - Predicted   : AUDEEYEEEEEE
+2025-03-12 13:42:12,948 - TRAIN | Epoch 16 - Ground Truth: AUDREY
+2025-03-12 13:42:12,948 - ----------------------------------------
+2025-03-12 13:42:12,948 - 
+
+2025-03-12 13:42:52,184 - ----------------------------------------
+2025-03-12 13:42:52,184 - TRAIN | Epoch 17 - Training Avg Loss: 0.571
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Training Avg Accuracy: 55.300%
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Training Avg CER: 1.224
+2025-03-12 13:42:52,185 - ----------------------------------------
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Sample 0
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Predicted   : CC
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Ground Truth: GC
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Sample 1
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Predicted   : DRIVE
+2025-03-12 13:42:52,185 - TRAIN | Epoch 17 - Ground Truth: DRIVE
+2025-03-12 13:42:52,185 - ----------------------------------------
+2025-03-12 13:42:52,185 - 
+
