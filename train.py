@@ -5,10 +5,10 @@ from tqdm import tqdm
 from src.model import ViT_TransformerDecoder,Swin_TransformerDecoder
 from src.dataset import get_dataloader
 from src.char_tokenizer import CharacterLevelTokenizer
-import Levenshtein 
 import logging
 import os
 from datetime import datetime
+from src.utils import * 
 
 logging.getLogger("albumentations").setLevel(logging.ERROR)
 logging.getLogger("albumentations").handlers.clear()
@@ -41,6 +41,7 @@ logging.basicConfig(
 EPOCHS = 250
 BATCH_SIZE = 16
 LEARNING_RATE = 3e-5 
+EVAL_EVERY_N_EPOCHS = 1
 GRADIENT_ACCUMULATION_STEPS = 2  
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BEST_MODEL_PATH = os.path.join(experiment_dir, "best_model.pth")
@@ -72,78 +73,11 @@ logging.basicConfig(filename="training_log.txt", level=logging.INFO,
                     format="%(asctime)s - %(message)s")
 logging.info("Training started...")
 
-best_test_loss = None
+best_test_acc = float('-inf')
 
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
     optimizer, mode='max', factor=0.5, patience=5, verbose=True
 )
-
-
-def get_batch_metrics(pred_ids, decoder_target_ids):
-    # if isinstance(pred_ids, list):
-
-    #     [tokenizer.decode(pred_ids[j], skip_special_tokens=True) for j in range(len(pred_ids))]
-    #     pred_texts = [tokenizer.decode(pred_ids[j], skip_special_tokens=True) for j in range(len(pred_ids))]
-    # else:
-    pred_texts = [tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True) for j in  range(pred_ids.shape[0])]
-    
-    gt_texts = [tokenizer.decode(decoder_target_ids[j].cpu().tolist(), skip_special_tokens=True) for j in range(pred_ids.shape[0])]
-
-    correct = sum([1 for pred_text, gt_text in zip(pred_texts, gt_texts) if pred_text == gt_text])
-    total = len(pred_texts)
-    accuracy = correct / total * 100
-    
-    dists = [calculate_cer(pred_text, gt_text) for pred_text, gt_text in zip(pred_texts, gt_texts)]
-    cer = sum(dists) / total
-
-    return {'acc':accuracy, 'cer':cer}
-
-def calculate_cer(pred_text, gt_text):
-    return Levenshtein.distance(pred_text, gt_text) / len(gt_text) if len(gt_text) > 0 else 0
-
-
-def beam_search_evaluate(epoch, model, test_loader, tokenizer, device, beam_size=5):
-    """Evaluate the model using beam search decoding."""
-    model.eval()
-    epoch_test_metrics = {
-        'batch_accs': [],
-        'batch_cers': [],
-    }
-    
-    with torch.no_grad():
-        for i, batch in enumerate(tqdm(test_loader, desc=f"Epoch {epoch} [Beam Search Evaluation]")):
-            images, input_ids, _ = batch
-            images = images.to(device)
-            pred_ids = model.generate(images, 
-                                      start_token_id=tokenizer.convert_tokens_to_ids(tokenizer.bos_token), 
-                                      end_token_id=tokenizer.convert_tokens_to_ids(tokenizer.eos_token),
-                                      pad_token_id=tokenizer.convert_tokens_to_ids(tokenizer.pad_token),
-                                      max_length=128,
-                                      beam_size=beam_size)
-            decoder_target_ids = input_ids[:, 1:].to(device)
-            batch_metrics = get_batch_metrics(pred_ids, decoder_target_ids)
-            epoch_test_metrics['batch_accs'].append(batch_metrics['acc'])
-            epoch_test_metrics['batch_cers'].append(batch_metrics['cer'])
-    
-    avg_epoch_test_acc = sum(epoch_test_metrics['batch_accs']) / len(epoch_test_metrics['batch_accs'])
-    avg_epoch_test_cer = sum(epoch_test_metrics['batch_cers']) / len(epoch_test_metrics['batch_cers'])
-    
-    logging.info("-" * 40)
-    logging.info(f"BEAM SEARCH | Epoch {epoch+1} | Eval Avg Accuracy: {avg_epoch_test_acc:.3f}%")
-    logging.info(f"BEAM SEARCH | Epoch {epoch+1} | Eval Avg CER: {avg_epoch_test_cer:.3f}")
-    logging.info("-" * 40)
-    
-    for j in range(min(2, pred_ids.size(0))):
-        pred_text = tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True)
-        gt_text = tokenizer.decode(decoder_target_ids[j].cpu().tolist(), skip_special_tokens=True)
-        logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Sample {j}")
-        logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Predicted   : {pred_text}")
-        logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Ground Truth: {gt_text}")
-    
-    logging.info("-" * 40)
-    logging.info("\n")
-    
-    return avg_epoch_test_acc, avg_epoch_test_cer
 
 for epoch in range(EPOCHS):
 
@@ -172,7 +106,7 @@ for epoch in range(EPOCHS):
 
         pred_ids = outputs.argmax(dim=-1)
 
-        batch_metrics = get_batch_metrics(pred_ids, decoder_target_ids)
+        batch_metrics = get_batch_metrics(tokenizer, pred_ids, decoder_target_ids)
         epoch_train_metrics['batch_accs'].append(batch_metrics['acc'])
         epoch_train_metrics['batch_cers'].append(batch_metrics['cer'])
 
@@ -203,65 +137,31 @@ for epoch in range(EPOCHS):
 
     logging.info("-" * 40)
     logging.info("\n")
-    if (epoch + 1) % 5 == 0:
-        val_accuracy, val_cer = beam_search_evaluate(epoch+1, model, test_loader, tokenizer, 'cuda', beam_size=5)
+
+    if (epoch + 1) % EVAL_EVERY_N_EPOCHS == 0:
+        val_accuracy, val_cer, samples = beam_search_evaluate(epoch+1, model, test_loader, tokenizer, 'cuda', beam_size=5)
+
+        logging.info("-" * 40)
+        logging.info(f"BEAM SEARCH | Epoch {epoch+1} | Eval Avg Accuracy: {val_accuracy:.3f}%")
+        logging.info(f"BEAM SEARCH | Epoch {epoch+1} | Eval Avg CER: {val_cer:.3f}")
+        logging.info("-" * 40)
+        
+        for j in range(min(2, samples['pred_ids'].size(0))):
+            pred_text = tokenizer.decode(samples['pred_ids'][j].cpu().tolist(), skip_special_tokens=True)
+            gt_text = tokenizer.decode(samples['target_ids'][j].cpu().tolist(), skip_special_tokens=True)
+            logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Sample {j}")
+            logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Predicted   : {pred_text}")
+            logging.info(f"BEAM SEARCH | Epoch {epoch+1} - Ground Truth: {gt_text}")
+        
+        logging.info("-" * 40)
+        logging.info("\n")
+
         scheduler.step(val_accuracy)
         torch.save(model.state_dict(), LATEST_MODEL_PATH)
         logging.info(f"INFO | Epoch {epoch+1} - LATEST model updated.")
-        
-    # model.eval()
-    # epoch_test_loss = 0.0
-    # epoch_test_metrics = {
-    #     'batch_accs': [],
-    #     'batch_cers': [],
-    # }
-    
-    # with torch.no_grad():
-    #     for i, batch in enumerate(tqdm(test_loader, desc=f"Epoch {epoch+1} [Evaluation]")):
-    #         images, input_ids, attention_mask = batch
-
-    #         images = images.to(DEVICE)
-    #         input_ids = input_ids.to(DEVICE)
-
-    #         decoder_input_ids = input_ids[:, :-1]
-    #         decoder_target_ids = input_ids[:, 1:]
-            
-    #         outputs = model(images, decoder_input_ids)
-    #         loss = loss_fn(
-    #             outputs.contiguous().view(-1, outputs.size(-1)),
-    #             decoder_target_ids.contiguous().view(-1)
-    #         )
-    #         epoch_test_loss += loss.item()
-
-    #         pred_ids = outputs.argmax(dim=-1)
-    #         batch_metrics = get_batch_metrics(pred_ids, decoder_target_ids)
-    #         epoch_test_metrics['batch_accs'].append(batch_metrics['acc'])
-    #         epoch_test_metrics['batch_cers'].append(batch_metrics['cer'])
-
-    # avg_epoch_test_loss = epoch_test_loss / len(test_loader)
-    # avg_epoch_test_acc = sum(epoch_test_metrics['batch_accs']) / len(epoch_test_metrics['batch_accs'])
-    # avg_epoch_test_cer = sum(epoch_test_metrics['batch_cers']) / len(epoch_test_metrics['batch_cers'])
-    
-    # logging.info("-" * 40)
-    # logging.info(f"TEST | Epoch {epoch+1} - Eval Avg Loss: {avg_epoch_test_loss:.3f}")
-    # logging.info(f"TEST | Epoch {epoch+1} - Eval Avg Accuracy: {avg_epoch_test_acc:.3f}%")
-    # logging.info(f"TEST | Epoch {epoch+1} - Eval Avg CER: {avg_epoch_test_cer:.3f}")
-    # logging.info("-" * 40)
-    
-    # for j in range(min(2, pred_ids.size(0))):
-    #     pred_text = tokenizer.decode(pred_ids[j].cpu().tolist(), skip_special_tokens=True)
-    #     gt_text = tokenizer.decode(decoder_target_ids[j].cpu().tolist(), skip_special_tokens=True)
-    #     logging.info(f"TEST | Epoch {epoch+1} - Sample {j}")
-    #     logging.info(f"TEST | Epoch {epoch+1} - Predicted   : {pred_text}")
-    #     logging.info(f"TEST | Epoch {epoch+1} - Ground Truth: {gt_text}")
-    
-    # logging.info("-" * 40)
-    # logging.info("\n")
-
-    # if best_test_loss is None or avg_epoch_test_loss < best_test_loss:
-    #     best_test_loss = avg_epoch_test_loss
-    #     torch.save(model.state_dict(), BEST_MODEL_PATH)
-    #     logging.info(f"TEST | Epoch {epoch+1} - Best model updated.")
-    
+        if val_accuracy > best_test_acc:
+            best_test_acc = val_accuracy
+            torch.save(model.state_dict(), BEST_MODEL_PATH)
+            logging.info(f"INFO | Epoch {epoch+1} - BEST model updated.")
 
 logging.info("Training complete!")
