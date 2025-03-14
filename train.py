@@ -141,6 +141,7 @@ for epoch in range(EPOCHS):
         
         outputs = model(images, decoder_input_ids)  
         loss = loss_fn(outputs.contiguous().view(-1, outputs.size(-1)), decoder_target_ids.contiguous().view(-1))
+        loss = loss / GRADIENT_ACCUMULATION_STEPS
         loss.backward()
         epoch_train_loss += loss.item()
 
