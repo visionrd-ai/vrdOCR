@@ -1,9 +1,11 @@
 import torch
 from torch.utils.data import Dataset, DataLoader
-from transformers import T5Tokenizer, ViTImageProcessor
+from transformers import ViTImageProcessor
 from PIL import Image
 import os
-from transformers import T5TokenizerFast
+import albumentations as A
+import numpy as np 
+
 PAD_TOKEN = 3 
 
 class OCRDataset(Dataset):
@@ -21,6 +23,12 @@ class OCRDataset(Dataset):
         
         self.tokenizer = tokenizer
 
+        self.transforms =  A.Compose([
+                                        A.RandomBrightnessContrast(p=0.4),  # Random brightness/contrast adjustment
+                                        A.GaussNoise(var_limit=(10.0, 50.0), p=0.4),
+                                        A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.1, rotate_limit=5, p=0.4),  # Random shift, scale, rotate
+                                        A.ToFloat(),  # Normalize to 0-1 range
+                                    ])
     def __len__(self):
         return len(self.data)
 
@@ -30,6 +38,12 @@ class OCRDataset(Dataset):
 
         # Process the image.
         image = Image.open(img_path).convert("RGB")
+        image_np = np.array(image)
+    
+        augmented = self.transforms(image=image_np)
+        image_np = augmented["image"]
+        
+        image = Image.fromarray((image_np * 255).astype(np.uint8))
         image = self.image_processor(image, return_tensors="pt")["pixel_values"].squeeze(0)
 
         # tokenized = self.tokenizer(
@@ -85,4 +99,4 @@ def dynamic_collate_fn(batch):
 
 def get_dataloader(text_file, image_root, tokenizer, batch_size=4, shuffle=True, max_length=128):
     return DataLoader(OCRDataset(text_file, image_root, tokenizer=tokenizer, max_length=max_length), 
-                      batch_size=batch_size, shuffle=shuffle, num_workers=8, collate_fn=dynamic_collate_fn)
+                      batch_size=batch_size, shuffle=shuffle, num_workers=0, collate_fn=dynamic_collate_fn)

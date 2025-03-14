@@ -10,6 +10,10 @@ import logging
 import os
 from datetime import datetime
 
+
+logging.getLogger("albumentations").setLevel(logging.ERROR)
+logging.getLogger("albumentations").handlers.clear()
+
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 experiment_dir = os.path.join('exp', timestamp)
 os.makedirs(experiment_dir, exist_ok=True)
@@ -29,8 +33,8 @@ tokenizer = CharacterLevelTokenizer()
 vocab_size = len(tokenizer)
 
 model = ViT_TransformerDecoder(vocab_size=vocab_size).to(DEVICE)
-optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
-loss_fn = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id)
+optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=1e-4)
+loss_fn = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id, label_smoothing=0.1)
 
 train_loader = get_dataloader(
     'data/IIIT5K/train/annotations.txt', 
@@ -52,6 +56,11 @@ logging.basicConfig(filename="training_log.txt", level=logging.INFO,
 logging.info("Training started...")
 
 best_test_loss = None
+
+scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+    optimizer, mode='max', factor=0.5, patience=5, verbose=True
+)
+
 
 def get_batch_metrics(pred_ids, decoder_target_ids):
     # if isinstance(pred_ids, list):
@@ -178,7 +187,8 @@ for epoch in range(EPOCHS):
     logging.info("-" * 40)
     logging.info("\n")
     if (epoch + 1) % 5 == 0:
-        beam_search_evaluate(epoch+1, model, test_loader, tokenizer, 'cuda', beam_size=5)
+        val_accuracy, val_cer = beam_search_evaluate(epoch+1, model, test_loader, tokenizer, 'cuda', beam_size=5)
+        scheduler.step(val_accuracy)
         torch.save(model.state_dict(), LATEST_MODEL_PATH)
         logging.info(f"INFO | Epoch {epoch+1} - LATEST model updated.")
         

@@ -2,6 +2,7 @@ import math
 import torch
 import torch.nn as nn
 from transformers import ViTModel
+from transformers import SwinModel
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, dropout=0.1, max_len=5000):
@@ -190,6 +191,118 @@ class ViT_TransformerDecoder(nn.Module):
         
         tgt_seq_len = tgt_embeddings.size(0)
         tgt_mask = self.generate_square_subsequent_mask(tgt_seq_len).to(tgt_embeddings.device)
+        
+        decoder_output = self.transformer_decoder(
+            tgt=tgt_embeddings,
+            memory=encoder_outputs,
+            tgt_mask=tgt_mask
+        )
+        decoder_output = decoder_output.transpose(0, 1)
+        
+        logits = self.fc_out(decoder_output)
+        return logits
+    
+
+
+class Swin_TransformerDecoder(nn.Module):
+    def __init__(
+        self,
+        vocab_size,
+        d_model=512,
+        num_decoder_layers=3,
+        nhead=4,
+        dropout=0.1,
+    ):
+        super().__init__()
+        self.swin = SwinModel.from_pretrained("microsoft/swin-tiny-patch4-window7-224")
+        
+        self.projection = nn.Linear(768, d_model)
+        
+        self.encoder_pos = PositionalEncoding(d_model, dropout)
+        self.token_embedding = nn.Embedding(vocab_size, d_model)
+        self.decoder_pos = PositionalEncoding(d_model, dropout)
+        
+        decoder_layer = nn.TransformerDecoderLayer(d_model=d_model, nhead=nhead, dropout=dropout)
+        self.transformer_decoder = nn.TransformerDecoder(decoder_layer, num_layers=num_decoder_layers)
+        
+        self.fc_out = nn.Linear(d_model, vocab_size)
+        
+    def generate_square_subsequent_mask(self, sz):
+        mask = torch.triu(torch.ones(sz, sz) * float('-inf'), diagonal=1)
+        return mask
+    
+    def generate(self, images, beam_size=3, max_length=50, start_token_id=None, end_token_id=None, pad_token_id=None):
+        self.eval()
+        device = images.device
+        with torch.no_grad():
+            encoder_outputs = self.swin(images).last_hidden_state  # (batch, src_seq_len, 768)
+            encoder_outputs = self.projection(encoder_outputs)
+            encoder_outputs = self.encoder_pos(encoder_outputs)
+            encoder_outputs = encoder_outputs.transpose(0, 1)
+            
+            batch_size = images.size(0)
+            generated_sequences = []
+            
+            for i in range(batch_size):
+                memory = encoder_outputs[:, i:i+1, :]
+                beam = [([start_token_id], 0.0)]
+                
+                for _ in range(max_length):
+                    new_beam = []
+                    for seq, score in beam:
+                        if seq[-1] == end_token_id:
+                            new_beam.append((seq, score))
+                            continue
+                        
+                        decoder_input_ids = torch.tensor(seq, device=device).unsqueeze(0)
+                        tgt_embeddings = self.token_embedding(decoder_input_ids)
+                        tgt_embeddings = self.decoder_pos(tgt_embeddings)
+                        tgt_embeddings = tgt_embeddings.transpose(0, 1)
+                        tgt_mask = self.generate_square_subsequent_mask(tgt_embeddings.size(0)).to(device)
+                        
+                        decoder_output = self.transformer_decoder(
+                            tgt=tgt_embeddings,
+                            memory=memory,
+                            tgt_mask=tgt_mask
+                        )
+                        decoder_output = decoder_output.transpose(0, 1)
+                        logits = self.fc_out(decoder_output[:, -1, :])
+                        log_probs = torch.log_softmax(logits, dim=-1).squeeze(0)
+                        
+                        topk_log_probs, topk_indices = torch.topk(log_probs, beam_size)
+                        for k in range(beam_size):
+                            next_token = topk_indices[k].item()
+                            next_score = score + topk_log_probs[k].item()
+                            new_seq = seq + [next_token]
+                            new_beam.append((new_seq, next_score))
+                    
+                    new_beam = sorted(new_beam, key=lambda x: x[1], reverse=True)[:beam_size]
+                    beam = new_beam
+                    if all(seq[-1] == end_token_id for seq, _ in beam):
+                        break
+                
+                best_sequence = beam[0][0]
+                if len(best_sequence) < max_length:
+                    pad_length = max_length - len(best_sequence) + 1
+                    best_sequence = torch.cat([torch.tensor(best_sequence), torch.full((pad_length,), pad_token_id, dtype=torch.long)], dim=0)
+                if isinstance(best_sequence, list):
+                    best_sequence = torch.tensor(best_sequence)
+                generated_sequences.append(best_sequence)
+            
+            return torch.stack(generated_sequences)
+    
+    def forward(self, images, tgt_input_ids):
+        encoder_outputs = self.swin(images).last_hidden_state
+        encoder_outputs = self.projection(encoder_outputs)
+        encoder_outputs = self.encoder_pos(encoder_outputs)
+        
+        tgt_embeddings = self.token_embedding(tgt_input_ids)
+        tgt_embeddings = self.decoder_pos(tgt_embeddings)
+        
+        encoder_outputs = encoder_outputs.transpose(0, 1)
+        tgt_embeddings = tgt_embeddings.transpose(0, 1)
+        
+        tgt_mask = self.generate_square_subsequent_mask(tgt_embeddings.size(0)).to(tgt_embeddings.device)
         
         decoder_output = self.transformer_decoder(
             tgt=tgt_embeddings,
