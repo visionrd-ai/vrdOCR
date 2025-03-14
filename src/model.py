@@ -39,15 +39,15 @@ class ViT_TransformerDecoder(nn.Module):
         self,
         vocab_size,       
         d_model=512,       
-        num_decoder_layers=6,
-        nhead=8,
+        num_decoder_layers=3,
+        nhead=4,
         dropout=0.1,
     ):
         super().__init__()
         self.vit = ViTModel.from_pretrained("google/vit-base-patch16-224")
 
-        for param in self.vit.parameters():
-            param.requires_grad = False
+        # for param in self.vit.parameters():
+        #     param.requires_grad = False
 
         self.projection = nn.Linear(768, d_model)
         

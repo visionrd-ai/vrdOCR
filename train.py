@@ -135,7 +135,6 @@ for epoch in range(EPOCHS):
         
         images = images.to(DEVICE)
         input_ids = input_ids.to(DEVICE)
-
         decoder_input_ids = input_ids[:, :-1]
         decoder_target_ids = input_ids[:, 1:]
         
@@ -154,7 +153,11 @@ for epoch in range(EPOCHS):
         if (i + 1) % GRADIENT_ACCUMULATION_STEPS == 0:
             optimizer.step()
             optimizer.zero_grad()
-    
+            
+    if (i + 1) % GRADIENT_ACCUMULATION_STEPS != 0:
+        optimizer.step()
+        optimizer.zero_grad()
+
     avg_epoch_train_acc = sum(epoch_train_metrics['batch_accs'])/len(epoch_train_metrics['batch_accs'])
     avg_epoch_train_cer = sum(epoch_train_metrics['batch_cers'])/len(epoch_train_metrics['batch_cers'])
     avg_epoch_train_loss = epoch_train_loss / len(train_loader)
