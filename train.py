@@ -3,7 +3,7 @@ import torch.optim as optim
 import torch.nn as nn
 from tqdm import tqdm
 from src.model import ViT_TransformerDecoder,Swin_TransformerDecoder
-from src.dataset import get_dataloader
+from src.dataset import get_vit_dataloader, get_swin_dataloader
 from src.char_tokenizer import CharacterLevelTokenizer
 import logging
 import os
@@ -41,7 +41,7 @@ logging.basicConfig(
 EPOCHS = 250
 BATCH_SIZE = 16
 LEARNING_RATE = 3e-5 
-EVAL_EVERY_N_EPOCHS = 1
+EVAL_EVERY_N_EPOCHS = 5
 GRADIENT_ACCUMULATION_STEPS = 2  
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BEST_MODEL_PATH = os.path.join(experiment_dir, "best_model.pth")
@@ -54,14 +54,14 @@ model = Swin_TransformerDecoder(vocab_size=vocab_size).to(DEVICE)
 optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=1e-4)
 loss_fn = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id, label_smoothing=0.1)
 
-train_loader = get_dataloader(
+train_loader = get_swin_dataloader(
     'data/IIIT5K/train/annotations.txt', 
     'data/IIIT5K',
     batch_size=BATCH_SIZE,
     tokenizer=tokenizer,
     max_length=128
 )
-test_loader = get_dataloader(
+test_loader = get_swin_dataloader(
     'data/IIIT5K/test/annotations.txt', 
     'data/IIIT5K',
     batch_size=BATCH_SIZE,
