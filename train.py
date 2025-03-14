@@ -17,9 +17,27 @@ logging.getLogger("albumentations").handlers.clear()
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 experiment_dir = os.path.join('exp', timestamp)
 os.makedirs(experiment_dir, exist_ok=True)
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+for handler in logger.handlers[:]:
+    logger.removeHandler(handler)
+
 log_file = os.path.join(experiment_dir, "training_log.txt")
-logging.basicConfig(filename=log_file, level=logging.INFO, 
-                    format="%(asctime)s - %(message)s")
+file_handler = logging.FileHandler(log_file)
+file_handler.setLevel(logging.INFO)
+formatter = logging.Formatter("%(asctime)s - %(message)s")
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+logging.basicConfig(
+    filename=log_file,
+    level=logging.INFO,
+    format="%(asctime)s - %(message)s",
+    force=True  # Forces reconfiguration
+)
 
 EPOCHS = 250
 BATCH_SIZE = 16
