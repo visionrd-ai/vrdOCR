@@ -2,14 +2,13 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 from tqdm import tqdm
-from src.model import ViT_TransformerDecoder
+from src.model import ViT_TransformerDecoder,Swin_TransformerDecoder
 from src.dataset import get_dataloader
 from src.char_tokenizer import CharacterLevelTokenizer
 import Levenshtein 
 import logging
 import os
 from datetime import datetime
-
 
 logging.getLogger("albumentations").setLevel(logging.ERROR)
 logging.getLogger("albumentations").handlers.clear()
@@ -36,7 +35,7 @@ logging.basicConfig(
     filename=log_file,
     level=logging.INFO,
     format="%(asctime)s - %(message)s",
-    force=True  # Forces reconfiguration
+    force=True
 )
 
 EPOCHS = 250
@@ -50,7 +49,7 @@ LATEST_MODEL_PATH = os.path.join(experiment_dir, "latest_model.pth")
 tokenizer = CharacterLevelTokenizer()
 vocab_size = len(tokenizer)
 
-model = ViT_TransformerDecoder(vocab_size=vocab_size).to(DEVICE)
+model = Swin_TransformerDecoder(vocab_size=vocab_size).to(DEVICE)
 optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=1e-4)
 loss_fn = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id, label_smoothing=0.1)
 

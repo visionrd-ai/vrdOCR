@@ -35,6 +35,29 @@ class PositionalEncoding(nn.Module):
         x = x + self.pe[:, :x.size(1)]
         return self.dropout(x)
 
+class LearnablePositionalEncoding(nn.Module):
+    def __init__(self, d_model, max_len=5000):
+        """
+        Learnable Positional Encoding.
+        
+        Arguments:
+            d_model: the feature dimension of the model.
+            max_len: maximum length of the input sequences.
+        """
+        super().__init__()
+        self.pe = nn.Parameter(torch.zeros(1, max_len, d_model))  # Learnable parameter
+        nn.init.xavier_uniform_(self.pe)  # Initialize with Xavier uniform
+
+    def forward(self, x):
+        """
+        Arguments:
+            x: Tensor of shape (batch_size, seq_len, d_model)
+        Returns:
+            x with learnable positional encodings added.
+        """
+        return x + self.pe[:, :x.size(1)]
+
+
 class ViT_TransformerDecoder(nn.Module):
     def __init__(
         self,
@@ -221,6 +244,9 @@ class Swin_TransformerDecoder(nn.Module):
         self.encoder_pos = PositionalEncoding(d_model, dropout)
         self.token_embedding = nn.Embedding(vocab_size, d_model)
         self.decoder_pos = PositionalEncoding(d_model, dropout)
+
+        # self.encoder_pos = LearnablePositionalEncoding(d_model)
+        # self.decoder_pos = LearnablePositionalEncoding(d_model)
         
         decoder_layer = nn.TransformerDecoderLayer(d_model=d_model, nhead=nhead, dropout=dropout)
         self.transformer_decoder = nn.TransformerDecoder(decoder_layer, num_layers=num_decoder_layers)
