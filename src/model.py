@@ -45,6 +45,10 @@ class ViT_TransformerDecoder(nn.Module):
     ):
         super().__init__()
         self.vit = ViTModel.from_pretrained("google/vit-base-patch16-224")
+
+        for param in self.vit.parameters():
+            param.requires_grad = False
+
         self.projection = nn.Linear(768, d_model)
         
         self.encoder_pos = PositionalEncoding(d_model, dropout)

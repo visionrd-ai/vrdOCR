@@ -174,7 +174,11 @@ for epoch in range(EPOCHS):
 
     logging.info("-" * 40)
     logging.info("\n")
-
+    if (epoch + 1) % 5 == 0:
+        beam_search_evaluate(epoch+1, model, test_loader, tokenizer, 'cuda', beam_size=5)
+        torch.save(model.state_dict(), LATEST_MODEL_PATH)
+        logging.info(f"INFO | Epoch {epoch+1} - LATEST model updated.")
+        
     # model.eval()
     # epoch_test_loss = 0.0
     # epoch_test_metrics = {
@@ -228,9 +232,6 @@ for epoch in range(EPOCHS):
     #     best_test_loss = avg_epoch_test_loss
     #     torch.save(model.state_dict(), BEST_MODEL_PATH)
     #     logging.info(f"TEST | Epoch {epoch+1} - Best model updated.")
-    if epoch+1 % 5 == 0:
-        beam_search_evaluate(epoch+1, model, test_loader, tokenizer, 'cuda', beam_size=5)
-        torch.save(model.state_dict(), LATEST_MODEL_PATH)
-    logging.info(f"INFO | Epoch {epoch+1} - LATEST model updated.")
+    
 
 logging.info("Training complete!")
