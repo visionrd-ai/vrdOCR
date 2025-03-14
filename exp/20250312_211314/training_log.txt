@@ -1,0 +1,1828 @@
+2025-03-12 21:13:17,054 - Training started...
+2025-03-12 21:13:34,401 - ----------------------------------------
+2025-03-12 21:13:34,401 - TRAIN | Epoch 1 - Training Avg Loss: 5.089
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Training Avg Accuracy: 0.000%
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Training Avg CER: 34.869
+2025-03-12 21:13:34,402 - ----------------------------------------
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Sample 0
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Predicted   : ≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠A≠≠≠≠≠≠A≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠A≠≠≠≠≠≠≠A≠≠≠≠≠(≠≠≠≠≠≠≠≠A≠≠≠≠≠≠≠A≠≠A(A≠≠≠≠≠≠≠≠≠A≠A≠≠(≠A(A≠≠≠
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Ground Truth: 12
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Sample 1
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Predicted   : 	≈A	A??≠pA≠₽≠pp≠₽≠≠≠≠≠p≠≠≠≠≠p≠A≠≠≠₽≠≠≠₽≠A≠≠≠≠≠≠≠≠≠≠≠≠≠≠p≠≠≠≠≠≠₽≠≠p≠≠p≠≠≠c≠≠≠≠≠≠≠≠p~≠p≠≠≠≠≠p≠?≠≠≠≠≠₽≠~≠₽₽₽₽≠p≠≠≠≠≠p≠₽p≠≠c≠??????
+2025-03-12 21:13:34,402 - TRAIN | Epoch 1 - Ground Truth: GOLDEN
+2025-03-12 21:13:34,402 - ----------------------------------------
+2025-03-12 21:13:34,402 - 
+
+2025-03-12 21:13:43,989 - ----------------------------------------
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Eval Avg Loss: 4.915
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Eval Avg Accuracy: 0.000%
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Eval Avg CER: 1.000
+2025-03-12 21:13:43,989 - ----------------------------------------
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Sample 0
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Predicted   : 
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Ground Truth: ONLY
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Sample 1
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Predicted   : 
+2025-03-12 21:13:43,989 - TEST | Epoch 1 - Ground Truth: you
+2025-03-12 21:13:43,989 - ----------------------------------------
+2025-03-12 21:13:43,989 - 
+
+2025-03-12 21:13:44,357 - TEST | Epoch 1 - Best model updated.
+2025-03-12 21:14:25,075 - ----------------------------------------
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 | Eval Avg Accuracy: 0.000%
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 | Eval Avg CER: 1.000
+2025-03-12 21:14:25,075 - ----------------------------------------
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 - Sample 0
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 - Predicted   : 
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 - Ground Truth: KNIGHT
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 - Sample 1
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 - Predicted   : 
+2025-03-12 21:14:25,075 - BEAM SEARCH | Epoch 1 - Ground Truth: on
+2025-03-12 21:14:25,075 - ----------------------------------------
+2025-03-12 21:14:25,075 - 
+
+2025-03-12 21:14:42,025 - ----------------------------------------
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Training Avg Loss: 4.834
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Training Avg Accuracy: 0.000%
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Training Avg CER: 1.000
+2025-03-12 21:14:42,025 - ----------------------------------------
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Sample 0
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Predicted   : 
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Ground Truth: Greenscroft
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Sample 1
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Predicted   : 
+2025-03-12 21:14:42,025 - TRAIN | Epoch 2 - Ground Truth: JOBS
+2025-03-12 21:14:42,025 - ----------------------------------------
+2025-03-12 21:14:42,025 - 
+
+2025-03-12 21:14:51,560 - ----------------------------------------
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Eval Avg Loss: 4.195
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Eval Avg Accuracy: 0.000%
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Eval Avg CER: 33.303
+2025-03-12 21:14:51,560 - ----------------------------------------
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Sample 0
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Predicted   : eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Ground Truth: INDIA
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Sample 1
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Predicted   : EEEEEEEEEEEEEEEEEeeEEEeeeeeeeeeeeeeeeeeeeeEEEeeeEEEeeeeeeeeeAAEEEEEEEEEEEEEEEAAAAeeeEEAAeeeEEEAAAAEEAAAEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-12 21:14:51,560 - TEST | Epoch 2 - Ground Truth: 15
+2025-03-12 21:14:51,560 - ----------------------------------------
+2025-03-12 21:14:51,560 - 
+
+2025-03-12 21:14:52,208 - TEST | Epoch 2 - Best model updated.
+2025-03-12 22:30:42,436 - ----------------------------------------
+2025-03-12 22:30:42,436 - BEAM SEARCH | Epoch 2 | Eval Avg Accuracy: 0.000%
+2025-03-12 22:30:42,436 - BEAM SEARCH | Epoch 2 | Eval Avg CER: 16.889
+2025-03-12 22:30:42,436 - ----------------------------------------
+2025-03-12 22:30:42,436 - BEAM SEARCH | Epoch 2 - Sample 0
+2025-03-12 22:30:42,436 - BEAM SEARCH | Epoch 2 - Predicted   : eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-12 22:30:42,436 - BEAM SEARCH | Epoch 2 - Ground Truth: FOIS
+2025-03-12 22:30:42,437 - BEAM SEARCH | Epoch 2 - Sample 1
+2025-03-12 22:30:42,437 - BEAM SEARCH | Epoch 2 - Predicted   : 
+2025-03-12 22:30:42,437 - BEAM SEARCH | Epoch 2 - Ground Truth: GRINDER
+2025-03-12 22:30:42,437 - ----------------------------------------
+2025-03-12 22:30:42,437 - 
+
+2025-03-12 22:30:59,486 - ----------------------------------------
+2025-03-12 22:30:59,486 - TRAIN | Epoch 3 - Training Avg Loss: 4.207
+2025-03-12 22:30:59,486 - TRAIN | Epoch 3 - Training Avg Accuracy: 0.000%
+2025-03-12 22:30:59,486 - TRAIN | Epoch 3 - Training Avg CER: 34.790
+2025-03-12 22:30:59,486 - ----------------------------------------
+2025-03-12 22:30:59,487 - TRAIN | Epoch 3 - Sample 0
+2025-03-12 22:30:59,487 - TRAIN | Epoch 3 - Predicted   : eeeeeeeEeeEeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeEeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeEeEeeeeeeeeeeeeeeeeEeeeeeeeAeEEee
+2025-03-12 22:30:59,487 - TRAIN | Epoch 3 - Ground Truth: 1472
+2025-03-12 22:30:59,487 - TRAIN | Epoch 3 - Sample 1
+2025-03-12 22:30:59,487 - TRAIN | Epoch 3 - Predicted   : eeEeeeeeeEEeeeeeeeeeeeeeeEeeeeeeeeeeEeeEEeeeeeeeeeeeeeeeeeeEEeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeEeEeeeeeEeEeeeeeeeeeeeeeeeEeeeEeeee
+2025-03-12 22:30:59,487 - TRAIN | Epoch 3 - Ground Truth: Our
+2025-03-12 22:30:59,487 - ----------------------------------------
+2025-03-12 22:30:59,487 - 
+
+2025-03-12 22:31:09,151 - ----------------------------------------
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Eval Avg Loss: 4.138
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Eval Avg Accuracy: 0.000%
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Eval Avg CER: 33.258
+2025-03-12 22:31:09,151 - ----------------------------------------
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Sample 0
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Predicted   : eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Ground Truth: 600
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Sample 1
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Predicted   : eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-12 22:31:09,151 - TEST | Epoch 3 - Ground Truth: COM
+2025-03-12 22:31:09,151 - ----------------------------------------
+2025-03-12 22:31:09,151 - 
+
+2025-03-12 22:31:09,758 - TEST | Epoch 3 - Best model updated.
+2025-03-12 23:53:46,504 - ----------------------------------------
+2025-03-12 23:53:46,504 - BEAM SEARCH | Epoch 3 | Eval Avg Accuracy: 0.000%
+2025-03-12 23:53:46,504 - BEAM SEARCH | Epoch 3 | Eval Avg CER: 33.354
+2025-03-12 23:53:46,504 - ----------------------------------------
+2025-03-12 23:53:46,505 - BEAM SEARCH | Epoch 3 - Sample 0
+2025-03-12 23:53:46,505 - BEAM SEARCH | Epoch 3 - Predicted   : eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-12 23:53:46,505 - BEAM SEARCH | Epoch 3 - Ground Truth: Heart
+2025-03-12 23:53:46,505 - BEAM SEARCH | Epoch 3 - Sample 1
+2025-03-12 23:53:46,505 - BEAM SEARCH | Epoch 3 - Predicted   : Aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-12 23:53:46,505 - BEAM SEARCH | Epoch 3 - Ground Truth: PURCHASE
+2025-03-12 23:53:46,505 - ----------------------------------------
+2025-03-12 23:53:46,505 - 
+
+2025-03-12 23:54:03,510 - ----------------------------------------
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Training Avg Loss: 4.150
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Training Avg Accuracy: 0.000%
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Training Avg CER: 34.917
+2025-03-12 23:54:03,510 - ----------------------------------------
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Sample 0
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Predicted   : eeeEeeeeeeeeeeeEeeeeeeeeeeeeeeeeeeeeeeeeeeeeEeEeEeeEeeeeeEeeeeeeEeeeeeeEeeeeeeeeEeeeeeeeeeeeeeeEEeeeeeeeeeeeeeeeeAeeeeeeEeeeeee
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Ground Truth: Suite
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Sample 1
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Predicted   : EEAeEEEeEeEeEEeeEeAeeEeEEeeAeEAAEeEeEeEEEEEeeeeEEAeEAAEeEAAeEEeEEeEeeeeEEEAeEeeEeeeeEeEEEeEeEEeeeeEEEeeeAEeeEeEeEeeeeEEeEEeeeeE
+2025-03-12 23:54:03,510 - TRAIN | Epoch 4 - Ground Truth: Willow
+2025-03-12 23:54:03,510 - ----------------------------------------
+2025-03-12 23:54:03,510 - 
+
+2025-03-12 23:54:13,087 - ----------------------------------------
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Eval Avg Loss: 3.969
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Eval Avg Accuracy: 0.000%
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Eval Avg CER: 33.159
+2025-03-12 23:54:13,087 - ----------------------------------------
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Sample 0
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Predicted   : EeeEEEEEEEEEEEEEEEEEEEEEEeeEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Ground Truth: 22
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Sample 1
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Predicted   : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-03-12 23:54:13,087 - TEST | Epoch 4 - Ground Truth: somehow
+2025-03-12 23:54:13,088 - ----------------------------------------
+2025-03-12 23:54:13,088 - 
+
+2025-03-12 23:54:13,661 - TEST | Epoch 4 - Best model updated.
+2025-03-13 01:20:27,005 - ----------------------------------------
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 | Eval Avg CER: 23.428
+2025-03-13 01:20:27,005 - ----------------------------------------
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 - Sample 0
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 - Ground Truth: SIDE
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 - Sample 1
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 - Predicted   : eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-03-13 01:20:27,005 - BEAM SEARCH | Epoch 4 - Ground Truth: YOU
+2025-03-13 01:20:27,005 - ----------------------------------------
+2025-03-13 01:20:27,005 - 
+
+2025-03-13 01:20:43,929 - ----------------------------------------
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Training Avg Loss: 3.980
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Training Avg Accuracy: 0.000%
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Training Avg CER: 34.838
+2025-03-13 01:20:43,929 - ----------------------------------------
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Sample 0
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Predicted   : EAAAEEEEAEAEEAAEeEeEEEEEEEEeEAEeAeeEeAeEeEAEeEEeAEEEeAAEEAAAeEEeeAeEAEAEEEEeAEEeEEAEAeEeEEEEEAeEEAAAEEEEEAEEEeEEeAeEAEEEEEAEAEA
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Ground Truth: RAISINA
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Sample 1
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Predicted   : eAeEEEeAEeeeeEeeeeeeeeeeeeAAAEAEEAeeEAEAeEAAeEAeAeeAEAeAeeeAeeEeAAeAEAeeEOeAAEEEAeeAeAeAAEEEEAEeeAAeeEAAeeeeeEEAeEEAAEeAAeeEAeE
+2025-03-13 01:20:43,929 - TRAIN | Epoch 5 - Ground Truth: wwwwalk2famenl
+2025-03-13 01:20:43,929 - ----------------------------------------
+2025-03-13 01:20:43,929 - 
+
+2025-03-13 01:20:53,679 - ----------------------------------------
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Eval Avg Loss: 3.818
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Eval Avg CER: 1.000
+2025-03-13 01:20:53,679 - ----------------------------------------
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Sample 0
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Predicted   : 
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Ground Truth: VILLAS
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Sample 1
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Predicted   : 
+2025-03-13 01:20:53,679 - TEST | Epoch 5 - Ground Truth: 77
+2025-03-13 01:20:53,679 - ----------------------------------------
+2025-03-13 01:20:53,679 - 
+
+2025-03-13 01:20:54,238 - TEST | Epoch 5 - Best model updated.
+2025-03-13 01:21:34,158 - ----------------------------------------
+2025-03-13 01:21:34,158 - BEAM SEARCH | Epoch 5 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:21:34,158 - BEAM SEARCH | Epoch 5 | Eval Avg CER: 1.000
+2025-03-13 01:21:34,158 - ----------------------------------------
+2025-03-13 01:21:34,159 - BEAM SEARCH | Epoch 5 - Sample 0
+2025-03-13 01:21:34,159 - BEAM SEARCH | Epoch 5 - Predicted   : 
+2025-03-13 01:21:34,159 - BEAM SEARCH | Epoch 5 - Ground Truth: WELCOME
+2025-03-13 01:21:34,159 - BEAM SEARCH | Epoch 5 - Sample 1
+2025-03-13 01:21:34,159 - BEAM SEARCH | Epoch 5 - Predicted   : 
+2025-03-13 01:21:34,159 - BEAM SEARCH | Epoch 5 - Ground Truth: OF
+2025-03-13 01:21:34,159 - ----------------------------------------
+2025-03-13 01:21:34,159 - 
+
+2025-03-13 01:21:51,130 - ----------------------------------------
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Training Avg Loss: 3.826
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Training Avg Accuracy: 0.000%
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Training Avg CER: 1.010
+2025-03-13 01:21:51,130 - ----------------------------------------
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Sample 0
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Predicted   : 
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Ground Truth: Of
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Sample 1
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Predicted   : 
+2025-03-13 01:21:51,130 - TRAIN | Epoch 6 - Ground Truth: Train
+2025-03-13 01:21:51,130 - ----------------------------------------
+2025-03-13 01:21:51,130 - 
+
+2025-03-13 01:22:00,828 - ----------------------------------------
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Eval Avg Loss: 3.754
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Eval Avg CER: 1.000
+2025-03-13 01:22:00,828 - ----------------------------------------
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Sample 0
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Predicted   : 
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Ground Truth: WELLFIELD
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Sample 1
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Predicted   : 
+2025-03-13 01:22:00,828 - TEST | Epoch 6 - Ground Truth: SHED
+2025-03-13 01:22:00,828 - ----------------------------------------
+2025-03-13 01:22:00,828 - 
+
+2025-03-13 01:22:01,406 - TEST | Epoch 6 - Best model updated.
+2025-03-13 01:22:41,368 - ----------------------------------------
+2025-03-13 01:22:41,368 - BEAM SEARCH | Epoch 6 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:22:41,368 - BEAM SEARCH | Epoch 6 | Eval Avg CER: 1.000
+2025-03-13 01:22:41,368 - ----------------------------------------
+2025-03-13 01:22:41,368 - BEAM SEARCH | Epoch 6 - Sample 0
+2025-03-13 01:22:41,369 - BEAM SEARCH | Epoch 6 - Predicted   : 
+2025-03-13 01:22:41,369 - BEAM SEARCH | Epoch 6 - Ground Truth: EASTLY
+2025-03-13 01:22:41,369 - BEAM SEARCH | Epoch 6 - Sample 1
+2025-03-13 01:22:41,369 - BEAM SEARCH | Epoch 6 - Predicted   : 
+2025-03-13 01:22:41,369 - BEAM SEARCH | Epoch 6 - Ground Truth: 46143994
+2025-03-13 01:22:41,369 - ----------------------------------------
+2025-03-13 01:22:41,369 - 
+
+2025-03-13 01:22:58,244 - ----------------------------------------
+2025-03-13 01:22:58,244 - TRAIN | Epoch 7 - Training Avg Loss: 3.748
+2025-03-13 01:22:58,244 - TRAIN | Epoch 7 - Training Avg Accuracy: 0.000%
+2025-03-13 01:22:58,244 - TRAIN | Epoch 7 - Training Avg CER: 1.000
+2025-03-13 01:22:58,244 - ----------------------------------------
+2025-03-13 01:22:58,245 - TRAIN | Epoch 7 - Sample 0
+2025-03-13 01:22:58,245 - TRAIN | Epoch 7 - Predicted   : 
+2025-03-13 01:22:58,245 - TRAIN | Epoch 7 - Ground Truth: PENANG
+2025-03-13 01:22:58,245 - TRAIN | Epoch 7 - Sample 1
+2025-03-13 01:22:58,245 - TRAIN | Epoch 7 - Predicted   : 
+2025-03-13 01:22:58,245 - TRAIN | Epoch 7 - Ground Truth: to
+2025-03-13 01:22:58,245 - ----------------------------------------
+2025-03-13 01:22:58,245 - 
+
+2025-03-13 01:23:07,943 - ----------------------------------------
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Eval Avg Loss: 3.767
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Eval Avg CER: 1.000
+2025-03-13 01:23:07,943 - ----------------------------------------
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Sample 0
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Predicted   : 
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Ground Truth: 3D
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Sample 1
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Predicted   : 
+2025-03-13 01:23:07,943 - TEST | Epoch 7 - Ground Truth: Bank
+2025-03-13 01:23:07,944 - ----------------------------------------
+2025-03-13 01:23:07,944 - 
+
+2025-03-13 01:23:48,568 - ----------------------------------------
+2025-03-13 01:23:48,568 - BEAM SEARCH | Epoch 7 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:23:48,568 - BEAM SEARCH | Epoch 7 | Eval Avg CER: 1.000
+2025-03-13 01:23:48,568 - ----------------------------------------
+2025-03-13 01:23:48,568 - BEAM SEARCH | Epoch 7 - Sample 0
+2025-03-13 01:23:48,568 - BEAM SEARCH | Epoch 7 - Predicted   : 
+2025-03-13 01:23:48,569 - BEAM SEARCH | Epoch 7 - Ground Truth: UNIVERSAL
+2025-03-13 01:23:48,569 - BEAM SEARCH | Epoch 7 - Sample 1
+2025-03-13 01:23:48,569 - BEAM SEARCH | Epoch 7 - Predicted   : 
+2025-03-13 01:23:48,569 - BEAM SEARCH | Epoch 7 - Ground Truth: 172
+2025-03-13 01:23:48,569 - ----------------------------------------
+2025-03-13 01:23:48,569 - 
+
+2025-03-13 01:24:05,464 - ----------------------------------------
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Training Avg Loss: 3.748
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Training Avg Accuracy: 0.000%
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Training Avg CER: 1.000
+2025-03-13 01:24:05,464 - ----------------------------------------
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Sample 0
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Predicted   : 
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Ground Truth: AUGUST
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Sample 1
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Predicted   : 
+2025-03-13 01:24:05,464 - TRAIN | Epoch 8 - Ground Truth: JAMES
+2025-03-13 01:24:05,464 - ----------------------------------------
+2025-03-13 01:24:05,464 - 
+
+2025-03-13 01:24:15,158 - ----------------------------------------
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Eval Avg Loss: 3.722
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Eval Avg CER: 1.000
+2025-03-13 01:24:15,158 - ----------------------------------------
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Sample 0
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Predicted   : 
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Ground Truth: of
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Sample 1
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Predicted   : 
+2025-03-13 01:24:15,158 - TEST | Epoch 8 - Ground Truth: Bank
+2025-03-13 01:24:15,158 - ----------------------------------------
+2025-03-13 01:24:15,158 - 
+
+2025-03-13 01:24:15,747 - TEST | Epoch 8 - Best model updated.
+2025-03-13 01:24:57,017 - ----------------------------------------
+2025-03-13 01:24:57,017 - BEAM SEARCH | Epoch 8 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:24:57,017 - BEAM SEARCH | Epoch 8 | Eval Avg CER: 1.000
+2025-03-13 01:24:57,017 - ----------------------------------------
+2025-03-13 01:24:57,018 - BEAM SEARCH | Epoch 8 - Sample 0
+2025-03-13 01:24:57,018 - BEAM SEARCH | Epoch 8 - Predicted   : 
+2025-03-13 01:24:57,018 - BEAM SEARCH | Epoch 8 - Ground Truth: audiences
+2025-03-13 01:24:57,018 - BEAM SEARCH | Epoch 8 - Sample 1
+2025-03-13 01:24:57,018 - BEAM SEARCH | Epoch 8 - Predicted   : 
+2025-03-13 01:24:57,018 - BEAM SEARCH | Epoch 8 - Ground Truth: COM
+2025-03-13 01:24:57,018 - ----------------------------------------
+2025-03-13 01:24:57,018 - 
+
+2025-03-13 01:25:13,930 - ----------------------------------------
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Training Avg Loss: 3.706
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Training Avg Accuracy: 0.000%
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Training Avg CER: 1.000
+2025-03-13 01:25:13,931 - ----------------------------------------
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Sample 0
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Predicted   : 
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Ground Truth: Signs
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Sample 1
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Predicted   : 
+2025-03-13 01:25:13,931 - TRAIN | Epoch 9 - Ground Truth: 21
+2025-03-13 01:25:13,931 - ----------------------------------------
+2025-03-13 01:25:13,931 - 
+
+2025-03-13 01:25:23,509 - ----------------------------------------
+2025-03-13 01:25:23,509 - TEST | Epoch 9 - Eval Avg Loss: 3.675
+2025-03-13 01:25:23,509 - TEST | Epoch 9 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:25:23,509 - TEST | Epoch 9 - Eval Avg CER: 1.000
+2025-03-13 01:25:23,509 - ----------------------------------------
+2025-03-13 01:25:23,509 - TEST | Epoch 9 - Sample 0
+2025-03-13 01:25:23,509 - TEST | Epoch 9 - Predicted   : 
+2025-03-13 01:25:23,509 - TEST | Epoch 9 - Ground Truth: MESSAGE
+2025-03-13 01:25:23,510 - TEST | Epoch 9 - Sample 1
+2025-03-13 01:25:23,510 - TEST | Epoch 9 - Predicted   : 
+2025-03-13 01:25:23,510 - TEST | Epoch 9 - Ground Truth: NOSTANDING
+2025-03-13 01:25:23,510 - ----------------------------------------
+2025-03-13 01:25:23,510 - 
+
+2025-03-13 01:25:24,098 - TEST | Epoch 9 - Best model updated.
+2025-03-13 01:26:09,783 - ----------------------------------------
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 | Eval Avg CER: 1.000
+2025-03-13 01:26:09,784 - ----------------------------------------
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 - Sample 0
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 - Predicted   : 
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 - Ground Truth: Haier
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 - Sample 1
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 - Predicted   : 
+2025-03-13 01:26:09,784 - BEAM SEARCH | Epoch 9 - Ground Truth: AD
+2025-03-13 01:26:09,784 - ----------------------------------------
+2025-03-13 01:26:09,784 - 
+
+2025-03-13 01:26:26,664 - ----------------------------------------
+2025-03-13 01:26:26,665 - TRAIN | Epoch 10 - Training Avg Loss: 3.664
+2025-03-13 01:26:26,665 - TRAIN | Epoch 10 - Training Avg Accuracy: 0.000%
+2025-03-13 01:26:26,665 - TRAIN | Epoch 10 - Training Avg CER: 1.000
+2025-03-13 01:26:26,665 - ----------------------------------------
+2025-03-13 01:26:26,665 - TRAIN | Epoch 10 - Sample 0
+2025-03-13 01:26:26,665 - TRAIN | Epoch 10 - Predicted   : 
+2025-03-13 01:26:26,665 - TRAIN | Epoch 10 - Ground Truth: 8401950
+2025-03-13 01:26:26,665 - TRAIN | Epoch 10 - Sample 1
+2025-03-13 01:26:26,666 - TRAIN | Epoch 10 - Predicted   : 
+2025-03-13 01:26:26,666 - TRAIN | Epoch 10 - Ground Truth: KUNJ
+2025-03-13 01:26:26,666 - ----------------------------------------
+2025-03-13 01:26:26,666 - 
+
+2025-03-13 01:26:36,245 - ----------------------------------------
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Eval Avg Loss: 3.657
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Eval Avg CER: 1.000
+2025-03-13 01:26:36,245 - ----------------------------------------
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Sample 0
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Predicted   : 
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Ground Truth: OUTLET
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Sample 1
+2025-03-13 01:26:36,245 - TEST | Epoch 10 - Predicted   : 
+2025-03-13 01:26:36,246 - TEST | Epoch 10 - Ground Truth: AIR
+2025-03-13 01:26:36,246 - ----------------------------------------
+2025-03-13 01:26:36,246 - 
+
+2025-03-13 01:26:36,820 - TEST | Epoch 10 - Best model updated.
+2025-03-13 01:27:23,200 - ----------------------------------------
+2025-03-13 01:27:23,200 - BEAM SEARCH | Epoch 10 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:27:23,200 - BEAM SEARCH | Epoch 10 | Eval Avg CER: 1.000
+2025-03-13 01:27:23,200 - ----------------------------------------
+2025-03-13 01:27:23,200 - BEAM SEARCH | Epoch 10 - Sample 0
+2025-03-13 01:27:23,200 - BEAM SEARCH | Epoch 10 - Predicted   : 
+2025-03-13 01:27:23,200 - BEAM SEARCH | Epoch 10 - Ground Truth: SCOTT
+2025-03-13 01:27:23,201 - BEAM SEARCH | Epoch 10 - Sample 1
+2025-03-13 01:27:23,201 - BEAM SEARCH | Epoch 10 - Predicted   : 
+2025-03-13 01:27:23,201 - BEAM SEARCH | Epoch 10 - Ground Truth: BILLBOARDS
+2025-03-13 01:27:23,201 - ----------------------------------------
+2025-03-13 01:27:23,201 - 
+
+2025-03-13 01:27:40,121 - ----------------------------------------
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Training Avg Loss: 3.645
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Training Avg Accuracy: 0.000%
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Training Avg CER: 1.000
+2025-03-13 01:27:40,121 - ----------------------------------------
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Sample 0
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Predicted   : 
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Ground Truth: Bank
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Sample 1
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Predicted   : 
+2025-03-13 01:27:40,121 - TRAIN | Epoch 11 - Ground Truth: TELEKOM
+2025-03-13 01:27:40,121 - ----------------------------------------
+2025-03-13 01:27:40,121 - 
+
+2025-03-13 01:27:49,832 - ----------------------------------------
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Eval Avg Loss: 3.643
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Eval Avg CER: 1.000
+2025-03-13 01:27:49,832 - ----------------------------------------
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Sample 0
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Predicted   : 
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Ground Truth: MAY
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Sample 1
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Predicted   : 
+2025-03-13 01:27:49,832 - TEST | Epoch 11 - Ground Truth: COMPANY
+2025-03-13 01:27:49,832 - ----------------------------------------
+2025-03-13 01:27:49,832 - 
+
+2025-03-13 01:27:50,384 - TEST | Epoch 11 - Best model updated.
+2025-03-13 01:28:37,095 - ----------------------------------------
+2025-03-13 01:28:37,095 - BEAM SEARCH | Epoch 11 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:28:37,095 - BEAM SEARCH | Epoch 11 | Eval Avg CER: 1.000
+2025-03-13 01:28:37,095 - ----------------------------------------
+2025-03-13 01:28:37,096 - BEAM SEARCH | Epoch 11 - Sample 0
+2025-03-13 01:28:37,096 - BEAM SEARCH | Epoch 11 - Predicted   : 
+2025-03-13 01:28:37,096 - BEAM SEARCH | Epoch 11 - Ground Truth: Oscar
+2025-03-13 01:28:37,096 - BEAM SEARCH | Epoch 11 - Sample 1
+2025-03-13 01:28:37,096 - BEAM SEARCH | Epoch 11 - Predicted   : 
+2025-03-13 01:28:37,096 - BEAM SEARCH | Epoch 11 - Ground Truth: A
+2025-03-13 01:28:37,096 - ----------------------------------------
+2025-03-13 01:28:37,096 - 
+
+2025-03-13 01:28:54,010 - ----------------------------------------
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Training Avg Loss: 3.630
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Training Avg Accuracy: 0.000%
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Training Avg CER: 0.998
+2025-03-13 01:28:54,010 - ----------------------------------------
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Sample 0
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Predicted   : 
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Ground Truth: Belzona
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Sample 1
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Predicted   : 
+2025-03-13 01:28:54,010 - TRAIN | Epoch 12 - Ground Truth: do
+2025-03-13 01:28:54,010 - ----------------------------------------
+2025-03-13 01:28:54,010 - 
+
+2025-03-13 01:29:03,633 - ----------------------------------------
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Eval Avg Loss: 3.623
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Eval Avg CER: 1.000
+2025-03-13 01:29:03,633 - ----------------------------------------
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Sample 0
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Predicted   : 
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Ground Truth: UNSTOPPABLE
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Sample 1
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Predicted   : 
+2025-03-13 01:29:03,633 - TEST | Epoch 12 - Ground Truth: 6
+2025-03-13 01:29:03,633 - ----------------------------------------
+2025-03-13 01:29:03,633 - 
+
+2025-03-13 01:29:04,220 - TEST | Epoch 12 - Best model updated.
+2025-03-13 01:29:45,500 - ----------------------------------------
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 | Eval Avg CER: 1.000
+2025-03-13 01:29:45,501 - ----------------------------------------
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 - Sample 0
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 - Predicted   : 
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 - Ground Truth: INDIA
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 - Sample 1
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 - Predicted   : 
+2025-03-13 01:29:45,501 - BEAM SEARCH | Epoch 12 - Ground Truth: OF
+2025-03-13 01:29:45,501 - ----------------------------------------
+2025-03-13 01:29:45,501 - 
+
+2025-03-13 01:30:02,432 - ----------------------------------------
+2025-03-13 01:30:02,432 - TRAIN | Epoch 13 - Training Avg Loss: 3.607
+2025-03-13 01:30:02,432 - TRAIN | Epoch 13 - Training Avg Accuracy: 0.000%
+2025-03-13 01:30:02,432 - TRAIN | Epoch 13 - Training Avg CER: 0.999
+2025-03-13 01:30:02,432 - ----------------------------------------
+2025-03-13 01:30:02,433 - TRAIN | Epoch 13 - Sample 0
+2025-03-13 01:30:02,433 - TRAIN | Epoch 13 - Predicted   : 
+2025-03-13 01:30:02,433 - TRAIN | Epoch 13 - Ground Truth: SDN
+2025-03-13 01:30:02,433 - TRAIN | Epoch 13 - Sample 1
+2025-03-13 01:30:02,433 - TRAIN | Epoch 13 - Predicted   : 
+2025-03-13 01:30:02,433 - TRAIN | Epoch 13 - Ground Truth: 7749
+2025-03-13 01:30:02,433 - ----------------------------------------
+2025-03-13 01:30:02,433 - 
+
+2025-03-13 01:30:12,095 - ----------------------------------------
+2025-03-13 01:30:12,095 - TEST | Epoch 13 - Eval Avg Loss: 3.602
+2025-03-13 01:30:12,095 - TEST | Epoch 13 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:30:12,095 - TEST | Epoch 13 - Eval Avg CER: 1.000
+2025-03-13 01:30:12,095 - ----------------------------------------
+2025-03-13 01:30:12,095 - TEST | Epoch 13 - Sample 0
+2025-03-13 01:30:12,095 - TEST | Epoch 13 - Predicted   : 
+2025-03-13 01:30:12,095 - TEST | Epoch 13 - Ground Truth: SIGN
+2025-03-13 01:30:12,095 - TEST | Epoch 13 - Sample 1
+2025-03-13 01:30:12,096 - TEST | Epoch 13 - Predicted   : 
+2025-03-13 01:30:12,096 - TEST | Epoch 13 - Ground Truth: NICK
+2025-03-13 01:30:12,096 - ----------------------------------------
+2025-03-13 01:30:12,096 - 
+
+2025-03-13 01:30:12,677 - TEST | Epoch 13 - Best model updated.
+2025-03-13 01:30:53,895 - ----------------------------------------
+2025-03-13 01:30:53,895 - BEAM SEARCH | Epoch 13 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:30:53,895 - BEAM SEARCH | Epoch 13 | Eval Avg CER: 1.000
+2025-03-13 01:30:53,895 - ----------------------------------------
+2025-03-13 01:30:53,896 - BEAM SEARCH | Epoch 13 - Sample 0
+2025-03-13 01:30:53,896 - BEAM SEARCH | Epoch 13 - Predicted   : 
+2025-03-13 01:30:53,896 - BEAM SEARCH | Epoch 13 - Ground Truth: OF
+2025-03-13 01:30:53,896 - BEAM SEARCH | Epoch 13 - Sample 1
+2025-03-13 01:30:53,896 - BEAM SEARCH | Epoch 13 - Predicted   : 
+2025-03-13 01:30:53,896 - BEAM SEARCH | Epoch 13 - Ground Truth: HOUSE
+2025-03-13 01:30:53,896 - ----------------------------------------
+2025-03-13 01:30:53,896 - 
+
+2025-03-13 01:31:10,792 - ----------------------------------------
+2025-03-13 01:31:10,792 - TRAIN | Epoch 14 - Training Avg Loss: 3.580
+2025-03-13 01:31:10,792 - TRAIN | Epoch 14 - Training Avg Accuracy: 0.000%
+2025-03-13 01:31:10,792 - TRAIN | Epoch 14 - Training Avg CER: 0.999
+2025-03-13 01:31:10,792 - ----------------------------------------
+2025-03-13 01:31:10,792 - TRAIN | Epoch 14 - Sample 0
+2025-03-13 01:31:10,792 - TRAIN | Epoch 14 - Predicted   : 
+2025-03-13 01:31:10,793 - TRAIN | Epoch 14 - Ground Truth: You
+2025-03-13 01:31:10,793 - TRAIN | Epoch 14 - Sample 1
+2025-03-13 01:31:10,793 - TRAIN | Epoch 14 - Predicted   : 
+2025-03-13 01:31:10,793 - TRAIN | Epoch 14 - Ground Truth: MOBILE
+2025-03-13 01:31:10,793 - ----------------------------------------
+2025-03-13 01:31:10,793 - 
+
+2025-03-13 01:31:20,506 - ----------------------------------------
+2025-03-13 01:31:20,506 - TEST | Epoch 14 - Eval Avg Loss: 3.580
+2025-03-13 01:31:20,506 - TEST | Epoch 14 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:31:20,506 - TEST | Epoch 14 - Eval Avg CER: 1.000
+2025-03-13 01:31:20,506 - ----------------------------------------
+2025-03-13 01:31:20,507 - TEST | Epoch 14 - Sample 0
+2025-03-13 01:31:20,507 - TEST | Epoch 14 - Predicted   : 
+2025-03-13 01:31:20,507 - TEST | Epoch 14 - Ground Truth: alibaba
+2025-03-13 01:31:20,507 - TEST | Epoch 14 - Sample 1
+2025-03-13 01:31:20,507 - TEST | Epoch 14 - Predicted   : 
+2025-03-13 01:31:20,507 - TEST | Epoch 14 - Ground Truth: Doug
+2025-03-13 01:31:20,507 - ----------------------------------------
+2025-03-13 01:31:20,507 - 
+
+2025-03-13 01:31:21,060 - TEST | Epoch 14 - Best model updated.
+2025-03-13 01:32:07,390 - ----------------------------------------
+2025-03-13 01:32:07,390 - BEAM SEARCH | Epoch 14 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:32:07,390 - BEAM SEARCH | Epoch 14 | Eval Avg CER: 1.000
+2025-03-13 01:32:07,390 - ----------------------------------------
+2025-03-13 01:32:07,391 - BEAM SEARCH | Epoch 14 - Sample 0
+2025-03-13 01:32:07,391 - BEAM SEARCH | Epoch 14 - Predicted   : 
+2025-03-13 01:32:07,391 - BEAM SEARCH | Epoch 14 - Ground Truth: 42
+2025-03-13 01:32:07,391 - BEAM SEARCH | Epoch 14 - Sample 1
+2025-03-13 01:32:07,391 - BEAM SEARCH | Epoch 14 - Predicted   : 
+2025-03-13 01:32:07,391 - BEAM SEARCH | Epoch 14 - Ground Truth: REGENCY
+2025-03-13 01:32:07,391 - ----------------------------------------
+2025-03-13 01:32:07,391 - 
+
+2025-03-13 01:32:24,252 - ----------------------------------------
+2025-03-13 01:32:24,252 - TRAIN | Epoch 15 - Training Avg Loss: 3.550
+2025-03-13 01:32:24,252 - TRAIN | Epoch 15 - Training Avg Accuracy: 0.000%
+2025-03-13 01:32:24,252 - TRAIN | Epoch 15 - Training Avg CER: 0.998
+2025-03-13 01:32:24,252 - ----------------------------------------
+2025-03-13 01:32:24,253 - TRAIN | Epoch 15 - Sample 0
+2025-03-13 01:32:24,253 - TRAIN | Epoch 15 - Predicted   : 
+2025-03-13 01:32:24,253 - TRAIN | Epoch 15 - Ground Truth: TO
+2025-03-13 01:32:24,253 - TRAIN | Epoch 15 - Sample 1
+2025-03-13 01:32:24,253 - TRAIN | Epoch 15 - Predicted   : 
+2025-03-13 01:32:24,253 - TRAIN | Epoch 15 - Ground Truth: 319
+2025-03-13 01:32:24,253 - ----------------------------------------
+2025-03-13 01:32:24,253 - 
+
+2025-03-13 01:32:33,866 - ----------------------------------------
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Eval Avg Loss: 3.552
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Eval Avg CER: 1.000
+2025-03-13 01:32:33,867 - ----------------------------------------
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Sample 0
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Predicted   : 
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Ground Truth: GREEN
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Sample 1
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Predicted   : 
+2025-03-13 01:32:33,867 - TEST | Epoch 15 - Ground Truth: SHENG
+2025-03-13 01:32:33,867 - ----------------------------------------
+2025-03-13 01:32:33,867 - 
+
+2025-03-13 01:32:34,456 - TEST | Epoch 15 - Best model updated.
+2025-03-13 01:33:18,348 - ----------------------------------------
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 | Eval Avg CER: 1.000
+2025-03-13 01:33:18,348 - ----------------------------------------
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 - Sample 0
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 - Predicted   : 
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 - Ground Truth: LANDS
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 - Sample 1
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 - Predicted   : 
+2025-03-13 01:33:18,348 - BEAM SEARCH | Epoch 15 - Ground Truth: Koyah
+2025-03-13 01:33:18,348 - ----------------------------------------
+2025-03-13 01:33:18,348 - 
+
+2025-03-13 01:33:35,228 - ----------------------------------------
+2025-03-13 01:33:35,228 - TRAIN | Epoch 16 - Training Avg Loss: 3.510
+2025-03-13 01:33:35,228 - TRAIN | Epoch 16 - Training Avg Accuracy: 0.000%
+2025-03-13 01:33:35,228 - TRAIN | Epoch 16 - Training Avg CER: 0.997
+2025-03-13 01:33:35,228 - ----------------------------------------
+2025-03-13 01:33:35,228 - TRAIN | Epoch 16 - Sample 0
+2025-03-13 01:33:35,228 - TRAIN | Epoch 16 - Predicted   : 
+2025-03-13 01:33:35,228 - TRAIN | Epoch 16 - Ground Truth: FOOD
+2025-03-13 01:33:35,228 - TRAIN | Epoch 16 - Sample 1
+2025-03-13 01:33:35,229 - TRAIN | Epoch 16 - Predicted   : 
+2025-03-13 01:33:35,229 - TRAIN | Epoch 16 - Ground Truth: EARTH
+2025-03-13 01:33:35,229 - ----------------------------------------
+2025-03-13 01:33:35,229 - 
+
+2025-03-13 01:33:44,837 - ----------------------------------------
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Eval Avg Loss: 3.522
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Eval Avg CER: 1.000
+2025-03-13 01:33:44,837 - ----------------------------------------
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Sample 0
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Predicted   : 
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Ground Truth: Mac
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Sample 1
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Predicted   : 
+2025-03-13 01:33:44,837 - TEST | Epoch 16 - Ground Truth: CHESHIRE
+2025-03-13 01:33:44,837 - ----------------------------------------
+2025-03-13 01:33:44,837 - 
+
+2025-03-13 01:33:45,397 - TEST | Epoch 16 - Best model updated.
+2025-03-13 01:34:35,961 - ----------------------------------------
+2025-03-13 01:34:35,961 - BEAM SEARCH | Epoch 16 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:34:35,962 - BEAM SEARCH | Epoch 16 | Eval Avg CER: 1.000
+2025-03-13 01:34:35,962 - ----------------------------------------
+2025-03-13 01:34:35,962 - BEAM SEARCH | Epoch 16 - Sample 0
+2025-03-13 01:34:35,962 - BEAM SEARCH | Epoch 16 - Predicted   : 
+2025-03-13 01:34:35,962 - BEAM SEARCH | Epoch 16 - Ground Truth: PITT
+2025-03-13 01:34:35,962 - BEAM SEARCH | Epoch 16 - Sample 1
+2025-03-13 01:34:35,962 - BEAM SEARCH | Epoch 16 - Predicted   : 
+2025-03-13 01:34:35,962 - BEAM SEARCH | Epoch 16 - Ground Truth: THE
+2025-03-13 01:34:35,962 - ----------------------------------------
+2025-03-13 01:34:35,962 - 
+
+2025-03-13 01:34:53,044 - ----------------------------------------
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Training Avg Loss: 3.478
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Training Avg Accuracy: 0.000%
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Training Avg CER: 0.996
+2025-03-13 01:34:53,044 - ----------------------------------------
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Sample 0
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Predicted   : 
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Ground Truth: 1911
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Sample 1
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Predicted   : 
+2025-03-13 01:34:53,044 - TRAIN | Epoch 17 - Ground Truth: Direction
+2025-03-13 01:34:53,044 - ----------------------------------------
+2025-03-13 01:34:53,044 - 
+
+2025-03-13 01:35:02,756 - ----------------------------------------
+2025-03-13 01:35:02,756 - TEST | Epoch 17 - Eval Avg Loss: 3.482
+2025-03-13 01:35:02,756 - TEST | Epoch 17 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:35:02,756 - TEST | Epoch 17 - Eval Avg CER: 1.503
+2025-03-13 01:35:02,756 - ----------------------------------------
+2025-03-13 01:35:02,757 - TEST | Epoch 17 - Sample 0
+2025-03-13 01:35:02,757 - TEST | Epoch 17 - Predicted   : 
+2025-03-13 01:35:02,757 - TEST | Epoch 17 - Ground Truth: LEONARDO
+2025-03-13 01:35:02,757 - TEST | Epoch 17 - Sample 1
+2025-03-13 01:35:02,757 - TEST | Epoch 17 - Predicted   : 
+2025-03-13 01:35:02,757 - TEST | Epoch 17 - Ground Truth: Laugh
+2025-03-13 01:35:02,757 - ----------------------------------------
+2025-03-13 01:35:02,757 - 
+
+2025-03-13 01:35:03,328 - TEST | Epoch 17 - Best model updated.
+2025-03-13 01:36:25,918 - ----------------------------------------
+2025-03-13 01:36:25,918 - BEAM SEARCH | Epoch 17 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:36:25,918 - BEAM SEARCH | Epoch 17 | Eval Avg CER: 1.000
+2025-03-13 01:36:25,918 - ----------------------------------------
+2025-03-13 01:36:25,918 - BEAM SEARCH | Epoch 17 - Sample 0
+2025-03-13 01:36:25,918 - BEAM SEARCH | Epoch 17 - Predicted   : 
+2025-03-13 01:36:25,918 - BEAM SEARCH | Epoch 17 - Ground Truth: Up
+2025-03-13 01:36:25,919 - BEAM SEARCH | Epoch 17 - Sample 1
+2025-03-13 01:36:25,919 - BEAM SEARCH | Epoch 17 - Predicted   : 
+2025-03-13 01:36:25,919 - BEAM SEARCH | Epoch 17 - Ground Truth: Bike
+2025-03-13 01:36:25,919 - ----------------------------------------
+2025-03-13 01:36:25,919 - 
+
+2025-03-13 01:36:42,955 - ----------------------------------------
+2025-03-13 01:36:42,955 - TRAIN | Epoch 18 - Training Avg Loss: 3.426
+2025-03-13 01:36:42,955 - TRAIN | Epoch 18 - Training Avg Accuracy: 0.000%
+2025-03-13 01:36:42,955 - TRAIN | Epoch 18 - Training Avg CER: 1.653
+2025-03-13 01:36:42,955 - ----------------------------------------
+2025-03-13 01:36:42,956 - TRAIN | Epoch 18 - Sample 0
+2025-03-13 01:36:42,956 - TRAIN | Epoch 18 - Predicted   : 
+2025-03-13 01:36:42,956 - TRAIN | Epoch 18 - Ground Truth: in
+2025-03-13 01:36:42,956 - TRAIN | Epoch 18 - Sample 1
+2025-03-13 01:36:42,956 - TRAIN | Epoch 18 - Predicted   : 
+2025-03-13 01:36:42,956 - TRAIN | Epoch 18 - Ground Truth: Ah
+2025-03-13 01:36:42,956 - ----------------------------------------
+2025-03-13 01:36:42,956 - 
+
+2025-03-13 01:36:52,585 - ----------------------------------------
+2025-03-13 01:36:52,585 - TEST | Epoch 18 - Eval Avg Loss: 3.454
+2025-03-13 01:36:52,585 - TEST | Epoch 18 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:36:52,585 - TEST | Epoch 18 - Eval Avg CER: 3.065
+2025-03-13 01:36:52,585 - ----------------------------------------
+2025-03-13 01:36:52,585 - TEST | Epoch 18 - Sample 0
+2025-03-13 01:36:52,586 - TEST | Epoch 18 - Predicted   : 
+2025-03-13 01:36:52,586 - TEST | Epoch 18 - Ground Truth: colosseum
+2025-03-13 01:36:52,586 - TEST | Epoch 18 - Sample 1
+2025-03-13 01:36:52,586 - TEST | Epoch 18 - Predicted   : 
+2025-03-13 01:36:52,586 - TEST | Epoch 18 - Ground Truth: Wave
+2025-03-13 01:36:52,586 - ----------------------------------------
+2025-03-13 01:36:52,586 - 
+
+2025-03-13 01:36:53,178 - TEST | Epoch 18 - Best model updated.
+2025-03-13 01:38:52,297 - ----------------------------------------
+2025-03-13 01:38:52,297 - BEAM SEARCH | Epoch 18 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:38:52,297 - BEAM SEARCH | Epoch 18 | Eval Avg CER: 1.000
+2025-03-13 01:38:52,297 - ----------------------------------------
+2025-03-13 01:38:52,297 - BEAM SEARCH | Epoch 18 - Sample 0
+2025-03-13 01:38:52,297 - BEAM SEARCH | Epoch 18 - Predicted   : 
+2025-03-13 01:38:52,297 - BEAM SEARCH | Epoch 18 - Ground Truth: the
+2025-03-13 01:38:52,297 - BEAM SEARCH | Epoch 18 - Sample 1
+2025-03-13 01:38:52,298 - BEAM SEARCH | Epoch 18 - Predicted   : 
+2025-03-13 01:38:52,298 - BEAM SEARCH | Epoch 18 - Ground Truth: RedView
+2025-03-13 01:38:52,298 - ----------------------------------------
+2025-03-13 01:38:52,298 - 
+
+2025-03-13 01:39:09,325 - ----------------------------------------
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Training Avg Loss: 3.381
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Training Avg Accuracy: 0.000%
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Training Avg CER: 3.315
+2025-03-13 01:39:09,326 - ----------------------------------------
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Sample 0
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Predicted   : EEEEEEEEEEEEEEEEEEEEE
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Ground Truth: BABY
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Sample 1
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Predicted   : 
+2025-03-13 01:39:09,326 - TRAIN | Epoch 19 - Ground Truth: How
+2025-03-13 01:39:09,326 - ----------------------------------------
+2025-03-13 01:39:09,326 - 
+
+2025-03-13 01:39:18,958 - ----------------------------------------
+2025-03-13 01:39:18,958 - TEST | Epoch 19 - Eval Avg Loss: 3.404
+2025-03-13 01:39:18,958 - TEST | Epoch 19 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:39:18,958 - TEST | Epoch 19 - Eval Avg CER: 6.810
+2025-03-13 01:39:18,958 - ----------------------------------------
+2025-03-13 01:39:18,958 - TEST | Epoch 19 - Sample 0
+2025-03-13 01:39:18,958 - TEST | Epoch 19 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 01:39:18,958 - TEST | Epoch 19 - Ground Truth: HERE
+2025-03-13 01:39:18,959 - TEST | Epoch 19 - Sample 1
+2025-03-13 01:39:18,959 - TEST | Epoch 19 - Predicted   : 
+2025-03-13 01:39:18,959 - TEST | Epoch 19 - Ground Truth: Rikhys
+2025-03-13 01:39:18,959 - ----------------------------------------
+2025-03-13 01:39:18,959 - 
+
+2025-03-13 01:39:19,558 - TEST | Epoch 19 - Best model updated.
+2025-03-13 01:44:25,914 - ----------------------------------------
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 | Eval Avg CER: 1.000
+2025-03-13 01:44:25,915 - ----------------------------------------
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 - Sample 0
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 - Predicted   : 
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 - Ground Truth: twilight
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 - Sample 1
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 - Predicted   : 
+2025-03-13 01:44:25,915 - BEAM SEARCH | Epoch 19 - Ground Truth: Dingle
+2025-03-13 01:44:25,915 - ----------------------------------------
+2025-03-13 01:44:25,915 - 
+
+2025-03-13 01:44:42,754 - ----------------------------------------
+2025-03-13 01:44:42,754 - TRAIN | Epoch 20 - Training Avg Loss: 3.339
+2025-03-13 01:44:42,754 - TRAIN | Epoch 20 - Training Avg Accuracy: 0.000%
+2025-03-13 01:44:42,754 - TRAIN | Epoch 20 - Training Avg CER: 7.830
+2025-03-13 01:44:42,754 - ----------------------------------------
+2025-03-13 01:44:42,755 - TRAIN | Epoch 20 - Sample 0
+2025-03-13 01:44:42,755 - TRAIN | Epoch 20 - Predicted   : 
+2025-03-13 01:44:42,755 - TRAIN | Epoch 20 - Ground Truth: COSY
+2025-03-13 01:44:42,755 - TRAIN | Epoch 20 - Sample 1
+2025-03-13 01:44:42,755 - TRAIN | Epoch 20 - Predicted   : 
+2025-03-13 01:44:42,755 - TRAIN | Epoch 20 - Ground Truth: HOW
+2025-03-13 01:44:42,755 - ----------------------------------------
+2025-03-13 01:44:42,755 - 
+
+2025-03-13 01:44:52,437 - ----------------------------------------
+2025-03-13 01:44:52,437 - TEST | Epoch 20 - Eval Avg Loss: 3.394
+2025-03-13 01:44:52,437 - TEST | Epoch 20 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:44:52,437 - TEST | Epoch 20 - Eval Avg CER: 2.796
+2025-03-13 01:44:52,437 - ----------------------------------------
+2025-03-13 01:44:52,438 - TEST | Epoch 20 - Sample 0
+2025-03-13 01:44:52,438 - TEST | Epoch 20 - Predicted   : 
+2025-03-13 01:44:52,438 - TEST | Epoch 20 - Ground Truth: TOTAL
+2025-03-13 01:44:52,438 - TEST | Epoch 20 - Sample 1
+2025-03-13 01:44:52,438 - TEST | Epoch 20 - Predicted   : 
+2025-03-13 01:44:52,438 - TEST | Epoch 20 - Ground Truth: LEGACY
+2025-03-13 01:44:52,438 - ----------------------------------------
+2025-03-13 01:44:52,438 - 
+
+2025-03-13 01:44:53,031 - TEST | Epoch 20 - Best model updated.
+2025-03-13 01:47:18,996 - ----------------------------------------
+2025-03-13 01:47:18,996 - BEAM SEARCH | Epoch 20 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:47:18,996 - BEAM SEARCH | Epoch 20 | Eval Avg CER: 1.000
+2025-03-13 01:47:18,996 - ----------------------------------------
+2025-03-13 01:47:18,997 - BEAM SEARCH | Epoch 20 - Sample 0
+2025-03-13 01:47:18,997 - BEAM SEARCH | Epoch 20 - Predicted   : 
+2025-03-13 01:47:18,997 - BEAM SEARCH | Epoch 20 - Ground Truth: Being
+2025-03-13 01:47:18,997 - BEAM SEARCH | Epoch 20 - Sample 1
+2025-03-13 01:47:18,997 - BEAM SEARCH | Epoch 20 - Predicted   : 
+2025-03-13 01:47:18,997 - BEAM SEARCH | Epoch 20 - Ground Truth: ABBEY
+2025-03-13 01:47:18,997 - ----------------------------------------
+2025-03-13 01:47:18,997 - 
+
+2025-03-13 01:47:35,923 - ----------------------------------------
+2025-03-13 01:47:35,923 - TRAIN | Epoch 21 - Training Avg Loss: 3.297
+2025-03-13 01:47:35,923 - TRAIN | Epoch 21 - Training Avg Accuracy: 0.000%
+2025-03-13 01:47:35,923 - TRAIN | Epoch 21 - Training Avg CER: 3.167
+2025-03-13 01:47:35,923 - ----------------------------------------
+2025-03-13 01:47:35,923 - TRAIN | Epoch 21 - Sample 0
+2025-03-13 01:47:35,923 - TRAIN | Epoch 21 - Predicted   : EEEEEEEEEEEEEEEEEEEEEAEAEEEEAEREEEEEEEEEAE
+2025-03-13 01:47:35,923 - TRAIN | Epoch 21 - Ground Truth: SERVING
+2025-03-13 01:47:35,924 - TRAIN | Epoch 21 - Sample 1
+2025-03-13 01:47:35,924 - TRAIN | Epoch 21 - Predicted   : 
+2025-03-13 01:47:35,924 - TRAIN | Epoch 21 - Ground Truth: Council
+2025-03-13 01:47:35,924 - ----------------------------------------
+2025-03-13 01:47:35,924 - 
+
+2025-03-13 01:47:45,721 - ----------------------------------------
+2025-03-13 01:47:45,721 - TEST | Epoch 21 - Eval Avg Loss: 3.334
+2025-03-13 01:47:45,721 - TEST | Epoch 21 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:47:45,721 - TEST | Epoch 21 - Eval Avg CER: 1.467
+2025-03-13 01:47:45,721 - ----------------------------------------
+2025-03-13 01:47:45,722 - TEST | Epoch 21 - Sample 0
+2025-03-13 01:47:45,722 - TEST | Epoch 21 - Predicted   : 
+2025-03-13 01:47:45,722 - TEST | Epoch 21 - Ground Truth: divorce
+2025-03-13 01:47:45,722 - TEST | Epoch 21 - Sample 1
+2025-03-13 01:47:45,722 - TEST | Epoch 21 - Predicted   : 
+2025-03-13 01:47:45,722 - TEST | Epoch 21 - Ground Truth: 62
+2025-03-13 01:47:45,722 - ----------------------------------------
+2025-03-13 01:47:45,722 - 
+
+2025-03-13 01:47:46,273 - TEST | Epoch 21 - Best model updated.
+2025-03-13 01:49:03,762 - ----------------------------------------
+2025-03-13 01:49:03,762 - BEAM SEARCH | Epoch 21 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:49:03,762 - BEAM SEARCH | Epoch 21 | Eval Avg CER: 1.000
+2025-03-13 01:49:03,762 - ----------------------------------------
+2025-03-13 01:49:03,762 - BEAM SEARCH | Epoch 21 - Sample 0
+2025-03-13 01:49:03,762 - BEAM SEARCH | Epoch 21 - Predicted   : 
+2025-03-13 01:49:03,762 - BEAM SEARCH | Epoch 21 - Ground Truth: to
+2025-03-13 01:49:03,763 - BEAM SEARCH | Epoch 21 - Sample 1
+2025-03-13 01:49:03,763 - BEAM SEARCH | Epoch 21 - Predicted   : 
+2025-03-13 01:49:03,763 - BEAM SEARCH | Epoch 21 - Ground Truth: many
+2025-03-13 01:49:03,763 - ----------------------------------------
+2025-03-13 01:49:03,763 - 
+
+2025-03-13 01:49:20,779 - ----------------------------------------
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Training Avg Loss: 3.256
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Training Avg Accuracy: 0.000%
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Training Avg CER: 2.381
+2025-03-13 01:49:20,780 - ----------------------------------------
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Sample 0
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Predicted   : EEEEEEEEEEEEEEEEE
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Ground Truth: THE
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Sample 1
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Predicted   : ee
+2025-03-13 01:49:20,780 - TRAIN | Epoch 22 - Ground Truth: Santa
+2025-03-13 01:49:20,780 - ----------------------------------------
+2025-03-13 01:49:20,780 - 
+
+2025-03-13 01:49:30,328 - ----------------------------------------
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Eval Avg Loss: 3.309
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Eval Avg CER: 2.445
+2025-03-13 01:49:30,328 - ----------------------------------------
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Sample 0
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Predicted   : 
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Ground Truth: THE
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Sample 1
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Predicted   : 
+2025-03-13 01:49:30,328 - TEST | Epoch 22 - Ground Truth: Create
+2025-03-13 01:49:30,329 - ----------------------------------------
+2025-03-13 01:49:30,329 - 
+
+2025-03-13 01:49:30,934 - TEST | Epoch 22 - Best model updated.
+2025-03-13 01:51:58,643 - ----------------------------------------
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 | Eval Avg CER: 1.000
+2025-03-13 01:51:58,643 - ----------------------------------------
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 - Sample 0
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 - Predicted   : 
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 - Ground Truth: LIGHT
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 - Sample 1
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 - Predicted   : 
+2025-03-13 01:51:58,643 - BEAM SEARCH | Epoch 22 - Ground Truth: Colour
+2025-03-13 01:51:58,643 - ----------------------------------------
+2025-03-13 01:51:58,643 - 
+
+2025-03-13 01:52:15,545 - ----------------------------------------
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Training Avg Loss: 3.229
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Training Avg Accuracy: 0.000%
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Training Avg CER: 2.893
+2025-03-13 01:52:15,545 - ----------------------------------------
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Sample 0
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Predicted   : A
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Ground Truth: COM
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Sample 1
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Predicted   : AA
+2025-03-13 01:52:15,545 - TRAIN | Epoch 23 - Ground Truth: ATM
+2025-03-13 01:52:15,545 - ----------------------------------------
+2025-03-13 01:52:15,545 - 
+
+2025-03-13 01:52:25,241 - ----------------------------------------
+2025-03-13 01:52:25,241 - TEST | Epoch 23 - Eval Avg Loss: 3.302
+2025-03-13 01:52:25,241 - TEST | Epoch 23 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:52:25,241 - TEST | Epoch 23 - Eval Avg CER: 3.880
+2025-03-13 01:52:25,241 - ----------------------------------------
+2025-03-13 01:52:25,242 - TEST | Epoch 23 - Sample 0
+2025-03-13 01:52:25,242 - TEST | Epoch 23 - Predicted   : eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-13 01:52:25,242 - TEST | Epoch 23 - Ground Truth: State
+2025-03-13 01:52:25,242 - TEST | Epoch 23 - Sample 1
+2025-03-13 01:52:25,242 - TEST | Epoch 23 - Predicted   : eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+2025-03-13 01:52:25,242 - TEST | Epoch 23 - Ground Truth: Mickey
+2025-03-13 01:52:25,242 - ----------------------------------------
+2025-03-13 01:52:25,242 - 
+
+2025-03-13 01:52:25,790 - TEST | Epoch 23 - Best model updated.
+2025-03-13 01:58:44,732 - ----------------------------------------
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 | Eval Avg Accuracy: 0.000%
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 | Eval Avg CER: 1.002
+2025-03-13 01:58:44,732 - ----------------------------------------
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 - Sample 0
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 - Predicted   : 
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 - Ground Truth: STATION
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 - Sample 1
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 - Predicted   : 
+2025-03-13 01:58:44,732 - BEAM SEARCH | Epoch 23 - Ground Truth: TV
+2025-03-13 01:58:44,732 - ----------------------------------------
+2025-03-13 01:58:44,732 - 
+
+2025-03-13 01:59:01,782 - ----------------------------------------
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Training Avg Loss: 3.201
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Training Avg Accuracy: 0.000%
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Training Avg CER: 4.235
+2025-03-13 01:59:01,783 - ----------------------------------------
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Sample 0
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Predicted   : 
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Ground Truth: 80
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Sample 1
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Predicted   : 
+2025-03-13 01:59:01,783 - TRAIN | Epoch 24 - Ground Truth: GC
+2025-03-13 01:59:01,783 - ----------------------------------------
+2025-03-13 01:59:01,783 - 
+
+2025-03-13 01:59:11,385 - ----------------------------------------
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Eval Avg Loss: 3.272
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Eval Avg Accuracy: 0.000%
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Eval Avg CER: 3.728
+2025-03-13 01:59:11,386 - ----------------------------------------
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Sample 0
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Predicted   : 
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Ground Truth: Of
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Sample 1
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Predicted   : 
+2025-03-13 01:59:11,386 - TEST | Epoch 24 - Ground Truth: shop
+2025-03-13 01:59:11,386 - ----------------------------------------
+2025-03-13 01:59:11,386 - 
+
+2025-03-13 01:59:11,947 - TEST | Epoch 24 - Best model updated.
+2025-03-13 02:06:26,474 - ----------------------------------------
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 | Eval Avg CER: 1.401
+2025-03-13 02:06:26,474 - ----------------------------------------
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 - Sample 0
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 - Predicted   : 
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 - Ground Truth: A
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 - Sample 1
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 - Predicted   : 
+2025-03-13 02:06:26,474 - BEAM SEARCH | Epoch 24 - Ground Truth: LED
+2025-03-13 02:06:26,474 - ----------------------------------------
+2025-03-13 02:06:26,474 - 
+
+2025-03-13 02:06:43,525 - ----------------------------------------
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Training Avg Loss: 3.178
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Training Avg Accuracy: 0.000%
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Training Avg CER: 4.428
+2025-03-13 02:06:43,525 - ----------------------------------------
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Sample 0
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Predicted   : 
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Ground Truth: Rd
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Sample 1
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 02:06:43,525 - TRAIN | Epoch 25 - Ground Truth: CHAPEL
+2025-03-13 02:06:43,525 - ----------------------------------------
+2025-03-13 02:06:43,525 - 
+
+2025-03-13 02:06:53,133 - ----------------------------------------
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Eval Avg Loss: 3.250
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Eval Avg Accuracy: 0.000%
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Eval Avg CER: 5.238
+2025-03-13 02:06:53,133 - ----------------------------------------
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Sample 0
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Predicted   : 
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Ground Truth: IV
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Sample 1
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Predicted   : 
+2025-03-13 02:06:53,133 - TEST | Epoch 25 - Ground Truth: ONE
+2025-03-13 02:06:53,133 - ----------------------------------------
+2025-03-13 02:06:53,133 - 
+
+2025-03-13 02:06:53,678 - TEST | Epoch 25 - Best model updated.
+2025-03-13 02:14:07,090 - ----------------------------------------
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 | Eval Avg CER: 1.249
+2025-03-13 02:14:07,090 - ----------------------------------------
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 - Sample 0
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 - Predicted   : 
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 - Ground Truth: FOUND
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 - Sample 1
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 - Predicted   : 
+2025-03-13 02:14:07,090 - BEAM SEARCH | Epoch 25 - Ground Truth: POTWOROW
+2025-03-13 02:14:07,090 - ----------------------------------------
+2025-03-13 02:14:07,090 - 
+
+2025-03-13 02:14:24,070 - ----------------------------------------
+2025-03-13 02:14:24,070 - TRAIN | Epoch 26 - Training Avg Loss: 3.146
+2025-03-13 02:14:24,070 - TRAIN | Epoch 26 - Training Avg Accuracy: 0.000%
+2025-03-13 02:14:24,070 - TRAIN | Epoch 26 - Training Avg CER: 6.098
+2025-03-13 02:14:24,070 - ----------------------------------------
+2025-03-13 02:14:24,071 - TRAIN | Epoch 26 - Sample 0
+2025-03-13 02:14:24,071 - TRAIN | Epoch 26 - Predicted   : e
+2025-03-13 02:14:24,071 - TRAIN | Epoch 26 - Ground Truth: made
+2025-03-13 02:14:24,071 - TRAIN | Epoch 26 - Sample 1
+2025-03-13 02:14:24,071 - TRAIN | Epoch 26 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 02:14:24,071 - TRAIN | Epoch 26 - Ground Truth: TUFFIN
+2025-03-13 02:14:24,071 - ----------------------------------------
+2025-03-13 02:14:24,071 - 
+
+2025-03-13 02:14:33,666 - ----------------------------------------
+2025-03-13 02:14:33,666 - TEST | Epoch 26 - Eval Avg Loss: 3.253
+2025-03-13 02:14:33,666 - TEST | Epoch 26 - Eval Avg Accuracy: 0.000%
+2025-03-13 02:14:33,666 - TEST | Epoch 26 - Eval Avg CER: 4.695
+2025-03-13 02:14:33,667 - ----------------------------------------
+2025-03-13 02:14:33,667 - TEST | Epoch 26 - Sample 0
+2025-03-13 02:14:33,667 - TEST | Epoch 26 - Predicted   : 
+2025-03-13 02:14:33,667 - TEST | Epoch 26 - Ground Truth: ACCOUNT
+2025-03-13 02:14:33,667 - TEST | Epoch 26 - Sample 1
+2025-03-13 02:14:33,667 - TEST | Epoch 26 - Predicted   : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-03-13 02:14:33,667 - TEST | Epoch 26 - Ground Truth: PINANG
+2025-03-13 02:14:33,667 - ----------------------------------------
+2025-03-13 02:14:33,667 - 
+
+2025-03-13 02:18:36,609 - ----------------------------------------
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 | Eval Avg CER: 1.000
+2025-03-13 02:18:36,609 - ----------------------------------------
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 - Sample 0
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 - Predicted   : 
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 - Ground Truth: TO
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 - Sample 1
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 - Predicted   : 
+2025-03-13 02:18:36,609 - BEAM SEARCH | Epoch 26 - Ground Truth: OF
+2025-03-13 02:18:36,609 - ----------------------------------------
+2025-03-13 02:18:36,609 - 
+
+2025-03-13 02:18:53,493 - ----------------------------------------
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Training Avg Loss: 3.121
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Training Avg Accuracy: 0.000%
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Training Avg CER: 5.647
+2025-03-13 02:18:53,494 - ----------------------------------------
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Sample 0
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Predicted   : 
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Ground Truth: IT
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Sample 1
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Predicted   : AEEEAEEEEEEEEEEEEEEEEEEAEAEAEEEEEEAEEEEEEEEEEEAEEEEEEEEERAEEEAEEEEEEEAEEEEEEEAEEEEEEEEEEEEEAEEEAEEEEEEARENEEEEEEEEEEEEEEEAEEEAE
+2025-03-13 02:18:53,494 - TRAIN | Epoch 27 - Ground Truth: MIRREN
+2025-03-13 02:18:53,494 - ----------------------------------------
+2025-03-13 02:18:53,494 - 
+
+2025-03-13 02:19:03,091 - ----------------------------------------
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Eval Avg Loss: 3.221
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Eval Avg Accuracy: 0.000%
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Eval Avg CER: 6.173
+2025-03-13 02:19:03,091 - ----------------------------------------
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Sample 0
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Predicted   : 
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Ground Truth: Youre
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Sample 1
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Predicted   : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-03-13 02:19:03,091 - TEST | Epoch 27 - Ground Truth: AVATAR
+2025-03-13 02:19:03,091 - ----------------------------------------
+2025-03-13 02:19:03,091 - 
+
+2025-03-13 02:19:03,670 - TEST | Epoch 27 - Best model updated.
+2025-03-13 02:25:27,207 - ----------------------------------------
+2025-03-13 02:25:27,207 - BEAM SEARCH | Epoch 27 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:25:27,207 - BEAM SEARCH | Epoch 27 | Eval Avg CER: 1.000
+2025-03-13 02:25:27,207 - ----------------------------------------
+2025-03-13 02:25:27,207 - BEAM SEARCH | Epoch 27 - Sample 0
+2025-03-13 02:25:27,207 - BEAM SEARCH | Epoch 27 - Predicted   : 
+2025-03-13 02:25:27,207 - BEAM SEARCH | Epoch 27 - Ground Truth: 3
+2025-03-13 02:25:27,208 - BEAM SEARCH | Epoch 27 - Sample 1
+2025-03-13 02:25:27,208 - BEAM SEARCH | Epoch 27 - Predicted   : 
+2025-03-13 02:25:27,208 - BEAM SEARCH | Epoch 27 - Ground Truth: 1949
+2025-03-13 02:25:27,208 - ----------------------------------------
+2025-03-13 02:25:27,208 - 
+
+2025-03-13 02:25:44,128 - ----------------------------------------
+2025-03-13 02:25:44,128 - TRAIN | Epoch 28 - Training Avg Loss: 3.090
+2025-03-13 02:25:44,128 - TRAIN | Epoch 28 - Training Avg Accuracy: 0.000%
+2025-03-13 02:25:44,128 - TRAIN | Epoch 28 - Training Avg CER: 7.707
+2025-03-13 02:25:44,128 - ----------------------------------------
+2025-03-13 02:25:44,129 - TRAIN | Epoch 28 - Sample 0
+2025-03-13 02:25:44,129 - TRAIN | Epoch 28 - Predicted   : 
+2025-03-13 02:25:44,129 - TRAIN | Epoch 28 - Ground Truth: Outdoor
+2025-03-13 02:25:44,129 - TRAIN | Epoch 28 - Sample 1
+2025-03-13 02:25:44,129 - TRAIN | Epoch 28 - Predicted   : 
+2025-03-13 02:25:44,129 - TRAIN | Epoch 28 - Ground Truth: Rose
+2025-03-13 02:25:44,129 - ----------------------------------------
+2025-03-13 02:25:44,129 - 
+
+2025-03-13 02:25:53,723 - ----------------------------------------
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Eval Avg Loss: 3.217
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Eval Avg Accuracy: 0.000%
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Eval Avg CER: 4.585
+2025-03-13 02:25:53,723 - ----------------------------------------
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Sample 0
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Predicted   : 
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Ground Truth: 40
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Sample 1
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Predicted   : 
+2025-03-13 02:25:53,723 - TEST | Epoch 28 - Ground Truth: FLAMMABLE
+2025-03-13 02:25:53,723 - ----------------------------------------
+2025-03-13 02:25:53,723 - 
+
+2025-03-13 02:25:54,303 - TEST | Epoch 28 - Best model updated.
+2025-03-13 02:29:48,180 - ----------------------------------------
+2025-03-13 02:29:48,180 - BEAM SEARCH | Epoch 28 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:29:48,180 - BEAM SEARCH | Epoch 28 | Eval Avg CER: 1.000
+2025-03-13 02:29:48,180 - ----------------------------------------
+2025-03-13 02:29:48,180 - BEAM SEARCH | Epoch 28 - Sample 0
+2025-03-13 02:29:48,180 - BEAM SEARCH | Epoch 28 - Predicted   : 
+2025-03-13 02:29:48,180 - BEAM SEARCH | Epoch 28 - Ground Truth: somehow
+2025-03-13 02:29:48,180 - BEAM SEARCH | Epoch 28 - Sample 1
+2025-03-13 02:29:48,180 - BEAM SEARCH | Epoch 28 - Predicted   : 
+2025-03-13 02:29:48,181 - BEAM SEARCH | Epoch 28 - Ground Truth: COTTAGE
+2025-03-13 02:29:48,181 - ----------------------------------------
+2025-03-13 02:29:48,181 - 
+
+2025-03-13 02:30:05,182 - ----------------------------------------
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Training Avg Loss: 3.058
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Training Avg Accuracy: 0.000%
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Training Avg CER: 5.808
+2025-03-13 02:30:05,182 - ----------------------------------------
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Sample 0
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Predicted   : 
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Ground Truth: small
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Sample 1
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Predicted   : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-03-13 02:30:05,182 - TRAIN | Epoch 29 - Ground Truth: SALT
+2025-03-13 02:30:05,182 - ----------------------------------------
+2025-03-13 02:30:05,182 - 
+
+2025-03-13 02:30:14,902 - ----------------------------------------
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Eval Avg Loss: 3.184
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Eval Avg Accuracy: 0.000%
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Eval Avg CER: 6.369
+2025-03-13 02:30:14,902 - ----------------------------------------
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Sample 0
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Ground Truth: FLAMMABLE
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Sample 1
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Predicted   : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-03-13 02:30:14,902 - TEST | Epoch 29 - Ground Truth: HARD
+2025-03-13 02:30:14,902 - ----------------------------------------
+2025-03-13 02:30:14,902 - 
+
+2025-03-13 02:30:15,499 - TEST | Epoch 29 - Best model updated.
+2025-03-13 02:36:39,916 - ----------------------------------------
+2025-03-13 02:36:39,916 - BEAM SEARCH | Epoch 29 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:36:39,916 - BEAM SEARCH | Epoch 29 | Eval Avg CER: 1.000
+2025-03-13 02:36:39,917 - ----------------------------------------
+2025-03-13 02:36:39,917 - BEAM SEARCH | Epoch 29 - Sample 0
+2025-03-13 02:36:39,917 - BEAM SEARCH | Epoch 29 - Predicted   : 
+2025-03-13 02:36:39,917 - BEAM SEARCH | Epoch 29 - Ground Truth: AUCTION
+2025-03-13 02:36:39,917 - BEAM SEARCH | Epoch 29 - Sample 1
+2025-03-13 02:36:39,917 - BEAM SEARCH | Epoch 29 - Predicted   : 
+2025-03-13 02:36:39,917 - BEAM SEARCH | Epoch 29 - Ground Truth: catch
+2025-03-13 02:36:39,917 - ----------------------------------------
+2025-03-13 02:36:39,917 - 
+
+2025-03-13 02:36:56,849 - ----------------------------------------
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Training Avg Loss: 3.031
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Training Avg Accuracy: 0.049%
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Training Avg CER: 7.923
+2025-03-13 02:36:56,849 - ----------------------------------------
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Sample 0
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Predicted   : AAARRARNANAAAARAAAARANRNAAAARRARRRARARRRRAANAARAARNAAARNARANARARRRARA
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Ground Truth: KIRKLISTON
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Sample 1
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Predicted   : 
+2025-03-13 02:36:56,849 - TRAIN | Epoch 30 - Ground Truth: Delova
+2025-03-13 02:36:56,849 - ----------------------------------------
+2025-03-13 02:36:56,849 - 
+
+2025-03-13 02:37:06,451 - ----------------------------------------
+2025-03-13 02:37:06,451 - TEST | Epoch 30 - Eval Avg Loss: 3.171
+2025-03-13 02:37:06,451 - TEST | Epoch 30 - Eval Avg Accuracy: 0.000%
+2025-03-13 02:37:06,451 - TEST | Epoch 30 - Eval Avg CER: 3.961
+2025-03-13 02:37:06,451 - ----------------------------------------
+2025-03-13 02:37:06,452 - TEST | Epoch 30 - Sample 0
+2025-03-13 02:37:06,452 - TEST | Epoch 30 - Predicted   : 
+2025-03-13 02:37:06,452 - TEST | Epoch 30 - Ground Truth: A
+2025-03-13 02:37:06,452 - TEST | Epoch 30 - Sample 1
+2025-03-13 02:37:06,452 - TEST | Epoch 30 - Predicted   : 
+2025-03-13 02:37:06,452 - TEST | Epoch 30 - Ground Truth: English
+2025-03-13 02:37:06,452 - ----------------------------------------
+2025-03-13 02:37:06,452 - 
+
+2025-03-13 02:37:07,012 - TEST | Epoch 30 - Best model updated.
+2025-03-13 02:39:51,454 - ----------------------------------------
+2025-03-13 02:39:51,454 - BEAM SEARCH | Epoch 30 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:39:51,454 - BEAM SEARCH | Epoch 30 | Eval Avg CER: 1.000
+2025-03-13 02:39:51,454 - ----------------------------------------
+2025-03-13 02:39:51,454 - BEAM SEARCH | Epoch 30 - Sample 0
+2025-03-13 02:39:51,455 - BEAM SEARCH | Epoch 30 - Predicted   : 
+2025-03-13 02:39:51,455 - BEAM SEARCH | Epoch 30 - Ground Truth: Disney
+2025-03-13 02:39:51,455 - BEAM SEARCH | Epoch 30 - Sample 1
+2025-03-13 02:39:51,455 - BEAM SEARCH | Epoch 30 - Predicted   : 
+2025-03-13 02:39:51,455 - BEAM SEARCH | Epoch 30 - Ground Truth: STREET
+2025-03-13 02:39:51,455 - ----------------------------------------
+2025-03-13 02:39:51,455 - 
+
+2025-03-13 02:40:08,341 - ----------------------------------------
+2025-03-13 02:40:08,341 - TRAIN | Epoch 31 - Training Avg Loss: 3.004
+2025-03-13 02:40:08,341 - TRAIN | Epoch 31 - Training Avg Accuracy: 0.000%
+2025-03-13 02:40:08,341 - TRAIN | Epoch 31 - Training Avg CER: 5.642
+2025-03-13 02:40:08,341 - ----------------------------------------
+2025-03-13 02:40:08,341 - TRAIN | Epoch 31 - Sample 0
+2025-03-13 02:40:08,342 - TRAIN | Epoch 31 - Predicted   : 
+2025-03-13 02:40:08,342 - TRAIN | Epoch 31 - Ground Truth: more
+2025-03-13 02:40:08,342 - TRAIN | Epoch 31 - Sample 1
+2025-03-13 02:40:08,342 - TRAIN | Epoch 31 - Predicted   : 
+2025-03-13 02:40:08,342 - TRAIN | Epoch 31 - Ground Truth: FOR
+2025-03-13 02:40:08,342 - ----------------------------------------
+2025-03-13 02:40:08,342 - 
+
+2025-03-13 02:40:17,923 - ----------------------------------------
+2025-03-13 02:40:17,923 - TEST | Epoch 31 - Eval Avg Loss: 3.161
+2025-03-13 02:40:17,923 - TEST | Epoch 31 - Eval Avg Accuracy: 0.000%
+2025-03-13 02:40:17,923 - TEST | Epoch 31 - Eval Avg CER: 3.435
+2025-03-13 02:40:17,923 - ----------------------------------------
+2025-03-13 02:40:17,923 - TEST | Epoch 31 - Sample 0
+2025-03-13 02:40:17,923 - TEST | Epoch 31 - Predicted   : 
+2025-03-13 02:40:17,924 - TEST | Epoch 31 - Ground Truth: COLOR
+2025-03-13 02:40:17,924 - TEST | Epoch 31 - Sample 1
+2025-03-13 02:40:17,924 - TEST | Epoch 31 - Predicted   : 
+2025-03-13 02:40:17,924 - TEST | Epoch 31 - Ground Truth: out
+2025-03-13 02:40:17,924 - ----------------------------------------
+2025-03-13 02:40:17,924 - 
+
+2025-03-13 02:40:18,497 - TEST | Epoch 31 - Best model updated.
+2025-03-13 02:42:48,547 - ----------------------------------------
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 | Eval Avg CER: 1.000
+2025-03-13 02:42:48,547 - ----------------------------------------
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 - Sample 0
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 - Predicted   : 
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 - Ground Truth: BEEN
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 - Sample 1
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 - Predicted   : 
+2025-03-13 02:42:48,547 - BEAM SEARCH | Epoch 31 - Ground Truth: 1
+2025-03-13 02:42:48,547 - ----------------------------------------
+2025-03-13 02:42:48,547 - 
+
+2025-03-13 02:43:05,400 - ----------------------------------------
+2025-03-13 02:43:05,400 - TRAIN | Epoch 32 - Training Avg Loss: 2.971
+2025-03-13 02:43:05,400 - TRAIN | Epoch 32 - Training Avg Accuracy: 0.146%
+2025-03-13 02:43:05,400 - TRAIN | Epoch 32 - Training Avg CER: 4.698
+2025-03-13 02:43:05,400 - ----------------------------------------
+2025-03-13 02:43:05,400 - TRAIN | Epoch 32 - Sample 0
+2025-03-13 02:43:05,401 - TRAIN | Epoch 32 - Predicted   : eeaaeee
+2025-03-13 02:43:05,401 - TRAIN | Epoch 32 - Ground Truth: dress
+2025-03-13 02:43:05,401 - TRAIN | Epoch 32 - Sample 1
+2025-03-13 02:43:05,401 - TRAIN | Epoch 32 - Predicted   : 
+2025-03-13 02:43:05,401 - TRAIN | Epoch 32 - Ground Truth: TO
+2025-03-13 02:43:05,401 - ----------------------------------------
+2025-03-13 02:43:05,401 - 
+
+2025-03-13 02:43:15,089 - ----------------------------------------
+2025-03-13 02:43:15,089 - TEST | Epoch 32 - Eval Avg Loss: 3.138
+2025-03-13 02:43:15,089 - TEST | Epoch 32 - Eval Avg Accuracy: 0.065%
+2025-03-13 02:43:15,089 - TEST | Epoch 32 - Eval Avg CER: 2.927
+2025-03-13 02:43:15,090 - ----------------------------------------
+2025-03-13 02:43:15,090 - TEST | Epoch 32 - Sample 0
+2025-03-13 02:43:15,090 - TEST | Epoch 32 - Predicted   : 
+2025-03-13 02:43:15,090 - TEST | Epoch 32 - Ground Truth: of
+2025-03-13 02:43:15,090 - TEST | Epoch 32 - Sample 1
+2025-03-13 02:43:15,090 - TEST | Epoch 32 - Predicted   : 
+2025-03-13 02:43:15,090 - TEST | Epoch 32 - Ground Truth: 31
+2025-03-13 02:43:15,090 - ----------------------------------------
+2025-03-13 02:43:15,090 - 
+
+2025-03-13 02:43:15,670 - TEST | Epoch 32 - Best model updated.
+2025-03-13 02:45:25,555 - ----------------------------------------
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 | Eval Avg CER: 1.000
+2025-03-13 02:45:25,555 - ----------------------------------------
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 - Sample 0
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 - Predicted   : 
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 - Ground Truth: INDOOR
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 - Sample 1
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 - Predicted   : 
+2025-03-13 02:45:25,555 - BEAM SEARCH | Epoch 32 - Ground Truth: staan
+2025-03-13 02:45:25,555 - ----------------------------------------
+2025-03-13 02:45:25,555 - 
+
+2025-03-13 02:45:42,414 - ----------------------------------------
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Training Avg Loss: 2.938
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Training Avg Accuracy: 0.049%
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Training Avg CER: 4.125
+2025-03-13 02:45:42,414 - ----------------------------------------
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Sample 0
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Predicted   : e
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Ground Truth: November
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Sample 1
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 02:45:42,414 - TRAIN | Epoch 33 - Ground Truth: CHRYSLER
+2025-03-13 02:45:42,414 - ----------------------------------------
+2025-03-13 02:45:42,414 - 
+
+2025-03-13 02:45:52,084 - ----------------------------------------
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Eval Avg Loss: 3.116
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Eval Avg Accuracy: 0.065%
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Eval Avg CER: 6.037
+2025-03-13 02:45:52,085 - ----------------------------------------
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Sample 0
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Predicted   : 
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Ground Truth: 66
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Sample 1
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Predicted   : 
+2025-03-13 02:45:52,085 - TEST | Epoch 33 - Ground Truth: PINE
+2025-03-13 02:45:52,085 - ----------------------------------------
+2025-03-13 02:45:52,085 - 
+
+2025-03-13 02:45:52,686 - TEST | Epoch 33 - Best model updated.
+2025-03-13 02:50:10,871 - ----------------------------------------
+2025-03-13 02:50:10,871 - BEAM SEARCH | Epoch 33 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:50:10,871 - BEAM SEARCH | Epoch 33 | Eval Avg CER: 1.000
+2025-03-13 02:50:10,871 - ----------------------------------------
+2025-03-13 02:50:10,872 - BEAM SEARCH | Epoch 33 - Sample 0
+2025-03-13 02:50:10,872 - BEAM SEARCH | Epoch 33 - Predicted   : 
+2025-03-13 02:50:10,872 - BEAM SEARCH | Epoch 33 - Ground Truth: of
+2025-03-13 02:50:10,872 - BEAM SEARCH | Epoch 33 - Sample 1
+2025-03-13 02:50:10,872 - BEAM SEARCH | Epoch 33 - Predicted   : 
+2025-03-13 02:50:10,872 - BEAM SEARCH | Epoch 33 - Ground Truth: ZAJAZD
+2025-03-13 02:50:10,872 - ----------------------------------------
+2025-03-13 02:50:10,872 - 
+
+2025-03-13 02:50:27,801 - ----------------------------------------
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Training Avg Loss: 2.903
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Training Avg Accuracy: 0.000%
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Training Avg CER: 8.276
+2025-03-13 02:50:27,801 - ----------------------------------------
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Sample 0
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Predicted   : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Ground Truth: BANK
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Sample 1
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Predicted   : 
+2025-03-13 02:50:27,801 - TRAIN | Epoch 34 - Ground Truth: COPS
+2025-03-13 02:50:27,801 - ----------------------------------------
+2025-03-13 02:50:27,801 - 
+
+2025-03-13 02:50:37,382 - ----------------------------------------
+2025-03-13 02:50:37,382 - TEST | Epoch 34 - Eval Avg Loss: 3.090
+2025-03-13 02:50:37,382 - TEST | Epoch 34 - Eval Avg Accuracy: 0.033%
+2025-03-13 02:50:37,382 - TEST | Epoch 34 - Eval Avg CER: 4.996
+2025-03-13 02:50:37,382 - ----------------------------------------
+2025-03-13 02:50:37,383 - TEST | Epoch 34 - Sample 0
+2025-03-13 02:50:37,383 - TEST | Epoch 34 - Predicted   : 
+2025-03-13 02:50:37,383 - TEST | Epoch 34 - Ground Truth: 15hr
+2025-03-13 02:50:37,383 - TEST | Epoch 34 - Sample 1
+2025-03-13 02:50:37,383 - TEST | Epoch 34 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 02:50:37,383 - TEST | Epoch 34 - Ground Truth: CLOONEY
+2025-03-13 02:50:37,383 - ----------------------------------------
+2025-03-13 02:50:37,383 - 
+
+2025-03-13 02:50:37,973 - TEST | Epoch 34 - Best model updated.
+2025-03-13 02:53:47,353 - ----------------------------------------
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 | Eval Avg CER: 1.000
+2025-03-13 02:53:47,353 - ----------------------------------------
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 - Sample 0
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 - Predicted   : 
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 - Ground Truth: ReLIANCe
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 - Sample 1
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 - Predicted   : 
+2025-03-13 02:53:47,353 - BEAM SEARCH | Epoch 34 - Ground Truth: NOW
+2025-03-13 02:53:47,353 - ----------------------------------------
+2025-03-13 02:53:47,353 - 
+
+2025-03-13 02:54:04,322 - ----------------------------------------
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Training Avg Loss: 2.867
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Training Avg Accuracy: 0.000%
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Training Avg CER: 7.188
+2025-03-13 02:54:04,323 - ----------------------------------------
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Sample 0
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Predicted   : 
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Ground Truth: GPS
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Sample 1
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Predicted   : 1
+2025-03-13 02:54:04,323 - TRAIN | Epoch 35 - Ground Truth: 10
+2025-03-13 02:54:04,323 - ----------------------------------------
+2025-03-13 02:54:04,323 - 
+
+2025-03-13 02:54:13,880 - ----------------------------------------
+2025-03-13 02:54:13,880 - TEST | Epoch 35 - Eval Avg Loss: 3.057
+2025-03-13 02:54:13,880 - TEST | Epoch 35 - Eval Avg Accuracy: 0.033%
+2025-03-13 02:54:13,880 - TEST | Epoch 35 - Eval Avg CER: 5.530
+2025-03-13 02:54:13,880 - ----------------------------------------
+2025-03-13 02:54:13,881 - TEST | Epoch 35 - Sample 0
+2025-03-13 02:54:13,881 - TEST | Epoch 35 - Predicted   : OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+2025-03-13 02:54:13,881 - TEST | Epoch 35 - Ground Truth: YOUR
+2025-03-13 02:54:13,881 - TEST | Epoch 35 - Sample 1
+2025-03-13 02:54:13,881 - TEST | Epoch 35 - Predicted   : 
+2025-03-13 02:54:13,881 - TEST | Epoch 35 - Ground Truth: you
+2025-03-13 02:54:13,881 - ----------------------------------------
+2025-03-13 02:54:13,881 - 
+
+2025-03-13 02:54:14,444 - TEST | Epoch 35 - Best model updated.
+2025-03-13 02:58:43,199 - ----------------------------------------
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 | Eval Avg Accuracy: 0.000%
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 | Eval Avg CER: 1.031
+2025-03-13 02:58:43,199 - ----------------------------------------
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 - Sample 0
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 - Predicted   : 
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 - Ground Truth: Eye
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 - Sample 1
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 - Predicted   : 
+2025-03-13 02:58:43,199 - BEAM SEARCH | Epoch 35 - Ground Truth: means
+2025-03-13 02:58:43,199 - ----------------------------------------
+2025-03-13 02:58:43,199 - 
+
+2025-03-13 02:59:00,126 - ----------------------------------------
+2025-03-13 02:59:00,126 - TRAIN | Epoch 36 - Training Avg Loss: 2.822
+2025-03-13 02:59:00,126 - TRAIN | Epoch 36 - Training Avg Accuracy: 0.244%
+2025-03-13 02:59:00,126 - TRAIN | Epoch 36 - Training Avg CER: 7.566
+2025-03-13 02:59:00,126 - ----------------------------------------
+2025-03-13 02:59:00,127 - TRAIN | Epoch 36 - Sample 0
+2025-03-13 02:59:00,127 - TRAIN | Epoch 36 - Predicted   : 
+2025-03-13 02:59:00,127 - TRAIN | Epoch 36 - Ground Truth: tea
+2025-03-13 02:59:00,127 - TRAIN | Epoch 36 - Sample 1
+2025-03-13 02:59:00,127 - TRAIN | Epoch 36 - Predicted   : eeee
+2025-03-13 02:59:00,127 - TRAIN | Epoch 36 - Ground Truth: definition
+2025-03-13 02:59:00,127 - ----------------------------------------
+2025-03-13 02:59:00,127 - 
+
+2025-03-13 02:59:09,838 - ----------------------------------------
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Eval Avg Loss: 3.076
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Eval Avg Accuracy: 0.065%
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Eval Avg CER: 1.698
+2025-03-13 02:59:09,838 - ----------------------------------------
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Sample 0
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Predicted   : t
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Ground Truth: Yonetmeninden
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Sample 1
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Predicted   : TT
+2025-03-13 02:59:09,838 - TEST | Epoch 36 - Ground Truth: SUNIL
+2025-03-13 02:59:09,838 - ----------------------------------------
+2025-03-13 02:59:09,838 - 
+
+2025-03-13 03:00:39,774 - ----------------------------------------
+2025-03-13 03:00:39,774 - BEAM SEARCH | Epoch 36 | Eval Avg Accuracy: 0.000%
+2025-03-13 03:00:39,774 - BEAM SEARCH | Epoch 36 | Eval Avg CER: 0.985
+2025-03-13 03:00:39,774 - ----------------------------------------
+2025-03-13 03:00:39,775 - BEAM SEARCH | Epoch 36 - Sample 0
+2025-03-13 03:00:39,775 - BEAM SEARCH | Epoch 36 - Predicted   : ROOO
+2025-03-13 03:00:39,775 - BEAM SEARCH | Epoch 36 - Ground Truth: SIGNBOARDS
+2025-03-13 03:00:39,775 - BEAM SEARCH | Epoch 36 - Sample 1
+2025-03-13 03:00:39,775 - BEAM SEARCH | Epoch 36 - Predicted   : 
+2025-03-13 03:00:39,775 - BEAM SEARCH | Epoch 36 - Ground Truth: SIGNS
+2025-03-13 03:00:39,775 - ----------------------------------------
+2025-03-13 03:00:39,775 - 
+
+2025-03-13 03:00:56,625 - ----------------------------------------
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Training Avg Loss: 2.798
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Training Avg Accuracy: 0.098%
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Training Avg CER: 2.476
+2025-03-13 03:00:56,625 - ----------------------------------------
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Sample 0
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Predicted   : T
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Ground Truth: TO
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Sample 1
+2025-03-13 03:00:56,625 - TRAIN | Epoch 37 - Predicted   : 
+2025-03-13 03:00:56,626 - TRAIN | Epoch 37 - Ground Truth: of
+2025-03-13 03:00:56,626 - ----------------------------------------
+2025-03-13 03:00:56,626 - 
+
+2025-03-13 03:01:06,201 - ----------------------------------------
+2025-03-13 03:01:06,201 - TEST | Epoch 37 - Eval Avg Loss: 3.080
+2025-03-13 03:01:06,201 - TEST | Epoch 37 - Eval Avg Accuracy: 0.163%
+2025-03-13 03:01:06,202 - TEST | Epoch 37 - Eval Avg CER: 9.713
+2025-03-13 03:01:06,202 - ----------------------------------------
+2025-03-13 03:01:06,202 - TEST | Epoch 37 - Sample 0
+2025-03-13 03:01:06,202 - TEST | Epoch 37 - Predicted   : SSa
+2025-03-13 03:01:06,202 - TEST | Epoch 37 - Ground Truth: State
+2025-03-13 03:01:06,202 - TEST | Epoch 37 - Sample 1
+2025-03-13 03:01:06,202 - TEST | Epoch 37 - Predicted   : T
+2025-03-13 03:01:06,202 - TEST | Epoch 37 - Ground Truth: Ft
+2025-03-13 03:01:06,202 - ----------------------------------------
+2025-03-13 03:01:06,202 - 
+
+2025-03-13 03:20:45,352 - ----------------------------------------
+2025-03-13 03:20:45,352 - BEAM SEARCH | Epoch 37 | Eval Avg Accuracy: 0.000%
+2025-03-13 03:20:45,353 - BEAM SEARCH | Epoch 37 | Eval Avg CER: 3.957
+2025-03-13 03:20:45,353 - ----------------------------------------
+2025-03-13 03:20:45,353 - BEAM SEARCH | Epoch 37 - Sample 0
+2025-03-13 03:20:45,353 - BEAM SEARCH | Epoch 37 - Predicted   : RNNN
+2025-03-13 03:20:45,353 - BEAM SEARCH | Epoch 37 - Ground Truth: LARGE
+2025-03-13 03:20:45,353 - BEAM SEARCH | Epoch 37 - Sample 1
+2025-03-13 03:20:45,353 - BEAM SEARCH | Epoch 37 - Predicted   : 
+2025-03-13 03:20:45,353 - BEAM SEARCH | Epoch 37 - Ground Truth: Tulin
+2025-03-13 03:20:45,353 - ----------------------------------------
+2025-03-13 03:20:45,353 - 
+
+2025-03-13 03:21:02,513 - ----------------------------------------
+2025-03-13 03:21:02,513 - TRAIN | Epoch 38 - Training Avg Loss: 2.829
+2025-03-13 03:21:02,513 - TRAIN | Epoch 38 - Training Avg Accuracy: 0.391%
+2025-03-13 03:21:02,513 - TRAIN | Epoch 38 - Training Avg CER: 12.439
+2025-03-13 03:21:02,513 - ----------------------------------------
+2025-03-13 03:21:02,514 - TRAIN | Epoch 38 - Sample 0
+2025-03-13 03:21:02,514 - TRAIN | Epoch 38 - Predicted   : AAANNNANNNANANNAANAAAAAANANAANAAAANAAAAANANANAANAAAAANANAAAANAAAAAAAAANNAAANNAAAAAAAANNAAAANNAAAAAAAANAAAANNAAAAAAAAAANNAAAAAN
+2025-03-13 03:21:02,514 - TRAIN | Epoch 38 - Ground Truth: AUGUST
+2025-03-13 03:21:02,514 - TRAIN | Epoch 38 - Sample 1
+2025-03-13 03:21:02,514 - TRAIN | Epoch 38 - Predicted   : o
+2025-03-13 03:21:02,514 - TRAIN | Epoch 38 - Ground Truth: you
+2025-03-13 03:21:02,514 - ----------------------------------------
+2025-03-13 03:21:02,514 - 
+
+2025-03-13 03:21:12,215 - ----------------------------------------
+2025-03-13 03:21:12,215 - TEST | Epoch 38 - Eval Avg Loss: 3.125
+2025-03-13 03:21:12,215 - TEST | Epoch 38 - Eval Avg Accuracy: 0.260%
+2025-03-13 03:21:12,215 - TEST | Epoch 38 - Eval Avg CER: 1.987
+2025-03-13 03:21:12,215 - ----------------------------------------
+2025-03-13 03:21:12,215 - TEST | Epoch 38 - Sample 0
+2025-03-13 03:21:12,215 - TEST | Epoch 38 - Predicted   : S
+2025-03-13 03:21:12,215 - TEST | Epoch 38 - Ground Truth: ROSE
+2025-03-13 03:21:12,215 - TEST | Epoch 38 - Sample 1
+2025-03-13 03:21:12,216 - TEST | Epoch 38 - Predicted   : 
+2025-03-13 03:21:12,216 - TEST | Epoch 38 - Ground Truth: at
+2025-03-13 03:21:12,216 - ----------------------------------------
+2025-03-13 03:21:12,216 - 
+
+2025-03-13 03:24:31,791 - ----------------------------------------
+2025-03-13 03:24:31,791 - BEAM SEARCH | Epoch 38 | Eval Avg Accuracy: 0.302%
+2025-03-13 03:24:31,791 - BEAM SEARCH | Epoch 38 | Eval Avg CER: 1.033
+2025-03-13 03:24:31,791 - ----------------------------------------
+2025-03-13 03:24:31,791 - BEAM SEARCH | Epoch 38 - Sample 0
+2025-03-13 03:24:31,792 - BEAM SEARCH | Epoch 38 - Predicted   : 
+2025-03-13 03:24:31,792 - BEAM SEARCH | Epoch 38 - Ground Truth: Prodaja
+2025-03-13 03:24:31,792 - BEAM SEARCH | Epoch 38 - Sample 1
+2025-03-13 03:24:31,792 - BEAM SEARCH | Epoch 38 - Predicted   : R
+2025-03-13 03:24:31,792 - BEAM SEARCH | Epoch 38 - Ground Truth: FICTION
+2025-03-13 03:24:31,792 - ----------------------------------------
+2025-03-13 03:24:31,792 - 
+
+2025-03-13 03:24:48,730 - ----------------------------------------
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Training Avg Loss: 2.777
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Training Avg Accuracy: 0.635%
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Training Avg CER: 2.832
+2025-03-13 03:24:48,730 - ----------------------------------------
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Sample 0
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Predicted   : 
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Ground Truth: life
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Sample 1
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Predicted   : TT
+2025-03-13 03:24:48,730 - TRAIN | Epoch 39 - Ground Truth: STATION
+2025-03-13 03:24:48,730 - ----------------------------------------
+2025-03-13 03:24:48,730 - 
+
+2025-03-13 03:24:58,342 - ----------------------------------------
+2025-03-13 03:24:58,342 - TEST | Epoch 39 - Eval Avg Loss: 3.073
+2025-03-13 03:24:58,342 - TEST | Epoch 39 - Eval Avg Accuracy: 0.195%
+2025-03-13 03:24:58,342 - TEST | Epoch 39 - Eval Avg CER: 5.627
+2025-03-13 03:24:58,342 - ----------------------------------------
+2025-03-13 03:24:58,342 - TEST | Epoch 39 - Sample 0
+2025-03-13 03:24:58,342 - TEST | Epoch 39 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 03:24:58,343 - TEST | Epoch 39 - Ground Truth: OCTOBER
+2025-03-13 03:24:58,343 - TEST | Epoch 39 - Sample 1
+2025-03-13 03:24:58,343 - TEST | Epoch 39 - Predicted   : EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+2025-03-13 03:24:58,343 - TEST | Epoch 39 - Ground Truth: USE
+2025-03-13 03:24:58,343 - ----------------------------------------
+2025-03-13 03:24:58,343 - 
+
+2025-03-13 03:31:11,383 - ----------------------------------------
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 | Eval Avg Accuracy: 0.358%
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 | Eval Avg CER: 1.156
+2025-03-13 03:31:11,383 - ----------------------------------------
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 - Sample 0
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 - Predicted   : 1
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 - Ground Truth: GO
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 - Sample 1
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 - Predicted   : E
+2025-03-13 03:31:11,383 - BEAM SEARCH | Epoch 39 - Ground Truth: VILLAS
+2025-03-13 03:31:11,383 - ----------------------------------------
+2025-03-13 03:31:11,383 - 
+
+2025-03-13 03:31:28,403 - ----------------------------------------
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Training Avg Loss: 2.757
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Training Avg Accuracy: 0.342%
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Training Avg CER: 7.552
+2025-03-13 03:31:28,403 - ----------------------------------------
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Sample 0
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Predicted   : Sa
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Ground Truth: Ways
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Sample 1
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Predicted   : 12
+2025-03-13 03:31:28,403 - TRAIN | Epoch 40 - Ground Truth: 95
+2025-03-13 03:31:28,403 - ----------------------------------------
+2025-03-13 03:31:28,403 - 
+
+2025-03-13 03:31:38,104 - ----------------------------------------
+2025-03-13 03:31:38,104 - TEST | Epoch 40 - Eval Avg Loss: 2.932
+2025-03-13 03:31:38,104 - TEST | Epoch 40 - Eval Avg Accuracy: 0.293%
+2025-03-13 03:31:38,104 - TEST | Epoch 40 - Eval Avg CER: 1.191
+2025-03-13 03:31:38,104 - ----------------------------------------
+2025-03-13 03:31:38,104 - TEST | Epoch 40 - Sample 0
+2025-03-13 03:31:38,104 - TEST | Epoch 40 - Predicted   : AAA
+2025-03-13 03:31:38,104 - TEST | Epoch 40 - Ground Truth: HARDWICK
+2025-03-13 03:31:38,105 - TEST | Epoch 40 - Sample 1
+2025-03-13 03:31:38,105 - TEST | Epoch 40 - Predicted   : AAA
+2025-03-13 03:31:38,105 - TEST | Epoch 40 - Ground Truth: isTANBUL
+2025-03-13 03:31:38,105 - ----------------------------------------
+2025-03-13 03:31:38,105 - 
+
+2025-03-13 03:31:38,664 - TEST | Epoch 40 - Best model updated.
+2025-03-13 03:34:29,515 - ----------------------------------------
+2025-03-13 03:34:29,515 - BEAM SEARCH | Epoch 40 | Eval Avg Accuracy: 0.293%
+2025-03-13 03:34:29,515 - BEAM SEARCH | Epoch 40 | Eval Avg CER: 0.951
+2025-03-13 03:34:29,515 - ----------------------------------------
+2025-03-13 03:34:29,515 - BEAM SEARCH | Epoch 40 - Sample 0
+2025-03-13 03:34:29,515 - BEAM SEARCH | Epoch 40 - Predicted   : T
+2025-03-13 03:34:29,515 - BEAM SEARCH | Epoch 40 - Ground Truth: Tango
+2025-03-13 03:34:29,515 - BEAM SEARCH | Epoch 40 - Sample 1
+2025-03-13 03:34:29,516 - BEAM SEARCH | Epoch 40 - Predicted   : A
+2025-03-13 03:34:29,516 - BEAM SEARCH | Epoch 40 - Ground Truth: PARK
+2025-03-13 03:34:29,516 - ----------------------------------------
+2025-03-13 03:34:29,516 - 
+
+2025-03-13 03:34:46,395 - ----------------------------------------
+2025-03-13 03:34:46,395 - TRAIN | Epoch 41 - Training Avg Loss: 2.615
+2025-03-13 03:34:46,395 - TRAIN | Epoch 41 - Training Avg Accuracy: 1.006%
+2025-03-13 03:34:46,395 - TRAIN | Epoch 41 - Training Avg CER: 1.733
+2025-03-13 03:34:46,395 - ----------------------------------------
+2025-03-13 03:34:46,395 - TRAIN | Epoch 41 - Sample 0
+2025-03-13 03:34:46,396 - TRAIN | Epoch 41 - Predicted   : AAAA
+2025-03-13 03:34:46,396 - TRAIN | Epoch 41 - Ground Truth: SPARKY
+2025-03-13 03:34:46,396 - TRAIN | Epoch 41 - Sample 1
+2025-03-13 03:34:46,396 - TRAIN | Epoch 41 - Predicted   : aaai
+2025-03-13 03:34:46,396 - TRAIN | Epoch 41 - Ground Truth: India
+2025-03-13 03:34:46,396 - ----------------------------------------
+2025-03-13 03:34:46,396 - 
+
+2025-03-13 03:34:55,975 - ----------------------------------------
+2025-03-13 03:34:55,975 - TEST | Epoch 41 - Eval Avg Loss: 2.905
+2025-03-13 03:34:55,975 - TEST | Epoch 41 - Eval Avg Accuracy: 0.530%
+2025-03-13 03:34:55,975 - TEST | Epoch 41 - Eval Avg CER: 1.171
+2025-03-13 03:34:55,975 - ----------------------------------------
+2025-03-13 03:34:55,976 - TEST | Epoch 41 - Sample 0
+2025-03-13 03:34:55,976 - TEST | Epoch 41 - Predicted   : TE
+2025-03-13 03:34:55,976 - TEST | Epoch 41 - Ground Truth: REDUCE
+2025-03-13 03:34:55,976 - TEST | Epoch 41 - Sample 1
+2025-03-13 03:34:55,976 - TEST | Epoch 41 - Predicted   : S
+2025-03-13 03:34:55,976 - TEST | Epoch 41 - Ground Truth: TREE
+2025-03-13 03:34:55,976 - ----------------------------------------
+2025-03-13 03:34:55,976 - 
+
+2025-03-13 03:34:56,543 - TEST | Epoch 41 - Best model updated.
+2025-03-13 03:37:15,786 - ----------------------------------------
+2025-03-13 03:37:15,786 - BEAM SEARCH | Epoch 41 | Eval Avg Accuracy: 0.521%
+2025-03-13 03:37:15,786 - BEAM SEARCH | Epoch 41 | Eval Avg CER: 0.872
+2025-03-13 03:37:15,786 - ----------------------------------------
+2025-03-13 03:37:15,786 - BEAM SEARCH | Epoch 41 - Sample 0
+2025-03-13 03:37:15,786 - BEAM SEARCH | Epoch 41 - Predicted   : AR
+2025-03-13 03:37:15,786 - BEAM SEARCH | Epoch 41 - Ground Truth: PARKING
+2025-03-13 03:37:15,786 - BEAM SEARCH | Epoch 41 - Sample 1
+2025-03-13 03:37:15,786 - BEAM SEARCH | Epoch 41 - Predicted   : 1
+2025-03-13 03:37:15,787 - BEAM SEARCH | Epoch 41 - Ground Truth: BROAD
+2025-03-13 03:37:15,787 - ----------------------------------------
+2025-03-13 03:37:15,787 - 
+
+2025-03-13 03:37:32,673 - ----------------------------------------
+2025-03-13 03:37:32,673 - TRAIN | Epoch 42 - Training Avg Loss: 2.580
+2025-03-13 03:37:32,673 - TRAIN | Epoch 42 - Training Avg Accuracy: 1.025%
+2025-03-13 03:37:32,673 - TRAIN | Epoch 42 - Training Avg CER: 1.662
+2025-03-13 03:37:32,673 - ----------------------------------------
+2025-03-13 03:37:32,674 - TRAIN | Epoch 42 - Sample 0
+2025-03-13 03:37:32,674 - TRAIN | Epoch 42 - Predicted   : e
+2025-03-13 03:37:32,674 - TRAIN | Epoch 42 - Ground Truth: pet
+2025-03-13 03:37:32,674 - TRAIN | Epoch 42 - Sample 1
+2025-03-13 03:37:32,674 - TRAIN | Epoch 42 - Predicted   : ROO
+2025-03-13 03:37:32,674 - TRAIN | Epoch 42 - Ground Truth: FOR
+2025-03-13 03:37:32,674 - ----------------------------------------
+2025-03-13 03:37:32,674 - 
+
+2025-03-13 03:37:42,255 - ----------------------------------------
+2025-03-13 03:37:42,255 - TEST | Epoch 42 - Eval Avg Loss: 2.892
+2025-03-13 03:37:42,255 - TEST | Epoch 42 - Eval Avg Accuracy: 0.749%
+2025-03-13 03:37:42,255 - TEST | Epoch 42 - Eval Avg CER: 1.515
+2025-03-13 03:37:42,255 - ----------------------------------------
+2025-03-13 03:37:42,256 - TEST | Epoch 42 - Sample 0
+2025-03-13 03:37:42,256 - TEST | Epoch 42 - Predicted   : Cin
+2025-03-13 03:37:42,256 - TEST | Epoch 42 - Ground Truth: Light
+2025-03-13 03:37:42,256 - TEST | Epoch 42 - Sample 1
+2025-03-13 03:37:42,256 - TEST | Epoch 42 - Predicted   : Ceeee
+2025-03-13 03:37:42,256 - TEST | Epoch 42 - Ground Truth: Home
+2025-03-13 03:37:42,256 - ----------------------------------------
+2025-03-13 03:37:42,256 - 
+
+2025-03-13 03:37:42,842 - TEST | Epoch 42 - Best model updated.
+2025-03-13 03:42:44,810 - ----------------------------------------
+2025-03-13 03:42:44,810 - BEAM SEARCH | Epoch 42 | Eval Avg Accuracy: 1.051%
+2025-03-13 03:42:44,810 - BEAM SEARCH | Epoch 42 | Eval Avg CER: 1.160
+2025-03-13 03:42:44,810 - ----------------------------------------
+2025-03-13 03:42:44,810 - BEAM SEARCH | Epoch 42 - Sample 0
+2025-03-13 03:42:44,810 - BEAM SEARCH | Epoch 42 - Predicted   : aree
+2025-03-13 03:42:44,810 - BEAM SEARCH | Epoch 42 - Ground Truth: advertising
+2025-03-13 03:42:44,810 - BEAM SEARCH | Epoch 42 - Sample 1
+2025-03-13 03:42:44,810 - BEAM SEARCH | Epoch 42 - Predicted   : CCSSae
+2025-03-13 03:42:44,811 - BEAM SEARCH | Epoch 42 - Ground Truth: Roaches
+2025-03-13 03:42:44,811 - ----------------------------------------
+2025-03-13 03:42:44,811 - 
+
+2025-03-13 03:43:01,742 - ----------------------------------------
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Training Avg Loss: 2.573
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Training Avg Accuracy: 1.709%
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Training Avg CER: 2.281
+2025-03-13 03:43:01,743 - ----------------------------------------
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Sample 0
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Predicted   : SSSSR
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Ground Truth: DUKES
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Sample 1
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Predicted   : OOOONONNONONNNNNONNOOONONONNNNNONONNOOONNOOOONNNONNNNONNONNO
+2025-03-13 03:43:01,743 - TRAIN | Epoch 43 - Ground Truth: COMMANDO
+2025-03-13 03:43:01,743 - ----------------------------------------
+2025-03-13 03:43:01,743 - 
+
+2025-03-13 03:43:11,340 - ----------------------------------------
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Eval Avg Loss: 3.049
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Eval Avg Accuracy: 0.856%
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Eval Avg CER: 0.816
+2025-03-13 03:43:11,340 - ----------------------------------------
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Sample 0
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Predicted   : Saa
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Ground Truth: State
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Sample 1
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Predicted   : aaa
+2025-03-13 03:43:11,340 - TEST | Epoch 43 - Ground Truth: Hitam
+2025-03-13 03:43:11,340 - ----------------------------------------
+2025-03-13 03:43:11,340 - 
+
+2025-03-13 03:44:59,557 - ----------------------------------------
+2025-03-13 03:44:59,557 - BEAM SEARCH | Epoch 43 | Eval Avg Accuracy: 0.921%
+2025-03-13 03:44:59,557 - BEAM SEARCH | Epoch 43 | Eval Avg CER: 0.850
+2025-03-13 03:44:59,557 - ----------------------------------------
+2025-03-13 03:44:59,557 - BEAM SEARCH | Epoch 43 - Sample 0
+2025-03-13 03:44:59,557 - BEAM SEARCH | Epoch 43 - Predicted   : AM
+2025-03-13 03:44:59,558 - BEAM SEARCH | Epoch 43 - Ground Truth: MUTUAL
+2025-03-13 03:44:59,558 - BEAM SEARCH | Epoch 43 - Sample 1
+2025-03-13 03:44:59,558 - BEAM SEARCH | Epoch 43 - Predicted   : OOO
+2025-03-13 03:44:59,558 - BEAM SEARCH | Epoch 43 - Ground Truth: OF
+2025-03-13 03:44:59,558 - ----------------------------------------
+2025-03-13 03:44:59,558 - 
+
+2025-03-13 03:45:16,582 - ----------------------------------------
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Training Avg Loss: 2.594
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Training Avg Accuracy: 1.787%
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Training Avg CER: 0.735
+2025-03-13 03:45:16,583 - ----------------------------------------
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Sample 0
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Predicted   : IIIIE
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Ground Truth: UITSLUITLIKE
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Sample 1
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Predicted   : Cr
+2025-03-13 03:45:16,583 - TRAIN | Epoch 44 - Ground Truth: Recruitment
+2025-03-13 03:45:16,583 - ----------------------------------------
+2025-03-13 03:45:16,583 - 
+
+2025-03-13 03:45:26,212 - ----------------------------------------
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Eval Avg Loss: 2.899
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Eval Avg Accuracy: 0.456%
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Eval Avg CER: 6.233
+2025-03-13 03:45:26,212 - ----------------------------------------
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Sample 0
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Predicted   : 22
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Ground Truth: 23
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Sample 1
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Predicted   : 300
+2025-03-13 03:45:26,212 - TEST | Epoch 44 - Ground Truth: 30
+2025-03-13 03:45:26,212 - ----------------------------------------
+2025-03-13 03:45:26,212 - 
+

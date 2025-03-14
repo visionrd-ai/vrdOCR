@@ -17,9 +17,9 @@ log_file = os.path.join(experiment_dir, "training_log.txt")
 logging.basicConfig(filename=log_file, level=logging.INFO, 
                     format="%(asctime)s - %(message)s")
 
-EPOCHS = 100
+EPOCHS = 250
 BATCH_SIZE = 16
-LEARNING_RATE = 3e-5
+LEARNING_RATE = 3e-5 
 GRADIENT_ACCUMULATION_STEPS = 2  
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BEST_MODEL_PATH = os.path.join(experiment_dir, "best_model.pth")
@@ -227,5 +227,5 @@ for epoch in range(EPOCHS):
         torch.save(model.state_dict(), BEST_MODEL_PATH)
         logging.info(f"TEST | Epoch {epoch+1} - Best model updated.")
 
-    beam_search_evaluate(epoch, model, test_loader, tokenizer, 'cuda', beam_size=5)
+    beam_search_evaluate(epoch+1, model, test_loader, tokenizer, 'cuda', beam_size=5)
 logging.info("Training complete!")
