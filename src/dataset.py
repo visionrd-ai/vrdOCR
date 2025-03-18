@@ -192,3 +192,79 @@ def get_swin_dataloader(text_file, image_root, tokenizer, batch_size=4, shuffle=
     collate_fn = get_dynamic_collate_fn(tokenizer)
     dataset = SwinOCR(text_file, image_root, tokenizer=tokenizer, max_length=max_length)
     return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=8, collate_fn=collate_fn)
+
+
+
+class SwinGPTOCR(Dataset):
+    def __init__(self, text_file, image_root, swin_model="microsoft/swin-tiny-patch4-window7-224", tokenizer=None, max_length=128):
+        """
+        Args:
+            text_file: a text file with lines formatted as "img_path<TAB>label".
+            image_root: root directory for images.
+            swin_model: model identifier for the Swin image processor.
+            tokenizer: a tokenizer (e.g. from a pretrained BART model).
+            max_length: maximum target sequence length.
+        """
+        self.image_root = image_root 
+        self.max_length = max_length  
+
+        with open(text_file, "r") as f:
+            lines = f.readlines()
+        # Expecting each line to contain two fields: image_path and corresponding label.
+        self.data = [line.strip().split("\t") for line in lines]
+
+        self.image_processor = AutoImageProcessor.from_pretrained("microsoft/swin-tiny-patch4-window7-224")
+        if tokenizer is None:
+            raise ValueError("A tokenizer is required.")
+        self.tokenizer = tokenizer
+
+        self.transforms = A.Compose([
+            A.RandomBrightnessContrast(p=0.4),              # Random brightness/contrast adjustment
+            A.GaussNoise(var_limit=(10.0, 50.0), p=0.4),       # Add random noise
+            A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.1, rotate_limit=5, p=0.4),  # Random shift/scale/rotate
+            A.ToFloat(),                                      # Normalize to 0-1 range
+        ])
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        relative_img_path, label = self.data[idx]
+        img_path = os.path.join(relative_img_path)
+
+        image = Image.open(img_path).convert("RGB")
+        image_np = np.array(image)
+    
+        augmented = self.transforms(image=image_np)
+        image_np = augmented["image"]
+        
+        image = Image.fromarray((image_np * 255).astype(np.uint8))
+        image = self.image_processor(image, return_tensors="pt")["pixel_values"].squeeze(0)
+
+        tokenized = self.tokenizer(
+            label, 
+            add_special_tokens=False,  
+            truncation=False, 
+            return_tensors="pt"
+        )
+        input_ids = tokenized["input_ids"].squeeze(0)
+        
+        # Manually add the special tokens expected by BART.
+        decoder_start_token_id = self.tokenizer.convert_tokens_to_ids(self.tokenizer.bos_token)
+        decoder_end_token_id = self.tokenizer.convert_tokens_to_ids(self.tokenizer.eos_token)
+        input_ids = torch.cat([
+            torch.tensor([decoder_start_token_id]),
+            input_ids,
+            torch.tensor([decoder_end_token_id])
+        ], dim=0)
+
+        # Create an attention mask (here we use 1s for all tokens).
+        attention_mask = torch.ones(input_ids.shape, dtype=torch.long)
+        
+        return image, input_ids, attention_mask
+
+
+def get_swingpt_dataloader(text_file, image_root, tokenizer, batch_size=4, shuffle=True, max_length=128):
+    collate_fn = get_dynamic_collate_fn(tokenizer)
+    dataset = SwinGPTOCR(text_file, image_root, tokenizer=tokenizer, max_length=max_length)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=8, collate_fn=collate_fn)

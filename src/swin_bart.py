@@ -31,14 +31,14 @@ class Swin_BARTDecoder(nn.Module):
         # self.bart = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
         config = BartConfig(
             d_model=768, 
-            decoder_layers=3, 
-            decoder_ffn_dim=2048, 
-            decoder_attention_heads=8,
+            decoder_layers=2, 
+            decoder_ffn_dim=1024, 
+            decoder_attention_heads=2,
         )
         self.bart = BartForConditionalGeneration(config)
         self.bart.resize_token_embeddings(vocab_size)
 
-    def forward(self, images, tgt_input_ids, attention_mask=None):
+    def forward_teacher_forcing(self, images, tgt_input_ids, attention_mask=None):
         """
         During training, tgt_input_ids (with bos token) are provided
         and the image encoder outputs are passed as cross-attention memory.
@@ -55,6 +55,47 @@ class Swin_BARTDecoder(nn.Module):
             attention_mask=attention_mask
         )
         logits = outputs.logits  # (batch, tgt_seq_len, vocab_size)
+        return logits
+    
+    def forward(self, images, tgt_input_ids, attention_mask=None, sampling_probability=0.0):
+        """
+        Args:
+            images: Input images.
+            tgt_input_ids: Tensor of shape (batch_size, seq_len) with ground truth token ids.
+            sampling_probability: Probability of using the model's prediction instead of the ground truth at each time step.
+                                This value should be scheduled (increased) over training epochs.
+        Returns:
+            logits: Tensor of shape (batch_size, seq_len, vocab_size)
+        """
+        encoder_outputs = self.swin(images).last_hidden_state
+        encoder_outputs = self.projection(encoder_outputs)
+        encoder_outputs = self.encoder_pos(encoder_outputs)
+        encoder_outputs = BaseModelOutput(last_hidden_state=encoder_outputs)
+        
+        batch_size, seq_length = tgt_input_ids.size()  # e.g., seq_length might be 6 (BOS + 5 tokens)
+        device = tgt_input_ids.device
+
+        decoder_input_ids = tgt_input_ids[:, 0].unsqueeze(1)  # shape: (batch_size, 1)
+        all_logits = []
+        
+        for t in range(seq_length - 1):
+            outputs = self.bart(
+                input_ids=decoder_input_ids,
+                encoder_outputs=encoder_outputs,
+            )
+            logits = outputs.logits[:, -1, :]  # (batch_size, vocab_size)
+            all_logits.append(logits.unsqueeze(1))
+            
+            probs = torch.softmax(logits, dim=-1)
+            predicted_tokens = torch.multinomial(probs, num_samples=1)  # (batch_size, 1)
+            
+            use_pred = (torch.rand(batch_size, device=device) < sampling_probability).unsqueeze(1)
+            ground_truth_tokens = tgt_input_ids[:, t+1].unsqueeze(1)
+            next_tokens = torch.where(use_pred, predicted_tokens, ground_truth_tokens)
+            
+            decoder_input_ids = torch.cat([decoder_input_ids, next_tokens], dim=1)
+        
+        logits = torch.cat(all_logits, dim=1)  # Shape: (batch_size, seq_length - 1, vocab_size)
         return logits
 
     def generate(self, images, beam_size=3, max_length=50,
@@ -105,7 +146,8 @@ class Swin_BARTDecoder(nn.Module):
                         break
                 
                 best_sequence = beam[0][0]
+                best_sequence = best_sequence[:max_length]
                 if len(best_sequence) < max_length:
-                    best_sequence = best_sequence + [pad_token_id] * (max_length - len(best_sequence))
+                    best_sequence += [pad_token_id] * (max_length - len(best_sequence))
                 generated_sequences.append(torch.tensor(best_sequence, device=device))
             return torch.stack(generated_sequences)
