@@ -88,17 +88,16 @@ for epoch in range(EPOCHS):
         'batch_cers': [],
     }
     optimizer.zero_grad()
-    sampling_probability = (epoch / (EPOCHS - 1)) * max_sampling_prob
-    for i, batch in enumerate(tqdm(train_loader, desc=f"Epoch {epoch+1} (s={sampling_probability:.2f}) [Training]")):
+    # sampling_probability = (epoch / (EPOCHS - 1)) * max_sampling_prob
+    for i, batch in enumerate(tqdm(train_loader, desc=f"Epoch {epoch+1} [Training]")):
         images, input_ids, attention_mask = batch
         
         images = images.to(DEVICE)
         input_ids = input_ids.to(DEVICE)
-        # decoder_input_ids = input_ids[:, :-1]
+        decoder_input_ids = input_ids[:, :-1]
         decoder_target_ids = input_ids[:, 1:]
         
-        # outputs = model(images, decoder_input_ids, sampling_probability=sampling_probability)
-        outputs = model(images, input_ids, sampling_probability=sampling_probability)
+        outputs = model(images, decoder_input_ids)
         
         loss = loss_fn(outputs.contiguous().view(-1, outputs.size(-1)),
                        decoder_target_ids.contiguous().view(-1))

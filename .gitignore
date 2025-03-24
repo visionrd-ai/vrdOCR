@@ -11,3 +11,4 @@ __pycache__/
 *.dll
 data/
 exp
+wandb/

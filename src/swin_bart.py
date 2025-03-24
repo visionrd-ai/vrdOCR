@@ -26,6 +26,7 @@ class Swin_BARTDecoder(nn.Module):
         super().__init__()
         self.swin = SwinModel.from_pretrained("microsoft/swin-tiny-patch4-window7-224")
         self.projection = nn.Linear(768, 768)
+        self.projection_dropout = nn.Dropout(dropout)
         self.encoder_pos = PositionalEncoding(768, dropout)
         
         # self.bart = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
@@ -34,11 +35,12 @@ class Swin_BARTDecoder(nn.Module):
             decoder_layers=2, 
             decoder_ffn_dim=1024, 
             decoder_attention_heads=2,
+            dropout=0.2
         )
         self.bart = BartForConditionalGeneration(config)
         self.bart.resize_token_embeddings(vocab_size)
 
-    def forward_teacher_forcing(self, images, tgt_input_ids, attention_mask=None):
+    def forward(self, images, tgt_input_ids, attention_mask=None):
         """
         During training, tgt_input_ids (with bos token) are provided
         and the image encoder outputs are passed as cross-attention memory.
@@ -57,7 +59,7 @@ class Swin_BARTDecoder(nn.Module):
         logits = outputs.logits  # (batch, tgt_seq_len, vocab_size)
         return logits
     
-    def forward(self, images, tgt_input_ids, attention_mask=None, sampling_probability=0.0):
+    def forward_sampling(self, images, tgt_input_ids, attention_mask=None, sampling_probability=0.0):
         """
         Args:
             images: Input images.
