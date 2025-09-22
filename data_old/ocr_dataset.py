@@ -3,7 +3,7 @@ import cv2
 import torch 
 from data_old.imaug.label_ops import MultiLabelEncode
 class OCRDataset:
-    def __init__(self, input_dir, split, transforms = {}):
+    def __init__(self, input_dir, split, transforms = {}, logger = None):
         """
         Initializes the OCRDataset.
 
@@ -12,22 +12,28 @@ class OCRDataset:
         - split (str): Split name, either 'train' or 'val'.
         - label_file (str): Path to the label file with image names and OCR labels.
         """
+        self.logger = logger
         self.input_dir = input_dir
         self.split = split
         label_file = self.input_dir#os.path.join(self.input_dir, self.split, 'annotations.txt')
         self.image_paths = []
         self.labels = []
         self.transforms = transforms
+        self.dropped = 0 
         with open(label_file, 'r') as f:
             for line in f:
                 parts = line.strip().split('\t')
                 if len(parts) == 2:
                     img_name, label = parts
-                    img_path = img_name#.replace('/home/amur/Amur/vrdOCR/datasets', '/media/multi-gpu/a8273530-9f9a-4732-b603-1bd8f18040dc/vrOCR-latest/datasets')#os.path.join(input_dir, split, img_name)
+                    img_path = img_name.replace('/home/amur/Amur/vrdOCR/datasets', '/home/user/vrdOCR/datasets')#os.path.join(input_dir, split, img_name)
+                    test = cv2.imread(img_path)
+                    if test is None or test.size == 0 or 0 in test.shape:
+                        self.dropped +=1
+                        continue 
                     self.image_paths.append(img_path)
                     self.labels.append(label)
                     
-        print(f"Loaded {len(self.image_paths)} images from {label_file}")
+        print(f"Loaded {len(self.image_paths)} images from {label_file}, dropped {self.dropped}")
         self.encoder = MultiLabelEncode(
             max_text_length = 150,
             character_dict_path = 'utils/en_dict.txt',
@@ -50,21 +56,24 @@ class OCRDataset:
         - img (ndarray): Loaded image in BGR format.
         - label (str): Corresponding OCR label.
         """
-        img_path = self.image_paths[idx]
-        label = self.labels[idx]
-        img = cv2.imread(img_path)
+        try:
+            img_path = self.image_paths[idx]
+            label = self.labels[idx]
+            img = cv2.imread(img_path)
 
-        if self.transforms:
-            img = self.transforms(image=img)['image']
+            if self.transforms:
+                img = self.transforms(image=img)['image']
 
-        if img is None:
-            raise FileNotFoundError(f"Image not found at path: {img_path}")
-        # try:
-        encoded_label = self.encoder({'image':img,'label':label})#self.encoder(label)
-        # encoded_label = encoded_label['label_ctc']
-        encoded_label = [torch.tensor(val) for val in [encoded_label['label_ctc'], encoded_label['label_gtc'], encoded_label['length']]]#encoded_label.values()]
-        # except:
-        #     print(f"\n\nLABEL: {label}\nENC: {encoded_label}")
-        #     import pdb; pdb.set_trace()
-        # Return individual items (image, label) instead of combining them into a batch
-        return [torch.tensor(img)] + encoded_label + [torch.tensor(1.0)]
+            if img is None:
+                raise FileNotFoundError(f"Image not found at path: {img_path}")
+            encoded_label = self.encoder({'image':img,'label':label})#self.encoder(label)
+            # encoded_label = encoded_label['label_ctc']
+            encoded_label = [torch.tensor(val) for val in [encoded_label['label_ctc'], encoded_label['label_gtc'], encoded_label['length']]]#encoded_label.values()]
+
+            return [torch.tensor(img)] + encoded_label + [torch.tensor(1.0)]
+        except: 
+            self.logger.info(f"Error loading image at index {idx}, passing dummy data")
+            dummy = torch.randn(3,32,100)
+            dummy_label = torch.ones(150)
+            dummy_length = torch.tensor(10)
+            return [dummy] + [dummy_label.long(), dummy_label.long(), dummy_length.long()] + [dummy_length.long()]

@@ -90,7 +90,7 @@ transform = A.Compose([
 
 eval_transform = A.Compose([
     A.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),
-    A.Resize(width=640, height=64),
+    A.Resize(width=320, height=32),
     ToTensorV2()
 ])
 
@@ -104,8 +104,7 @@ batch_size = 2
 dataset = data_old.toyota_dataset.ToyotaDataset(input_dir=args.dataset_train, split='train', transforms=transform)
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8)
 
-eval_dataset = data_old.toyota_dataset.ToyotaDataset(input_dir=args.dataset_val, split='val', transforms=eval_transform)
-# eval_dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_val, split='test', transforms=eval_transform)
+eval_dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_val, split='test', transforms=eval_transform)
 eval_dataloader = torch.utils.data.DataLoader(eval_dataset, batch_size=batch_size, shuffle=False, num_workers=8)
 
 loss_config = {'loss_config_list': [{'CTCLoss': None}, {'NRTRLoss': None}]}

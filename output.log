@@ -1,0 +1,50 @@
+nohup: ignoring input
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.3 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+2025-02-07 17:03:38,073 [INFO] Compiling model...
+2025-02-07 17:03:38,073 [INFO] Compilation complete!
+Loaded 7652525 images from datasets/train_iiit_textcaps_syn90.txt
+Loaded 875547 images from datasets/val_iiit_textcaps_syn90.txt
+2025-02-07 17:04:18,355 [INFO] Epoch 0/200, Batch 0/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.027 | Total Loss: 632.853 | CTC Loss: 627.320 | NRTR Loss: 5.533
+2025-02-07 17:04:57,639 [INFO] Epoch 0/200, Batch 10/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.052 | Total Loss: 489.205 | CTC Loss: 485.852 | NRTR Loss: 3.353
+2025-02-07 17:05:34,448 [INFO] Epoch 0/200, Batch 20/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.064 | Total Loss: 439.909 | CTC Loss: 436.695 | NRTR Loss: 3.215
+2025-02-07 17:06:11,613 [INFO] Epoch 0/200, Batch 30/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.071 | Total Loss: 407.375 | CTC Loss: 404.194 | NRTR Loss: 3.180
+2025-02-07 17:07:17,831 [INFO] Epoch 0/200, Batch 40/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.068 | Total Loss: 389.245 | CTC Loss: 386.146 | NRTR Loss: 3.099
+2025-02-07 17:07:58,752 [INFO] Epoch 0/200, Batch 50/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.074 | Total Loss: 378.103 | CTC Loss: 375.048 | NRTR Loss: 3.055
+2025-02-07 17:08:37,357 [INFO] Epoch 0/200, Batch 60/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.091 | Total Loss: 362.628 | CTC Loss: 359.555 | NRTR Loss: 3.073
+2025-02-07 17:09:16,417 [INFO] Epoch 0/200, Batch 70/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.098 | Total Loss: 331.313 | CTC Loss: 328.311 | NRTR Loss: 3.002
+2025-02-07 17:10:21,232 [INFO] Epoch 0/200, Batch 80/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.102 | Total Loss: 335.092 | CTC Loss: 332.103 | NRTR Loss: 2.989
+2025-02-07 17:10:58,949 [INFO] Epoch 0/200, Batch 90/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.089 | Total Loss: 312.357 | CTC Loss: 309.386 | NRTR Loss: 2.971
+2025-02-07 17:11:37,835 [INFO] Epoch 0/200, Batch 100/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.097 | Total Loss: 308.551 | CTC Loss: 305.578 | NRTR Loss: 2.973
+2025-02-07 17:12:13,563 [INFO] Epoch 0/200, Batch 110/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.082 | Total Loss: 308.727 | CTC Loss: 305.756 | NRTR Loss: 2.971
+2025-02-07 17:13:13,400 [INFO] Epoch 0/200, Batch 120/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.093 | Total Loss: 288.065 | CTC Loss: 285.133 | NRTR Loss: 2.932
+Premature end of JPEG file
+2025-02-07 17:13:52,467 [INFO] Epoch 0/200, Batch 130/14947 | Train Accuracy: 0.000% | Norm Edit Distance: 0.087 | Total Loss: 275.351 | CTC Loss: 272.424 | NRTR Loss: 2.928
+Traceback (most recent call last):
+  File "train_pytorch.py", line 152, in <module>
+    for batch_idx, batch in enumerate(dataloader):
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1324, in _next_data
+    return self._process_data(data)
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1370, in _process_data
+    data.reraise()
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/torch/_utils.py", line 706, in reraise
+    raise exception
+TypeError: Caught TypeError in DataLoader worker process 6.
+Original Traceback (most recent call last):
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 309, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/media/multi-gpu/a8273530-9f9a-4732-b603-1bd8f18040dc/vrOCR-latest/data/ocr_dataset.py", line 58, in __getitem__
+    img = self.transforms(image=img)['image']
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/albumentations/core/composition.py", line 269, in __call__
+    self.preprocess(data)
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/albumentations/core/composition.py", line 297, in preprocess
+    self._check_args(**data)
+  File "/home/multi-gpu/anaconda3/envs/svtas/lib/python3.8/site-packages/albumentations/core/composition.py", line 362, in _check_args
+    raise TypeError(f"{data_name} must be numpy array type")
+TypeError: image must be numpy array type
+
