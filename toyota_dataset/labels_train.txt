@@ -1,0 +1,68 @@
+0.png	TOYOTA
+1.png	DAIHATSU
+2.png	INDUS MOTOR COMPANY LIMITED
+3.png	SALES CERTIFICATE
+4.png	SERIAL #: A514073
+5.png	Certificate No.
+6.png	: 0090882335001
+7.png	Date
+8.png	: 09.02.2021
+9.png	Certifed that the undermentioned vehicle has been sold to:
+10.png	Company : ABDUL RAB
+11.png	11th FLOOR, EXECUTIVE TOWER,DOLMEN CITY MARINE 
+12.png	DRIVE, BLOCK-4,CLIFTON 
+13.png	KARACHI
+14.png	Model Code
+15.png	: YARIS 662B 1.5 CVT
+16.png	: 1D4 Silver
+17.png	Color
+18.png	Model Description
+19.png	: YARIS 662B ATIV X CVT 1496CC
+20.png	Engine No.
+21.png	: 2A18474
+22.png	Chassis No.
+23.png	: NSP151R-9507502
+24.png	Dealer's Signature / Stamp :
+25.png	All applicable duties and taxes on this vehicle have been paid.
+26.png	Form H
+27.png	Document to be furnished by the maker or Authorized Assembler / Sole Distributor in the case of
+28.png	Transport Vehicle other than Motor Cabs.
+29.png	Cetifed that the under mentioned vehicle has been manufactured by Indus Motor Comany Limited, Pakistan and is designed for
+30.png	maximum weight as follows:
+31.png	Model Code
+32.png	: YARIS 662B 1.5 CVT
+33.png	Color
+34.png	: 1D4 Silver
+35.png	Model Description
+36.png	: YARIS 662B ATIV X CVT 1496CC
+37.png	Engine No.
+38.png	: 2A18474
+39.png	Chassis No.
+40.png	: NSP151R-9507502
+41.png	Maximum Laden Weight
+42.png	: 1135 KGS
+43.png	Maximum Weight Front Axle
+44.png	: 685 KGS
+45.png	Maximum Weight Rear Axle
+46.png	: 450 KGS
+47.png	Wheelbase
+48.png	: 2550 MM
+49.png	Tyres:
+50.png	Front Wheels
+51.png	: 185/60 R15
+52.png	Rear Wheels
+53.png	: 185/60 R15
+54.png	The vehicle has been manufactured / assembled in 2021
+55.png	For INDUS MOTOR COMPANY LIMITED
+56.png	Certificate No.
+57.png	: 0090882335001
+59.png	: 2021
+60.png	Invoice No.
+61.png	: 90882335
+62.png	This Certificate is beng issued without any cuttings, alterations or additions.
+63.png	(Authorized Signature)
+64.png	Factory / Registered Office : Plot No. N.W.Z. I/P-I, Port Qasim Authority, Karachi. Phone:(92-21) 3472044-47 Fax : (92-21) 34720037.
+65.png	Islamabad Office
+66.png	:1-B, Ist Floor, Awan Arcade, Nazimuddin Road, Islamabad. Phone:(92-51) 28103001, Fax: (92-51) 2810302.
+67.png	Lahore Office
+68.png	: Metro Store, Block-G, Link Road, Model Town, Lahore. Phones:(92-42) 35926465.

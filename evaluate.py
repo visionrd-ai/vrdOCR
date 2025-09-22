@@ -2,8 +2,8 @@ import argparse
 import torch
 import json
 from src.vrd_ocr import vrdOCR
-import data
-from utils.postprocess import CTCLabelDecode
+import data_old
+from utils_old.postprocess import CTCLabelDecode
 from src.metric import RecMetric
 import logging
 import os
@@ -59,7 +59,7 @@ model = load_weights(model, args.model_path)
 model.eval()
 
 # Initialize data loader for evaluation
-eval_dataset = data.simple_dataset.SimpleDataSet(config=config, mode='Eval', logger=None, seed=None)
+eval_dataset = data_old.simple_dataset.SimpleDataSet(config=config, mode='Eval', logger=None, seed=None)
 eval_sampler = BatchSampler(eval_dataset, batch_size=args.batch_size, shuffle=False, drop_last=False)
 eval_data_loader = DataLoader(
     dataset=eval_dataset,

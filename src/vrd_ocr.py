@@ -3,7 +3,7 @@ import torch.nn as nn
 from src.lcnet_backbone import LCNet
 from src.multi_head import MultiHead, CTCHead
 # from src.clip_backbone import CLIPEncoder
-from utils.postprocess import CTCLabelDecode
+from utils_old.postprocess import CTCLabelDecode
 from src.resnet_backbone import ResNet, Bottleneck
 from src.hrnet_backbone import hrnet32
 from src.dla34_backbone import dla34, dla34_fpn

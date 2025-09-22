@@ -7,8 +7,9 @@ import string
 
 class RecMetric(object):
     def __init__(
-        self, main_indicator="acc", is_filter=False, ignore_space=True, **kwargs
+        self, logger, main_indicator="acc", is_filter=False, ignore_space=False, **kwargs
     ):
+        self.logger = logger
         self.main_indicator = main_indicator
         self.is_filter = is_filter
         self.ignore_space = ignore_space
@@ -28,6 +29,7 @@ class RecMetric(object):
         norm_edit_dis = 0.0
         fail_idxs = []
         fail_idx = 0 
+        close_examples = []
         for (pred, pred_conf), (target, _) in zip(preds, labels):
             
             if self.ignore_space:
@@ -40,8 +42,19 @@ class RecMetric(object):
             if pred == target:
                 correct_num += 1
             else:
-                if print_fail:
-                    print(f"Prediction: {pred} != {target}")
+                def is_close(pred, target, sim_thresh=0.8):
+                    # pre-clean (optional, but helps in OCR use-cases)
+                    p = pred.strip()
+                    t = target.strip()
+                    # you can also .lower() if case doesn’t matter
+                    sim = Levenshtein.normalized_similarity(p, t)  # in [0,1]
+                    return sim >= sim_thresh, sim
+
+                # Example usage in a loop
+                norm_edit_dis += norm_edit_dis
+                is_ok, sim = is_close(pred, target, sim_thresh=0.85)
+                if is_ok:
+                    close_examples.append((pred, target, sim))
 
                 fail_idxs.append(fail_idx)
             
@@ -54,7 +67,8 @@ class RecMetric(object):
         return {
             "acc": 100 * correct_num / (all_num + self.eps) ,
             "norm_edit_dis": 1 - norm_edit_dis / (all_num + self.eps),
-            "fail_cases": fail_idxs
+            "fail_cases": fail_idxs,
+            "close_examples": close_examples    
         }
 
     def get_metric(self):

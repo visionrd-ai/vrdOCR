@@ -12,3 +12,5 @@ fail_cases
 *.png
 *.pyc
 *.zip
+temp/
+annontations/

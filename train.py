@@ -4,14 +4,14 @@ import json
 import os
 import datetime
 from src.vrd_ocr import vrdOCR
-import data
+import data_old
 import torch
 from paddle.io import BatchSampler, DataLoader
 from src.multi_loss import MultiLoss
 import paddle.distributed as dist
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
-from utils.postprocess import CTCLabelDecode
+from utils_old.postprocess import CTCLabelDecode
 from src.metric import RecMetric
 import editdistance
 
@@ -76,12 +76,12 @@ def load_weights(model, path):
         return model
     return model
 
-model = load_weights(model, args.model_path)
+# model = load_weights(model, args.model_path)
 start_epoch, end_epoch=0,0
 decoder = CTCLabelDecode(character_dict_path='utils/en_dict.txt', use_space_char=True)
 
-dataset = data.simple_dataset.MultiScaleDataSet(config=config, mode='Train', logger=None, seed=None)
-sampler = data.multi_scale_sampler.MultiScaleSampler(dataset, **config['Train']['sampler'])
+dataset = data_old.simple_dataset.MultiScaleDataSet(config=config, mode='Train', logger=None, seed=None)
+sampler = data_old.multi_scale_sampler.MultiScaleSampler(dataset, **config['Train']['sampler'])
 loss_config = {'loss_config_list': [{'CTCLoss': None}, {'NRTRLoss': None}]}
 loss_fn = MultiLoss(**loss_config)
 optimizer = optim.Adam(model.parameters(), lr=1e-4)
@@ -99,7 +99,7 @@ data_loader = DataLoader(
     collate_fn=None,
 )
 
-eval_dataset = data.simple_dataset.SimpleDataSet(config=config, mode='Eval', logger=None, seed=None)
+eval_dataset = data_old.simple_dataset.SimpleDataSet(config=config, mode='Eval', logger=None, seed=None)
 eval_sampler = BatchSampler(dataset=eval_dataset, batch_size=config['Eval']['loader']['batch_size_per_card'], shuffle=False, drop_last=False)
 eval_data_loader = DataLoader(
     dataset=eval_dataset,
@@ -143,6 +143,7 @@ def evaluate(epc, eval_iter, model, eval_loader):
         torch.save(model.state_dict(), best_model_path)
         logger.info(f"New best model saved with accuracy: {best_accuracy}% at {best_model_path}")
 
+best_accuracy = 0.0  # Reset best accuracy for the new run
 for epc in range(start_epoch, num_epochs):
     epoch_accuracies = []
     eval_iter = 0
@@ -177,7 +178,10 @@ for epc in range(start_epoch, num_epochs):
             # torch.save(model.state_dict(), weight_filename)
  
         epoch_accuracies.append(accuracies['acc'])
-    
+    accuracy = sum(epoch_accuracies) / len(epoch_accuracies)
+    if best_accuracy < accuracy:
+        best_accuracy = accuracy
+        torch.save(model.state_dict(), os.path.join(run_dir, f'{args.run_name}_best_model.pth'))
     print(f"{100*'_'}\nEpoch {epc}/{num_epochs} | Accuracy: {sum(epoch_accuracies)/len(epoch_accuracies)}%\n{100*'_'}")
     logger.info(f"Epoch {epc} Accuracy: {sum(epoch_accuracies)/len(epoch_accuracies)}%")
     scheduler.step()

@@ -1,0 +1,31 @@
+{
+    'name': 'MultiHead',
+    'head_list': [
+        {
+            'CTCHead': {
+                'Neck': {
+                    'name': 'svtr',
+                    'dims': 120,
+                    'depth': 2,
+                    'hidden_dims': 120,
+                    'kernel_size': [1, 3],
+                    'use_guide': True
+                },
+                'Head': {
+                    'fc_decay': 1e-05
+                }
+            }
+        },
+        {
+            'NRTRHead': {
+                'nrtr_dim': 384,
+                'max_text_length': 150
+            }
+        }
+    ],
+    'out_channels_list': {
+        'CTCLabelDecode': 97,
+        'NRTRLabelDecode': 100
+    },
+    'in_channels': 480
+}

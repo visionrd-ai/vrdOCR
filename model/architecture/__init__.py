@@ -1,0 +1,1 @@
+from model.architecture.vrd_ocr import vrdOCR

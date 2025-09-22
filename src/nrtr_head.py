@@ -250,7 +250,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-from utils.postprocess import CTCLabelDecode, NRTRLabelDecode
+from utils_old.postprocess import NRTRLabelDecode
 
 class Transformer(nn.Module):
     """A transformer model. User is able to modify the attributes as needed. The architecture
@@ -283,7 +283,7 @@ class Transformer(nn.Module):
         scale_embedding=True,
     ):
         super(Transformer, self).__init__()
-        self.text_dec = NRTRLabelDecode(character_dict_path='utils/en_dict.txt', use_space_char=True)
+        # self.text_dec = NRTRLabelDecode(character_dict_path='utils_old/en_dict.txt', use_space_char=True)
         self.out_channels = out_channels + 1
         self.max_len = max_len
         self.embedding = Embeddings(

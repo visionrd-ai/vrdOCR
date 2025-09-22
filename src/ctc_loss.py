@@ -8,7 +8,6 @@ import paddle.nn as pNN
 import torch.nn.functional as F
 import paddle 
 
-
 class CTCLoss(nn.Module):
     def __init__(self, use_focal_loss=False, **kwargs):
         super(CTCLoss, self).__init__()
