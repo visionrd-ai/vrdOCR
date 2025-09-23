@@ -1,7 +1,7 @@
 MODEL:
   architecture: vrdOCR
   backbone:
-    name: HRNET32
+    name: HRNET18
     freeze_backbone: false
     pretrained: false
 
@@ -11,46 +11,36 @@ MODEL:
 
     out_channels_list:
       CTCLabelDecode: 97
-      NRTRLabelDecode: 100
 
     head_list:
-      - name: CTCHead
+      - name: CTCHeadV2
         decoder_key: CTCLabelDecode
         fc_decay: 1.0e-5
         neck:
-          name: svtr
+          name: SequenceEncoderNeckV2
           dims: 120
           depth: 2
           hidden_dims: 120
           kernel_size: [1, 3]
           use_guide: true
-          
-
-      - name: NRTRHead
-        decoder_key: NRTRLabelDecode
-        nrtr_dim: 384
-        max_text_length: 150
   loss:
     name: MultiLoss
     loss_config_list:
-      - name: CTCLoss
-      - name: NRTRLoss
-        weight: 0.0
+      - name: CTCLossV2
+
 
 DECODER:
   - name: CTCLabelDecode
     character_dict_path: ./data/en_dict.txt
     use_space_char: true
-  - name: NRTRLabelDecode
-    character_dict_path: ./data/en_dict.txt
-    use_space_char: true
+
 
 TRAIN:
   epochs: 1000
   lr: 0.0001
   save_interval: 50
-  print_interval: 100
-  eval_interval: 100
+  print_interval: 2
+  eval_interval: 2
   resume_checkpoint: null
   device: cuda:0
 

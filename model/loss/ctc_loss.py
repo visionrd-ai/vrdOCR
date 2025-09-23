@@ -1,38 +1,41 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import torch
 import torch.nn as nn
-import paddle.nn as pNN
+import torch.nn.functional as F
 from model.registeries import LOSSES
 
 @LOSSES.register(name="CTCLoss")
 class CTCLoss(nn.Module):
-    def __init__(self, use_focal_loss=False, **kwargs):
-        super(CTCLoss, self).__init__()
-        self.loss_func = pNN.CTCLoss(blank=0, reduction="none")
-        self.loss_torch = nn.CTCLoss(blank=0, reduction="none")
-        self.use_focal_loss = use_focal_loss
+    def __init__(self, blank: int = 0, reduction: str = "mean", zero_infinity: bool = True, **kwargs):
+        super().__init__()
+        self.ctc = nn.CTCLoss(blank=blank, reduction=reduction, zero_infinity=zero_infinity)
 
-    def forward(self, predicts, batch):
-        if isinstance(predicts, (list, tuple)):
-            predicts = predicts[-1]
-        predicts = predicts.permute(1, 0, 2)  # Transpose to (T, N, C) for PyTorch
-        N, B, _ = predicts.shape
-        preds_lengths = torch.full(size=(B,), fill_value=N, dtype=torch.int64)
-        labels = batch[1].to(torch.int32)  # Convert labels to int32
-        label_lengths = batch[2].to(torch.int64)  # Convert label lengths to int64
-        labels = labels[labels!=0]
-        loss =self.loss_torch(predicts.log_softmax(2),labels,preds_lengths,label_lengths)
-        # loss = torch.tensor(self.loss_func(paddle.Tensor(predicts.cpu().detach().numpy()), paddle.Tensor(labels.cpu().detach().numpy()), paddle.Tensor(preds_lengths.cpu().detach().numpy()), paddle.Tensor(label_lengths.cpu().detach().numpy())).numpy())
-        # loss = self.loss_func(predicts, labels, preds_lengths, label_lengths)
+    def forward(self, pred, batch):
+        """
+        pred: (B, T, C) logits
+        batch: [images, labels_ctc, target_lengths?, valid_ratio?]
+        """
+        labels = batch[1]
+        tgt_lengths = batch[2] if len(batch) > 2 else None
 
-        if self.use_focal_loss:
-            weight = torch.exp(-loss)
-            weight = 1.0 - weight
-            weight = weight ** 2
-            loss = loss * weight
-        
-        loss = loss.mean()
+        B, T, C = pred.shape
+
+        # compute CTC in fp32 to avoid bf16 pitfalls
+        with torch.cuda.amp.autocast(enabled=False):
+            logp = F.log_softmax(pred.float(), dim=2)      # (B, T, C)
+            logp = logp.permute(1, 0, 2).contiguous()      # (T, B, C)
+
+            input_lengths = torch.full(
+                size=(B,), fill_value=T, dtype=torch.long, device=pred.device
+            )
+
+            if labels.dim() == 2:
+                PAD = 0
+                tgt_lengths = (labels != PAD).sum(dim=1).to(torch.long) if tgt_lengths is None else tgt_lengths.to(torch.long)
+                targets = labels[labels != PAD].to(torch.long)
+            else:
+                targets = labels.to(torch.long)
+                if tgt_lengths is None:
+                    raise ValueError("[CTCLoss] Packed targets require target_lengths.")
+
+            loss = self.ctc(logp, targets, input_lengths, tgt_lengths)
         return {"loss": loss}

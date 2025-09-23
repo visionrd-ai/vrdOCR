@@ -1,5 +1,7 @@
 import torch.nn as nn
+import torch
 from functools import partial
+from typing import Dict, Any
 from model.neck.encoders import SequenceEncoder
 from model.registeries import NECKS
 
@@ -31,6 +33,34 @@ class SequenceEncoderNeck(nn.Module):
 
     def forward(self, x):
         return self.core(x)
+      
+
+class SequenceEncoderNeckV2(nn.Module):
+    """
+    Wraps your SequenceEncoder so heads get a clean (N, T, C) sequence.
+    Config example:
+      neck:
+        name: SequenceEncoderNeck
+        encoder_type: svtr
+        dims: 120
+        depth: 2
+        hidden_dims: 120
+        kernel_size: [1,3]
+        use_guide: true
+    """
+    def __init__(self, in_channels: int, **kwargs: Dict[str, Any]):
+        super().__init__()
+        # Pass through exactly what your SequenceEncoder expects
+        self.core = SequenceEncoder(in_channels=in_channels, **kwargs)
+        self.out_channels = self.core.out_channels  # channel dim at sequence step
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """
+        x: (N, C, H, W) -> seq: (N, T, C_out)
+        """
+        seq = self.core(x)   # your SequenceEncoder already returns (N, T, C)
+        return seq
+
 
 
 def register_default_necks():
@@ -41,6 +71,8 @@ def register_default_necks():
     #     dims: 120
     #     depth: 2
     NECKS.register(name="SequenceEncoder")(SequenceEncoderNeck)
+    
+    NECKS.register(name="SequenceEncoderNeckV2")(SequenceEncoderNeckV2)
 
     # Aliases that pre-bind `encoder_type` so you can also write:
     #   neck:

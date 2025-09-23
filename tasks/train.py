@@ -128,7 +128,7 @@ def _evaluate_once(
     for eval_idx, eval_batch in enumerate(eval_loader):
         eval_images = eval_batch[0].to(device)
         eval_outs = model(eval_images, labels=None)
-        eval_predictions, eval_labels_decoded = decoder(eval_outs, eval_batch[1])
+        eval_predictions, eval_labels_decoded = decoder[0](eval_outs, eval_batch[1])
 
         metr = metric([eval_predictions, eval_labels_decoded])
         eval_accs.append(metr["acc"])
@@ -176,7 +176,7 @@ def train(cfg, model, run_dir: Path, run_name: str, logger, vis: bool = False):
     # Decoder via registry (YAML>DECODER)
     # ----------------------------
     DECODER = cfg.get("DECODER", {})
-    decoder = build_postprocessing(DECODER)[0]
+    decoder = build_postprocessing(DECODER)
     if decoder is None:
         raise ValueError("DECODER missing in YAML. Please add your Decoder block.")
 
@@ -184,7 +184,7 @@ def train(cfg, model, run_dir: Path, run_name: str, logger, vis: bool = False):
     # Training knobs from YAML
     # ----------------------------
     TRAIN = cfg.get("TRAIN", {})
-    num_epochs = int(TRAIN.get("num_epochs", 1500))
+    num_epochs = int(TRAIN.get("epochs", 1500))
     start_epoch = int(TRAIN.get("resume_checkpoint", 0)) if TRAIN.get("resume_checkpoint") else 0
     eval_every_n_batches = TRAIN.get("eval_interval", None)  # computed if None
     save_every_n_batches = int(TRAIN.get("save_interval", 500))
@@ -217,7 +217,23 @@ def train(cfg, model, run_dir: Path, run_name: str, logger, vis: bool = False):
     # ----------------------------
     # Optim / Scheduler / Metric
     # ----------------------------z
-    optimizer = optim.Adam(model.parameters(), lr=lr)
+    # optimizer = optim.Adam(model.parameters(), lr=lr)
+    head_params = list(model.head.parameters())
+    backbone_params = [p for p in model.backbone.parameters() if p.requires_grad]
+
+    # optional: zero weight decay for final CTC linear(s)
+    no_wd, wd = [], []
+    for n, p in model.named_parameters():
+        if "ctc_head.fc" in n or "ctc_head.fc2" in n:
+            no_wd.append(p)
+        else:
+            wd.append(p)
+
+    optimizer = torch.optim.Adam([
+        {"params": backbone_params, "lr": lr * 0.5, "weight_decay": 1e-4},
+        {"params": head_params,     "lr": lr * 2.0, "weight_decay": 1e-4},
+        {"params": no_wd,           "lr": lr * 2.0, "weight_decay": 0.0},
+    ], lr=lr)
     scheduler = StepLR(optimizer, step_size=step_size, gamma=gamma)
     metric = RecMetric(logger=logger)
 
@@ -271,8 +287,12 @@ def train(cfg, model, run_dir: Path, run_name: str, logger, vis: bool = False):
                 logger.info(f"[train] Dynamic losses detected: {dynamic_loss_names}")
 
             # decode + metric
-            preds, labels_dec = decoder(outs['ctc'], batch[1])
+            preds, labels_dec = decoder[0](outs['ctc'], batch[1])
             metr = metric([preds, labels_dec])
+            
+            # preds_nrtr, labels_dec_nrtr =  decoder[1](outs['gtc'], batch[1])
+            # metr1 = metric([preds_nrtr, labels_dec_nrtr])
+            # print(f"{metr1['acc']} + {metr1['norm_edit_dis']} ")
 
             # record batch
             update_step_history(history, global_step, total_loss, step_loss_dict, metr["acc"])

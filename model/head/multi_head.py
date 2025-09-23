@@ -62,7 +62,7 @@ class MultiHead(nn.Module):
             sub_head = build_head(sub_cfg)
             self.subheads[name] = sub_head
 
-            if name == "CTCHead":
+            if name == "CTCHeadV2":
                 self._ctc_key = decoder_key
             elif name == "NRTRHead":
                 self._nrtr_key = decoder_key
@@ -94,7 +94,7 @@ class MultiHead(nn.Module):
         x = self._maybe_pool(x)
 
         # --- CTC path (required) ---
-        ctc_head = self._maybe("CTCHead")  # << no .get()
+        ctc_head = self._maybe("CTCHeadV2")  # << no .get()
         if ctc_head is None:
             raise RuntimeError("CTCHead is required but not found in subheads.")
         ctc_targets = self._select_targets(targets, self._ctc_key)

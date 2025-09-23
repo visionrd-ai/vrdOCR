@@ -98,7 +98,7 @@ class MultiLoss(nn.Module):
         # (your caller passes the original `batch`, so we fix it here)
         # NOTE: we **do not** deep-copy `predicts`; only move batch slices.
         for name, loss_func in self.loss_funcs.items():
-            if name == "CTCLoss":
+            if name in ["CTCLoss", "CTCLossV2"]:
                 # expects (image, label_ctc, length, valid_ratio) after predicts['ctc']
                 # batch layout comment from your code: [image, label_ctc, label_sar, length, valid_ratio]
                 args = batch[:2] + batch[3:]
@@ -106,12 +106,10 @@ class MultiLoss(nn.Module):
                 loss_val = loss_func(predicts["ctc"], args)["loss"]
 
             elif name == "NRTRLoss":
-                loss_val = 0
-                pass
                 # # expects (image, label_sar, length, valid_ratio) paired with predicts['gtc']
-                # args = (batch[:1] + batch[2:])
-                # args = _to_device(args, device)
-                # loss_val = loss_func(predicts["gtc"], args)["loss"]
+                args = (batch[:1] + batch[2:])
+                args = _to_device(args, device)
+                loss_val = loss_func(predicts["gtc"], args)["loss"]
 
             else:
                 raise NotImplementedError(f"{name} is not supported in MultiLoss yet")
