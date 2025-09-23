@@ -4,18 +4,10 @@ import torch
 from data_old.imaug.label_ops import MultiLabelEncode
 import os 
 class ToyotaDataset:
-    def __init__(self, input_dir, split, transforms = {}):
-        """
-        Initializes the OCRDataset.
-
-        Args:
-        - input_dir (str): Root directory where images are stored.
-        - split (str): Split name, either 'train' or 'val'.
-        - label_file (str): Path to the label file with image names and OCR labels.
-        """
-        self.input_dir = input_dir
+    def __init__(self, dir, file, split, max_len = 150, dict_path = "./data/en_dict.txt", transforms = {}):
+        self.input_dir = dir
         self.split = split
-        label_file = self.input_dir#os.path.join(self.input_dir, self.split, 'annotations.txt')
+        label_file = os.path.join(dir, file)
         self.image_paths = []
         self.labels = []
         self.transforms = transforms
@@ -24,17 +16,17 @@ class ToyotaDataset:
                 parts = line.strip().split('\t')
                 if len(parts) == 2:
                     img_name, label = parts
-                    img_path = os.path.join("/home/multi-gpu/Talal/vrdOCR/toyota_dataset", img_name)#.replace('/home/amur/Amur/vrdOCR/datasets', '/media/multi-gpu/a8273530-9f9a-4732-b603-1bd8f18040dc/vrOCR-latest/datasets')#os.path.join(input_dir, split, img_name)
+                    img_path = os.path.join(self.input_dir, img_name)#.replace('/home/amur/Amur/vrdOCR/datasets', '/media/multi-gpu/a8273530-9f9a-4732-b603-1bd8f18040dc/vrOCR-latest/datasets')#os.path.join(input_dir, split, img_name)
                     self.image_paths.append(img_path)
                     self.labels.append(label)
                     
         print(f"Loaded {len(self.image_paths)} images from {label_file}")
         self.encoder = MultiLabelEncode(
-            max_text_length = 150,
-            character_dict_path = '/home/multi-gpu/Talal/vrdOCR/utils/en_dict.txt',
+            max_text_length = max_len,
+            character_dict_path = dict_path,
             use_space_char = False,
             gtc_encode = 'NRTRLabelEncode'
-            )
+        )
         
 
     def __len__(self):

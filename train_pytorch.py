@@ -23,8 +23,8 @@ from albumentations.pytorch import ToTensorV2
 
 parser = argparse.ArgumentParser(description="Train or evaluate the vrdOCR model.")
 parser.add_argument("--model_path", type=str, help="Path to the pretrained model weights.")
-parser.add_argument("--dataset_train", type=str, help="Path to the dataset directory.")
-parser.add_argument("--dataset_val", type=str, help="Path to the validation dataset directory.")
+parser.add_argument("--dataset_train", default="/home/multi-gpu/Talal/vrdOCR/data/toyota_dataset/labels_train.txt", type=str, help="Path to the dataset directory.")
+parser.add_argument("--dataset_val",default="/home/multi-gpu/Talal/vrdOCR/data/toyota_dataset/labels_val.txt", type=str, help="Path to the validation dataset directory.")
 parser.add_argument("--run_name", type=str, default=datetime.datetime.now().strftime("%Y%m%d_%H%M%S"),
                     help="Custom name for the training run.")
 parser.add_argument("--freeze_backbone", type=bool, help="Freeze backbone or not")
@@ -41,7 +41,7 @@ os.makedirs(run_dir, exist_ok=True)
 
 
 
-config_path = r'/home/multi-gpu/Talal/vrdOCR/data/config.json'
+config_path = r'/home/multi-gpu/Talal/vrdOCR/data_old/config.json'
 config = json.load(open(config_path, 'r'))
 run_config_path = os.path.join(run_dir, 'config.json')
 with open(run_config_path, 'w') as config_file:
@@ -96,17 +96,32 @@ eval_transform = A.Compose([
 
 # model = load_weights(model, args.model_path)
 start_epoch, end_epoch=0,1500
-decoder = CTCLabelDecode(character_dict_path='/home/multi-gpu/Talal/vrdOCR/utils/en_dict.txt', use_space_char=True)
+decoder = CTCLabelDecode(character_dict_path="./data/en_dict.txt", use_space_char=True)
 # batch_size = 128
 # dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_train, split='train', transforms=transform)
 
 batch_size = 2
-dataset = data_old.toyota_dataset.ToyotaDataset(input_dir=args.dataset_train, split='train', transforms=transform)
-dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=8)
+dataset = data_old.toyota_dataset.ToyotaDataset(
+    dir="/home/multi-gpu/Talal/vrdOCR/data/toyota_dataset", 
+    file="labels_train.txt", 
+    max_len=150, 
+    dict_path="./data/en_dict.txt",
+    split="train", transforms=transform
+)
+dataloader = torch.utils.data.DataLoader(
+    dataset, batch_size=batch_size, shuffle=True, num_workers=8
+)
 
-eval_dataset = data_old.toyota_dataset.ToyotaDataset(input_dir=args.dataset_val, split='val', transforms=eval_transform)
-# eval_dataset = data.ocr_dataset.OCRDataset(input_dir=args.dataset_val, split='test', transforms=eval_transform)
-eval_dataloader = torch.utils.data.DataLoader(eval_dataset, batch_size=batch_size, shuffle=False, num_workers=8)
+eval_dataset = data_old.toyota_dataset.ToyotaDataset(
+    dir="/home/multi-gpu/Talal/vrdOCR/data/toyota_dataset", 
+    file="labels_val.txt", 
+    max_len=150, 
+    dict_path="./data/en_dict.txt",
+    split="train", transforms=eval_transform
+)
+eval_dataloader = torch.utils.data.DataLoader(
+    eval_dataset, batch_size=batch_size, shuffle=False, num_workers=8
+)
 
 loss_config = {'loss_config_list': [{'CTCLoss': None}, {'NRTRLoss': None}]}
 loss_fn = MultiLoss(**loss_config)
@@ -250,7 +265,7 @@ for epc in range(start_epoch, end_epoch):
         nrtr_loss = losses['NRTRLoss']
 
         total_loss = ctc_loss + nrtr_loss
-
+        import pdb; pdb.set_trace()
         preds, labels_dec = decoder(outs['ctc'], batch[1])
         accuracies = metric([preds, labels_dec])
 

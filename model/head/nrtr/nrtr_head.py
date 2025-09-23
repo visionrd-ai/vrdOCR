@@ -47,7 +47,7 @@ class NRTRHead(nn.Module):
 
         pre = [nn.Flatten(2), FCTranspose(in_channels, nrtr_dim)]
         if use_pos:
-            pre.append(AddPos(nrtr_dim, 80))
+            pre.append(AddPos(nrtr_dim, 150))
         self.before_gtc = nn.Sequential(*pre)
 
         self.gtc_head = Transformer(

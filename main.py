@@ -8,7 +8,7 @@ from logger import set_logger, logger
 
 from tasks.train import train
 
-DEFAULT_SAVE_DIR =  (Path(__file__).resolve().parent / "outputs").as_posix()
+DEFAULT_SAVE_DIR =  (Path(__file__).resolve().parent / "output").as_posix()
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a action recognition model')
@@ -24,7 +24,7 @@ def parse_args():
     
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--test", action="store_true")
-    group.add_argument("--eval", action="store_true")
+    group.add_argument("--evaluation", action="store_true")
     group.add_argument("--inference", action="store_true")
     parser.set_defaults(mode="train")
 
@@ -61,12 +61,19 @@ def main():
     run_dir = f"{DEFAULT_SAVE_DIR}/{mode}_{run_name}"
     os.makedirs(run_dir, exist_ok=True)
     
-    set_logger(f"{run_dir}/log.txt")
+    logger = set_logger(f"{run_dir}/log.txt")
     logger.info(f"Run directory: {run_dir}")
     
     if mode == "train":
         print("Starting training...")
-        train(config, model, run_dir, run_name, args.device)
+        train(
+            config, 
+            model, 
+            Path(run_dir), 
+            run_name, 
+            logger=logger,
+            vis=args.vis,
+        )
         
     elif mode == "test":
         print("Starting testing...")

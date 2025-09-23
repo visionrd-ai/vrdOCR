@@ -14,3 +14,4 @@ def set_logger(save_directory):
         force=True
     )
     logger = logging.getLogger(__name__)
+    return logger

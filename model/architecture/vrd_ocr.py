@@ -37,6 +37,7 @@ class vrdOCR(nn.Module):
     ):
         super().__init__()
 
+        self.use_pool = kwargs.get("use_pool", False)
         # ---- Build backbone -------------------------------------------------
         # keep a copy so we can read special flags (e.g., freeze_backbone)
         bb_cfg = dict(backbone)
@@ -64,20 +65,17 @@ class vrdOCR(nn.Module):
             head_cfg["in_channels"] = self.backbone_out
 
         self.head = build_head(head_cfg)
+    
+    def forward(self, images, labels=None):
+        # Pass images through the backbone to extract features
 
-    def forward(self, images: torch.Tensor, labels=None):
-        # 1) features from backbone
         feats = self.backbone(images)
-
-        # 2) predictions from head
+        #[(4, 16, 256, 640), (4, 32, 128, 320), (4, 64, 64, 160), (4, 128, 32, 80), (4, 256, 16, 40), (4, 512, 8, 20)]
+        
+        # Pass features and labels through the head
         if labels is not None:
-            preds = self.head(feats, labels)
+            outs = self.head(feats, labels)
         else:
-            preds = self.head(feats)
+            outs = self.head(feats)
+        return outs 
 
-        # 3) if a loss is attached and labels are provided, compute it here
-        if self.training and self.loss_fn is not None and labels is not None:
-            # MultiLoss expects (predicts, batch). You can adapt here if needed.
-            return self.loss_fn(preds, labels)
-
-        return preds

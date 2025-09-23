@@ -15,3 +15,6 @@ fail_cases
 temp/
 annontations/
 output.log
+output/
+data/
+!data/en_dict.txt
