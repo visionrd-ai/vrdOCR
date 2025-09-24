@@ -51,6 +51,7 @@ class vrdOCR(nn.Module):
 
         # Try to expose backbone out_channels for downstream convenience
         self.backbone_out = getattr(self.backbone, "out_channels", None)
+        import pdb; pdb.set_trace()
 
         # ---- Build head -----------------------------------------------------
         head_cfg = dict(head)
@@ -65,6 +66,7 @@ class vrdOCR(nn.Module):
             head_cfg["in_channels"] = self.backbone_out
 
         self.head = build_head(head_cfg)
+        import pdb; pdb.set_trace()
     
     def forward(self, images, labels=None):
         # Pass images through the backbone to extract features

@@ -12,4 +12,6 @@ from model.neck.svtrnet_backbone import (
     ones_,
 )
 
+from model.neck.svtr_v2 import SVTRNeckV2
+
 register_default_necks()
